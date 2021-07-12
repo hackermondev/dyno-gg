@@ -1,0 +1,32 @@
+{{#if opengraph.home}}
+<meta property="og:title" content="Dyno - Discord platform" />
+<meta property="og:url" content="https://dyno.gg" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Dyno offers a powerful community bot and a place to advertise your server, easy and free." />
+<meta property="og:image" content="https://dyno.gg/images/v3/dyno-256.jpg?v={{config.version}}" />
+<meta property="og:image:alt" content="White diamond shaped Dyno logo with a light blue background" />
+{{/if}}
+{{#if opengraph.bot}}
+<meta property="og:title" content="Dyno - The feature-rich Discord bot" />
+<meta property="og:url" content="https://dyno.gg" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Dyno is a modular bot for your Discord server. With web dashboard, moderation, anti-spam, auto roles, music, custom commands, and much more!" />
+<meta property="og:image" content="https://dyno.gg/images/v3/dyno-256.jpg?v={{config.version}}" />
+<meta property="og:image:alt" content="White diamond shaped Dyno logo with a light blue background" />
+{{/if}}
+{{#if opengraph.listing}}
+<meta property="og:title" content="Dyno - Discord server listing" />
+<meta property="og:url" content="https://dyno.gg/servers" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="A quality, well-made listing service that offers users a completely fair and unbiased list of servers for you to explore and join!" />
+<meta property="og:image" content="https://dyno.gg/images/v3/dyno-256.jpg?v={{config.version}}" />
+<meta property="og:image:alt" content="White diamond shaped Dyno logo with a light blue background" />
+{{/if}}
+{{#if opengraph.server}}
+<meta property="og:title" content="Dyno - {{opengraph.server.name}}" />
+<meta property="og:url" content="{{opengraph.url}}" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="{{opengraph.server.description}}" />
+<meta property="og:image" content="{{opengraph.server.icon}}" />
+<meta property="og:image:alt" content="Server icon" />
+{{/if}}

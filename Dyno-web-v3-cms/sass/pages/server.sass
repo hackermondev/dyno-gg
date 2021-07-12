@@ -1,0 +1,269 @@
+@import '../layouts/main.sass';
+@import '../partials/carbon.sass';
+@import '../mixins/truncate.scss';
+
+@mixin flex-row()
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+@mixin flex-row-item()
+	order: 1;
+	flex-shrink: 1;
+	width: 32%;
+	background-color: $secondary;
+	padding: 0.7em 1em;
+	margin-right: 0.5em;
+	cursor: pointer;
+
+.page-server
+	a
+		outline: none;
+	.hero
+		margin-bottom: 2em;
+		.columns
+			margin: 0;
+		.nav-menu
+			height: 48px;
+			line-height: 48px;
+	.hero-title
+		display: flex;
+		flex-direction: row;
+		padding: 1.5em 0;
+		.guild-icon
+			margin-right: 0.8em;
+		.title
+			// @include truncate(8em);
+			flex-direction: column;
+			justify-content: center;
+			height: 48px;
+			line-height: 48px;
+			margin-top: 0;
+			margin-bottom: 0;
+			font-size: 1.8em;
+	.hero-nav
+		padding: 1.5em 0;
+	.nav-menu a
+		padding: 10px 1em;
+		border-radius: 5px;
+		// height: 2em;
+		margin: 0.5em 0.5em;
+		&:first-child
+			margin-left: 0;
+		&.is-active
+			color: #fff;
+			background-color: $info;
+	.tab-control
+		&.enabled
+			color: $accent-green;
+			&.is-active
+				color: #fff;
+			.icon
+				color: $accent-green;
+		&.disabled
+			.icon
+				color: grey;
+		&.is-active
+			.icon
+				color: #fff;
+		&.upgrade
+			color: #ef9928;
+	.title.is-4
+		background-color: $info;
+		text-shadow: 1px 1px rgba(0,0,0,0.2);
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		padding: 0.6em;
+		margin-bottom: 0;
+	.settings-top
+		background-color: $hero-background
+		padding: 0.8em 0.5em;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		> div:not(:first-child)
+			margin-top: 1em;
+		.control
+			margin-bottom: 0;
+		.tabs
+			margin-bottom: 0;
+			ul
+				border-bottom: none;
+				border-bottom-color: none;
+			li
+				border-bottom: solid $hero-background 4px;
+				a
+					border-bottom: none;
+				&:hover
+					border-bottom: solid $info 4px;
+				&.is-active
+					border-bottom-color: $info;
+		&.has-tabs
+			padding-bottom: 0;
+	.settings-content
+		padding: 0.8em;
+		margin-top: 1em;
+	.label-premium
+		color: #ff7f00;
+		border-bottom: solid #ff7f00 1px;
+		padding-bottom: 0.8em;
+		text-align: center;
+		img
+			width: 20px;
+			height: 20px;
+			vertical-align: top;
+		span
+			line-height: 20px;
+			font-size: 1.2em;
+
+#modules
+	.flex-container
+		@include flex-row();
+	.module-toggle
+		@include flex-row-item();
+		width: 48%;
+		margin: 0.5em 0;
+		border-radius: 5px;
+		&:hover
+			background-color: lighten($secondary, 5%);
+		p
+			margin-top: 0.5em;
+			padding-left: 2em;
+		@media (max-width: $break-tablet)
+			width: 48%;
+
+#commands
+	.subtab-content
+		&.is-active > div
+			@include flex-row();
+			width: 100%;
+		.help-text
+			margin: 0.5em;
+	.command-toggle
+		@include flex-row-item()
+		border-radius: 5px;
+		&:hover
+			background-color: lighten($secondary, 5%);
+		@media (max-width: $break-tablet)
+			width: 48%;
+
+.module-toggles
+	@include flex-row();
+	background-color: $hero-background;
+	padding: 0 0.8em;
+	// padding-bottom: 0;
+	margin-top: 1em;
+	border-radius: 5px;
+	.setting-toggle
+		@include flex-row-item();
+		border-radius: 5px;
+		&:hover
+			background-color: lighten($secondary, 5%);
+		code
+			display: block;
+			background-color: inherit;
+		@media (max-width: $break-tablet)
+			width: 48%;
+
+#settings
+	.setting-toggle
+		margin-top: 1em;
+
+.subtab-content
+	p
+		margin: 1em 0;
+
+input[type=checkbox]
+	display: none;
+
+input[type=checkbox] + label:before
+	font-family: FontAwesome;
+	display: inline-block;
+	color: grey;
+	content: "\f096"; /* unchecked icon */
+	font-size: 16px;
+	letter-spacing: 10px; /* space between checkbox and label */
+	position: relative;
+	top: 0.1em;
+
+input[type=checkbox]:checked + label:before
+	color: $accent-green;
+	content: "\f046"; /* checked icon */
+	font-size: 16px;
+	letter-spacing: 8px; /* allow space for check mark */
+
+.module-settings
+	.module-toggle
+		input[type=checkbox] + label
+			display: inline;
+			font-size: 16px;
+			line-height: 24px;
+			padding: 0.2em 0.5em;
+		input[type=checkbox] + label:before
+			font-family: FontAwesome;
+			display: inline-block;
+			color: $accent-pink;
+			content: "\f204"; /* unchecked icon */
+			font-size: 24px;
+			line-height: 24px;
+			letter-spacing: 10px; /* space between checkbox and label */
+
+		input[type=checkbox]:checked + label:before
+			color: $accent-green;
+			content: "\f205"; /* checked icon */
+			font-size: 24px;
+			letter-spacing: 8px; /* allow space for check mark */
+
+#modules
+	.module-toggle
+		input[type=checkbox] + label:before
+			margin-right: 0.1em;
+			position: relative;
+			top: 1em;
+
+.notification-wrapper
+	min-width: 300px;
+	max-width: 400px;
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	.notification
+		border-radius: 6px;
+		margin: 10px;
+		box-shadow: 0.0625rem 0.0625rem 0.0925rem #2d794b;
+
+.command-response
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	word-break: break-all;
+	display: block; 
+	max-width: 580px;
+	background-color: transparent;
+
+.tab-content table td
+	min-width: 160px;
+
+.queue-item
+	position: relative;
+	.tooltip
+		display: none;
+		position: absolute;
+		z-index: 999;
+		width: 130px;
+		height: 100px;
+		border-radius: 5px;
+		margin-top: 0.5em;
+		padding: 5px;
+		background-color: $info;
+		&:before
+			width: 0; 
+			height: 0; 
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			content: "";
+			border-bottom: 5px solid $info;
+			position: absolute;
+			left: 45%;
+			top: -5px;
+	&:hover
+		.tooltip
+			display: block;

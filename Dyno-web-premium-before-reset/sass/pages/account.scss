@@ -1,0 +1,294 @@
+@import "../core/colors";
+@import "../core/common";
+
+@mixin responsive-text($min, $max) {
+	font-size: calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.page-account {
+	padding: 1em;
+	.user {
+		@include from($tablet) {
+			padding-left: 15%;
+			padding-right: 15%;
+		}
+
+		text-align: left;
+		display:flex;
+		padding: 20px 0;
+		align-items: center;
+		background-color: #161E2D;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		.user-avatar {
+			width: 128px;
+			height: 128px;
+			img {
+				width: 128px;
+				height: 128px;
+				border-radius: 50%;
+				border: 8px solid #384564;
+			}
+			@media (max-width: 1088px) {
+				width: 64px;
+				height: 64px;
+				img {
+					border-width: 4px;
+					width: 64px;
+					height: 64px;
+				}
+			}
+		}
+		.discriminator {
+			color: darken(#fff, 40%);
+		}
+		.user-details {
+			margin-left: 20px;
+			.user-name {
+				@include responsive-text(18, 32);
+			}
+			.subtitle {
+				@include responsive-text(12, 20);
+			}
+		}
+	}
+	@media (max-width: $break-mobile) {
+		.is-size-2 {
+			font-size: 1.5rem !important;
+		}
+		.is-size-4 {
+			font-size: 1rem !important;
+		}
+		.is-size-5, .button.is-medium {
+			font-size: 1rem !important;
+		}
+	}
+}
+
+body .add-server-modal {
+	background: $background;
+	border-radius: 6px;
+	width: 95%;
+
+	.control input, textarea, select {
+		background: $new-background;
+		background-color: $new-background;
+	}
+
+	p.error {
+		margin-top: 10px;
+		color: rgb(255, 110, 110);
+	}
+
+	.button {
+		margin-top: 20px;
+	}
+}
+
+.react-tabs__tab-panel {
+	background-color: #192534;
+}
+
+.account-content {
+	@include from($tablet) {
+		padding-left: 15%;
+		padding-right: 15%;
+	}
+
+	.subscription {
+		padding: 1em;
+		clear: both;
+		vertical-align: top;
+
+		.active-subscriptions {
+			margin-bottom: 20px;
+			&>p {
+				margin-bottom: 10px;
+			}
+			.active-subscription {
+				padding: 2em 1em;
+				background-color: #111825;
+				&:not(:first-of-type) {
+					border-top: 1px solid grey;
+				}
+
+				.subscription-header {
+					align-items: center;
+					justify-content: space-between;
+					display:flex;
+					margin-bottom: 10px;
+					.title {
+						margin-bottom: 0;
+						width: 100%;
+						&.with-image {
+							display: flex;
+							align-items: center;
+							img {
+								margin-right: 15px;
+							}
+						}
+					}
+					.button {
+						margin-right: 0;
+					}
+					.button-group {
+						width: 100%;
+						// text-align: right;
+						.button:first-of-type {
+							margin-right: 5px;
+						}
+					}
+					@media (max-width: $break-mobile) {
+						display: block;
+						.title {
+							margin-bottom: 1em;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.add-server-button {
+	margin-bottom: 20px;
+}
+
+.accounts-tabs {
+	height: 40px;
+    display: flex;
+    align-items: center;
+	justify-content: flex-start;
+	
+	a {
+		background-color: #3b3d43;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		color: white;
+		justify-content: center;
+
+		&.is-active {
+			background-color: #336fd5;
+			&.premium-tab {
+				background-color: $premium;
+			}
+		}
+	}
+}
+
+.manage-wrapper {
+	margin-top: 40px;
+}
+
+.manage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 40px;
+	background-color: #192534;
+
+	.server-tile-wrapper {
+		.server-tile {
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+			height: 200px;	
+			width: 196px;
+			background-color: #4f545c;
+			background-size: cover;
+			background-position: 50%;
+			background-repeat: no-repeat;
+			margin-left: 15px;
+			margin-right: 15px;
+		}
+
+		.server-name {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: #212E3E;
+			height: 40px;
+			color: white;
+			margin-bottom: 30px;
+			width: 196px;
+			margin-left: 15px;
+			margin-right: 15px;
+			text-align: center;
+		}
+
+		&:hover {
+			.server-name {
+				background-color: #F35353
+			}
+		}
+
+		@media (max-width: $break-mobile) {
+			.server-tile {
+				width: 98px;
+				height: 100px;
+				margin: 0 10px;
+			}
+			.server-name {
+				width: 98px;
+				font-size: 0.8rem;
+				margin: 0 10px 20px;
+			}
+		}
+		@media (max-width: 1280px) {
+			.server-tile {
+				width: 140px;
+				height: 142px;
+				margin: 0 10px;
+			}
+			.server-name {
+				width: 140px;
+				font-size: 0.8rem;
+				margin: 0 10px 22px;
+			}
+		}
+		@media (max-width: 556px) {
+			.server-tile {
+				margin: 0 6px;
+			}
+			.server-name {
+				margin: 0 6px 20px;
+			}
+		}
+	}
+}
+
+.react-tabs {
+	margin-top: 60px;
+}
+
+.tabs ul {
+	display: flex;
+	background-color: #111825;
+	border-radius: 4px 4px 0px 0px;
+	padding: 16px;
+	
+	li {
+		width: 49%;
+		margin: 10px 8px;
+		text-align: center;
+		background-color: #161E2D;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 50px;
+		border-radius: 2px;
+
+		a {
+			color: white;
+		}
+
+
+
+		&.is-active {
+			background-color: #F35353;
+		}
+	}
+}

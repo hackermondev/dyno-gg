@@ -1,0 +1,40 @@
+<div class="page-faq">
+	<div class="hero">
+		<div class="container">
+			<div class="columns">
+				<div class="column">
+					<h1 class="title">Frequently Asked Questions</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="columns">
+			<div class="column is-3">
+				{{#if sidebar}}
+					{{#each sidebar.widgets}}
+						{{{hbs content ..}}}
+					{{/each}}
+				{{/if}}
+			</div>
+			<div class="column">
+				<div id="faq-{{data.category.key}}" class="container tab-content is-active">
+					<div class="tile">
+						<div class="tile is-vertical faq">
+							{{#each data.questions.results}}
+							<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. {{question}}</a>
+									<div class="content faq-answer">
+										{{{answer}}}
+									</div>
+								</article>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

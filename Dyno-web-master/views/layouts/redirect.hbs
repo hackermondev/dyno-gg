@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{{>opengraph}}
+		<title>{{config.name}}</title>
+		<script type="text/javascript">
+			window.location.href = '{{{redirectURI}}}';
+		</script>
+	</head>
+	<body>
+		<nav id='navbar-mount'></nav>
+
+		<div class="page-wrapper">
+			{{{body}}}
+		</div>
+
+		{{>footernav}}
+	</body>
+</html>

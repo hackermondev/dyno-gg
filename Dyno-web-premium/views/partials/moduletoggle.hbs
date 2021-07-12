@@ -1,0 +1,6 @@
+<div class="control module-toggle">
+	<input id="{{this.module}}" class="module" type="checkbox" value="{{this.module}}"{{#if this.enabled}} checked="checked"{{/if}}>
+	<label class="checkbox" for="{{this.module}}">
+		Module {{#if this.enabled}}Enabled{{else}}Disabled{{/if}}
+	</label>
+</div>

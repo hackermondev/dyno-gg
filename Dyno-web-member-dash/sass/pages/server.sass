@@ -1,0 +1,863 @@
+@import '../layouts/reacttable.sass';
+@import '../layouts/dashboard.sass';
+@import '../partials/embed.sass';
+@import '../partials/associates.sass';
+@import '../partials/listpanel.sass';
+@import '../partials/filterlist.sass';
+@import '../partials/emojis.sass';
+@import '../partials/carbon.sass';
+@import '../mixins/truncate.scss';
+@import '../mixins/noselect.sass';
+
+@mixin flex-row()
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+@mixin flex-row-item()
+	flex-shrink: 1;
+	width: 32%;
+	background-color: $secondary;
+	padding: 0.7em 1em;
+	margin-right: 0.5em;
+	cursor: pointer;
+
+#module-automod
+	.react-tabs
+		.automod-toggles
+			.control.rich-select, .control.rich-number
+				background: none;
+				padding: 0 0.2em;
+
+
+.filter-list-item .list-item-remove
+	height: 28px;
+	line-height: 25px;
+
+.control
+	input, textarea, select
+		background: $new-background;
+		background-color: $new-background;
+		border-color: #555;
+		border-radius: 4px;
+	&.has-addons
+		.button
+			background: $info;
+			background-color: $info;
+		.button:first-child,
+		.input:first-child,
+		.textarea:first-child,
+		.select:first-child,
+		label
+			border-radius: 4px 0 0 4px;
+		.input:last-child,
+		.button:last-child,
+		.input:last-child,
+		.textarea:last-child,
+		.select:last-child
+			border-radius: 0 4px 4px 0;
+
+.settings-content
+	.control
+		input, textarea, select
+			background: $background;
+			background-color: $background;
+		.Select.is-disabled > .Select-control
+			background: $secondary;
+			background-color: $secondary;
+			cursor: auto;
+
+.commands-modal, .embed-modal, .help-modal
+	.control
+		input, textarea, select
+			background: $new-background;
+			background-color: $new-background;
+
+.page-server
+	a
+		outline: none;
+	.hero
+		margin-bottom: 2em;
+		.columns
+			margin: 0;
+		.nav-menu
+			height: 48px;
+			line-height: 48px;
+	.guild-header
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 20px;
+		.title
+			flex-direction: column;
+			justify-content: center;
+			height: 48px;
+			line-height: 48px;
+			margin-top: 0;
+			margin-bottom: 0;
+			font-size: 25px;
+			max-width: 249px;
+			> div div
+				text-align: center;
+				@include truncate(250px);
+	.hero-nav
+		padding: 1.5em 0;
+	.nav-menu a
+		padding: 10px 1em;
+		border-radius: 5px;
+		margin: 0.5em 0.5em;
+		&:first-child
+			margin-left: 0;
+		&.is-active
+			color: #fff;
+			background-color: $info;
+	.tab-control
+		&.enabled
+			color: $accent-green;
+			&.is-active
+				color: #fff;
+			.icon
+				color: $accent-green;
+		&.disabled
+			.icon
+				color: grey;
+		&.is-active
+			.icon
+				color: #fff;
+		&.upgrade
+			color: #ef9928;
+	.title.is-4
+		margin: 20px 0;
+	.settings-top
+		padding: 0.5em;
+		> div:not(:first-child)
+			margin-top: 1em;
+		.control.module-toggle
+			width: auto;
+			float: right;
+		&.has-tabs
+			padding-bottom: 0;
+	.tabs
+		margin-bottom: 0;
+		ul
+			border-bottom: none;
+			border-bottom-color: none;
+		li
+			padding-bottom: 4px;
+			a
+				border-bottom: none;
+				color: #ffffff;
+			&:hover, &.is-active
+				padding-bottom: 0;
+				background-color: lighten($secondary, 5%);
+				border-bottom: solid $info 4px;
+				a
+					color: #ffffff;
+			&:hover:not(.is-active)
+				background-color: lighten($secondary, 5%);
+				border-bottom-color: lighten($new-background, 25%);
+	.settings-content
+		background: $secondary;
+		padding: 1em;
+		margin: 1em 0;
+		clear: both;
+		vertical-align: top;
+		border-top: 0.5em solid $info;
+		border-radius: 5px;
+		&.is-flex
+			display: flex;
+			flex-wrap: wrap;
+		> h3, > p
+			width: 100%;
+		.Select-control
+			background-color: $background;
+	.settings-group
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.settings-content
+			margin: 1em 0;
+			&:first-of-type
+				margin-left: 0;
+			&:last-of-type
+				margin-right: 0;
+			&.is-half, &.is-third, &.is-fourth
+				.rich-toggle
+					width: 100%;
+					padding-left: 0;
+					&:hover
+						background: transparent;
+						background-color: transparent !important;
+			&.is-half
+				width: 49.5%;
+			&.is-third
+				width: 32.5%;
+			&.is-fourth
+				width: 24.5%;
+
+		@media (max-width: 1368px)
+			.settings-content
+				&.is-half
+					width: 49.5%;
+				&.is-third
+					width: 49.5%;
+				&.is-fourth
+					width: 32.5%;
+				.control
+					width: 99.5%;
+		@media (max-width: 1200px)
+			.settings-content
+				&.is-half
+					width: 99.5%;
+				&.is-third
+					width: 99.5%;
+				&.is-fourth
+					width: 49.5%;
+				.control
+					width: 99.5%;
+		@media (max-width: $break-mobile)
+			.settings-content
+				&.is-half
+					width: 99.5%;
+				&.is-third
+					width: 99.5%;
+				&.is-fourth
+					width: 99.5%;
+				.control
+					width: 100%;
+
+	.label-premium
+		color: $premium;
+		border-bottom: solid $premium 1px;
+		border-top: solid $premium 1px;
+		padding: 0.8em 0;
+		text-align: center;
+		margin-bottom: 20px;
+		img
+			width: 20px;
+			height: 20px;
+			vertical-align: top;
+			margin-right: 4px;
+		span
+			line-height: 20px;
+			font-size: 1.2em;
+
+.settings-top
+	.control
+		width: 31%;
+
+.control
+	&.rich-module
+		margin-bottom: 20px;
+		margin-right: 20px;
+		width: 31%;
+		text-align: center;
+		height: 10rem;
+		@media (max-width: 1368px)
+			width: 47%;
+			margin-right: 16px;
+		@media (max-width: $break-mobile)
+			width: 100%;
+			margin-right: 0;
+		input[type=checkbox]+label
+			font-size: 1.4em
+			&:before
+				display: none
+
+		&.enabled
+			border-top: 0.5em solid $accent-green;
+			padding-top: 1em;
+			small
+				color: $accent-green;
+		&.disabled
+			border-top: 0.5em solid #848484;
+			padding-top: 1em;
+		&.locked
+			border-top: 0.5em solid $premium;
+			padding-top: 1em;
+			small
+				color: $premium;
+		small
+			position: absolute;
+			left: 0;
+			width: 100%;
+			bottom: 0.4em;
+			border-top: 1px solid #76787b;
+			font-size: 13px;
+			padding-top: 5px;
+			text-transform: uppercase;
+	&.rich-command
+		margin-bottom: 20px;
+		margin-right: 20px;
+		border-radius: 5px;
+		width: 31%;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		&.enabled
+			border-top: 0.5em solid $accent-green;
+			padding-top: 1em;
+			small
+				color: $accent-green;
+		&.disabled
+			border-top: 0.5em solid #848484;
+			padding-top: 1em;
+		&.locked
+			border-top: 0.5em solid $accent-green;
+			padding-top: 1em;
+			small
+				color: $accent-green;
+		.controls
+			margin-bottom: 0.5em;
+		.command-toggle, .command-settings
+			display: inline-block;
+			width: 32%;
+			text-align: center;
+			margin-bottom: 0;
+			font-size: 16px;
+			line-height: 30px;
+			color: #ddd;
+			&:hover
+				color: #336fd5;
+			.icon
+				height: 30px;
+				line-height: 30px;
+		@media (max-width: 1368px)
+			width: 47%;
+		@media (max-width: $break-mobile)
+			width: 100%;
+			margin-right: 0;
+	@media (max-width: 1200px)
+		&:not(.module-toggle)
+			width: 47%;
+	@media (max-width: $break-tablet)
+		&:not(.module-toggle)
+			width: 97%;
+
+div.commands-modal, div.embed-modal
+	background: $background;
+	border-radius: 6px;
+
+.commands-modal
+	.title:first-of-type
+		line-height: 24px;
+		border-bottom: 1px solid #555;
+		padding-bottom: 10px;
+	& > svg
+		fill: white;
+
+.nav-collapse-title
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px 0;
+	h2
+		font-size: 24px;
+.nav-collapse
+	transition: max-height .217s;
+	overflow: hidden;
+	max-height: 1200px
+	&.collapsed
+		max-height: 0;
+
+.command-toggle
+	input[type=checkbox] + label
+		display: inline;
+		font-size: 16px;
+		line-height: 30px;
+		padding: 0.2em 0.5em;
+	input[type=checkbox] + label:before
+		font-family: "Font Awesome 5 Regular";
+		display: inline-block;
+		color: $accent-pink;
+		content: "\f204"; /* unchecked icon */
+		font-size: 20px;
+		line-height: 30px;
+		letter-spacing: 10px; /* space between checkbox and label */
+
+	input[type=checkbox]:checked + label:before
+		color: $accent-green;
+		content: "\f205"; /* checked icon */
+		font-size: 20px;
+		letter-spacing: 8px; /* allow space for check mark */
+
+#modules
+	.flex-container
+		@include flex-row();
+	.checkbox:hover
+		color: white;
+	.module-toggle
+		@include flex-row-item();
+		width: 48%;
+		margin: 0.5em 0;
+		border-radius: 5px;
+		&:hover
+			background-color: lighten($secondary, 5%);
+		p
+			margin-top: 0.5em;
+			padding-left: 2em;
+
+#commands
+	.control.rich-module
+		@media (max-width: $break-mobile)
+			width: 100%;
+			margin-right: 0;
+	.subtab-content
+		&.is-active > div
+			@include flex-row();
+			width: 100%;
+		.help-text
+			margin: 0.5em;
+
+.rich-toggle
+	@include flex-row-item()
+	border-radius: 5px;
+	width: calc(33% - 1em);
+	@media (max-width: 1200px)
+		width: calc(50% - 1em);
+	@media (max-width: $break-tablet)
+		width: calc(100% - 1em);
+
+.subcommand-toggle
+	width: 48%;
+	display: inline-block;
+
+.module-content:not(#modules) .rich-toggle:hover
+	background-color: lighten($secondary, 5%);
+	color: $link-hover;
+
+.checkbox, .radio
+	input
+		margin-right: 5px;
+
+.over2k
+	color: #FF0000
+
+.rich-number
+	display: inline-block;
+	background-color: #3B3D43;
+	width: calc(33% - 1em);
+	padding: 0.5em 1em;
+	margin: 0.5em;
+	@media (max-width: 1200px)
+		width: calc(50% - 1em);
+	@media (max-width: $break-tablet)
+		width: calc(50% - 1em);
+	input
+		background-color: $background;
+		height: 34px;
+		line-height: 34px;
+		color: $text;
+		border-radius: 5px;
+		border: solid #444 1px !important;
+		width: 190px;
+		padding-left: 0.5em;
+	.react-numeric-input
+		position: relative;
+		display: inline-block;
+		margin-right: 0.6em;
+		b
+			background-color: lighten($secondary, 5%);
+			box-shadow: none;
+			position: absolute;
+			right: 2px;
+			width: 2.26ex;
+			border-color: #444;
+			border-style: solid;
+			text-align: center;
+			cursor: default;
+			transition: all 0.1s ease 0s;
+			box-shadow: rgba(0,0,0,0.1) 0px 0px 1px inset,rgba(0,0,0,0.7) 0px 0px 1px inset;
+
+			top: 2px;
+			bottom: 50%;
+			border-radius: 3px 3px 0px 0px;
+			border-width: 1px 1px 0px;
+			i
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0px;
+				height: 0px;
+				border-width: 0px 0.6ex 0.6ex;
+				border-color: transparent transparent rgba(255, 255, 255, 0.7);
+				border-style: solid;
+				margin: -0.3ex 0px 0px -0.56ex;
+
+			&:last-child
+				top: 50%;
+				bottom: 2px;
+				border-radius: 0px 0px 3px 3px;
+				border-width: 0px 1px 1px;
+				i
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: 0px;
+					height: 0px;
+					border-width: 0.6ex 0.6ex 0px;
+					border-color: rgba(255, 255, 255, 0.7) transparent transparent;
+					border-style: solid;
+					margin: -0.3ex 0px 0px -0.56ex;
+
+.module-toggles
+	@include flex-row();
+	//margin-top: 1em;
+	.setting-toggle
+		@include flex-row-item();
+		border-radius: 5px;
+		&:hover
+			background-color: lighten($secondary, 5%);
+		code
+			display: block;
+			background-color: inherit;
+		@media (min-width: $break-tablet)
+			width: 48%;
+		@media (max-width: $break-mobile)
+			width: auto;
+	h3.title
+		width: 100%;
+		margin: 0.5em;
+	.control
+		background-color: $accent-background;
+		&.is-pulled-left
+			float: none;
+
+#modules
+	.module-toggles
+		.control
+			padding-top: 1.5em;
+
+.page-server
+	.automod-toggles, .actionlog-toggles
+		@extend .settings-content
+		background: $secondary;
+		padding: 1em;
+		display: flex;
+		flex-wrap: wrap;
+		// .rich-toggle
+		// 	width: calc(33% - 1em);
+		.rich-toggle:first-of-type
+			margin-left: 0.5em;
+	.actionlog-toggles
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.actionlog-setting
+			width: calc(33% - 1em);
+			@media (max-width: 1368px)
+				width: calc(50% - 1em);
+			@media (max-width: 1200px)
+				.control
+					width: calc(100% - 1em);
+			@media (max-width: $break-mobile)
+				width: 99.5%;
+		> h3, > p
+			width: 100%;
+
+#settings
+	.setting-toggle
+		margin-top: 1em;
+
+.module-content
+	margin: 1em 1em 2em 1em;
+	//padding: 1rem;
+	.title.is-4
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 0.5em;
+		align-items: center;
+		margin: 20px 0.3em;
+		border-bottom: solid #555 1px;
+		.control
+			margin-bottom: 0;
+	p
+		margin: 1em 0;
+	& > p
+		padding: 0 0.7em;
+	.rich-toggle
+		p
+			margin: 0.5em 0 0;
+
+.module-settings
+	h3
+		padding-bottom: 1em;
+		border-bottom: solid #555 1px;
+	.rich-toggle
+		display: flex;
+		align-items: center;
+		margin: 0.5em;
+		&.is-full-width
+			width: 99%;
+
+input[type=checkbox]
+	display: none;
+
+input[type=checkbox] + label:before
+	font-family: "Font Awesome 5 Regular";
+	display: inline-block;
+	color: grey;
+	content: "\f0c8"; /* unchecked icon */
+	font-size: 16px;
+	letter-spacing: 10px; /* space between checkbox and label */
+	position: relative;
+	top: 0.1em;
+
+input[type=checkbox]:checked + label:before
+	color: $accent-green;
+	content: "\f14a"; /* checked icon */
+	font-size: 16px;
+	letter-spacing: 8px; /* allow space for check mark */
+
+.module-settings h3 .module-toggle input[type=checkbox]+label
+	line-height: 32px;
+
+.module-settings
+	.module-toggle
+		input[type=checkbox] + label
+			display: inline;
+			font-size: 16px;
+			line-height: 30px;
+			padding: 0.2em 0.5em;
+		input[type=checkbox] + label:before
+			font-family: "Font Awesome 5 Regular";
+			display: inline-block;
+			color: $accent-pink;
+			content: "\f204"; /* unchecked icon */
+			font-size: 24px;
+			line-height: 30px;
+			letter-spacing: 10px; /* space between checkbox and label */
+
+		input[type=checkbox]:checked + label:before
+			color: $accent-green;
+			content: "\f205"; /* checked icon */
+			font-size: 24px;
+			letter-spacing: 8px; /* allow space for check mark */
+
+#modules
+	.module-toggle
+		input[type=checkbox] + label:before
+			margin-right: 0.1em;
+			position: relative;
+			top: 1em;
+
+.notification-wrapper
+	min-width: 300px;
+	max-width: 400px;
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	z-index: 999999;
+	.notification
+		border-radius: 6px;
+		margin: 10px;
+		box-shadow: 0.0625rem 0.0625rem 0.0925rem #2d794b;
+
+.command-response
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	word-break: break-all;
+	max-height: 100px;
+	overflow: auto;
+	background-color: transparent;
+
+.module-settings table td
+	vertical-align: middle;
+	overflow: auto;
+	text-overflow: ellipsis;
+	max-width: 300px;
+	@media (max-width: $break-mobile)
+		vertical-align: middle;
+		.button
+			display: block;
+			margin: 0.5em auto;
+			line-height: 32px;
+
+.queue-item
+	position: relative;
+	.tooltip
+		display: none;
+		position: absolute;
+		z-index: 999;
+		width: 130px;
+		height: 100px;
+		border-radius: 5px;
+		margin-top: 0.5em;
+		padding: 5px;
+		background-color: $info;
+		&:before
+			width: 0;
+			height: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			content: "";
+			border-bottom: 5px solid $info;
+			position: absolute;
+			left: 45%;
+			top: -5px;
+	&:hover
+		.tooltip
+			display: block;
+
+.tag-group
+	@include flex-row();
+	background-color: $background;
+	max-height: 200px;
+	overflow: auto;
+	padding: 0.8em 0.8em;
+	margin-top: 1em;
+	border-radius: 5px;
+
+.tag-wrap
+	background-color: $background;
+	margin: 0.25em;
+
+.tag
+	background-color: rgba(0, 126, 255, 0.08);
+	border: 1px solid rgba(0, 126, 255, 0.24);
+	border-radius: 2px;
+	line-height: 28px;
+	height: 28px;
+	font-size: 14px;
+	padding-bottom: 2px;
+	color: #ccc;
+	.delete
+		margin-left: 6px;
+		border: solid 1px rgba(0, 126, 255, 0.25);
+		margin-top: 2px;
+		color: #ccc !important;
+
+.filter-settings .icon
+	line-height: 28px;
+	float: right;
+
+.filter-modal, .help-modal, .command-settings-modal
+	background: $background !important;
+	border-radius: 6px;
+	.title:first-of-type
+		line-height: 24px;
+		border-bottom: 1px solid #555;
+		padding-bottom: 10px;
+	& > svg
+		fill: white;
+	h3
+		max-width: 80%
+		font-size: 1.5em;
+		margin-bottom: 0.8em;
+	@media (min-width: $break-mobile)
+		min-width: 500px;
+
+.help-modal
+	.help-content
+		width: 95%;
+
+.help-icon
+	a
+		color: #555;
+		&:hover
+			color: $info;
+	.icon
+		font-size: 16px;
+
+.rich-toggle
+	.help-icon
+		height: 19px;
+		line-height: 19px;
+		.icon
+			height: 19px;
+			line-height: 19px;
+
+.command-help
+	p, ul
+		margin-bottom: 0.5em;
+	li
+		margin-left: 1em;
+
+@media screen and (max-width: 768px)
+	.page-server
+		.nav-sidebar
+			width: initial !important;
+@media screen and (min-width: 769px)
+	.page-server
+		.column.is-3, .column.is-3-tablet
+			width: 290px;
+			margin-left: 10px;
+			padding: 0;
+			margin-top: -70px;
+			background-color: $new-background;
+		.nav-sidebar
+			width: 290px;
+			flex: none;
+			margin-left: 10px;
+			padding: 0;
+			margin-top: -70px;
+			background-color: #2A2B30;
+	.nav-collapse-title
+		display: none;
+	.nav-collapse, .nav-collapse.collapsed
+		max-height: initial;
+		overflow: initial;
+
+
+.file-dropzone
+	margin: 0.5em 0;
+	height: 100px;
+	border: dashed #555 3px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding-top: 35px;
+	color: #777;
+
+.hide-select-menu
+	.Select-menu-outer
+		display: none !important;
+
+
+.feature-locker-wrapper
+	position: relative
+
+	*
+		margin-bottom: 40px;
+
+	.feature-locker-panel
+		position: absolute
+		z-index: 99
+		background-color: rgba(43, 43, 43, 0.8)
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+
+		.feature-locker-title
+			font-size: 2em
+			text-align: center
+			padding: 0px 20px
+			font-weight: bold
+
+		.feature-locker-description
+			text-align: center
+			width: 86%
+			font-size: 1.2em
+
+
+.react-error-wrapper
+	width: 100%
+	display: flex
+	flex-direction: column
+	align-items: center
+	padding: 100px 20px
+
+	*
+		margin-bottom: 10px
+
+	h1
+		font-size: 2em
+		font-weight: bold
+	h3
+		font-size: 1.2em
+
+	.fa-times-circle
+		color: #d53333

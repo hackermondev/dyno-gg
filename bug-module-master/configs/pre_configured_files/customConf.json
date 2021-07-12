@@ -1,0 +1,46 @@
+{
+    "general": {
+        "name": "Bug-Bot",
+        "description": "A bot to manage bug flow",
+        "version": "1.0.0",
+        "library": "eris"
+    },
+    
+    "prefix": {
+        "general": "//",
+        "owner": "$",
+        "admin": "d."
+    },
+    
+    "staff": {
+        "owners": [
+            {
+                "name": "NoobLance#0002",
+                "id": "155037590859284481"
+            }
+        ],
+        "admins": [
+            {
+                "name": "Carti#0003",
+                "id": "77205340050956288"
+            },
+            {
+                "name": "Chipped#5084",
+                "id": "252541269602074635"
+            },
+            {
+                "name": "Gin#0044",
+                "id": "227115752396685313"
+            },
+            {
+                "name": "Hexatomb#0007",
+                "id": "180001823887851520"
+            }
+        ]
+    },
+
+    "debugMode": false,
+
+    "logger": 1,
+    "db": 1
+}

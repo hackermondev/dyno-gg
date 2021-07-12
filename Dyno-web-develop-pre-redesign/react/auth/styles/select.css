@@ -1,0 +1,53 @@
+.guild-selector .Select-control,
+.guild-selector .Select-control .Select-input:focus,
+.guild-selector .Select.is-open > .Select-control,
+.guild-selector .Select.is-focused > .Select-control,
+.guild-selector .Select.is-focused:not(.is-open) > .Select-control,
+.guild-selector .Select-menu-outer,
+.guild-selector .Select-option {
+	background: #3B3D43;
+	background-color: #3B3D43;
+	color: #fff;
+}
+
+
+.guild-selector .Select-control,
+.guild-selector .Select--multi .Select-value,
+.guild-selector .Select--multi .Select-value-icon,
+.guild-selector .Select.is-open > .Select-control,
+.guild-selector .Select.is-focused > .Select-control,
+.guild-selector .Select.is-focused:not(.is-open) > .Select-control {
+	border-color: #555;
+}
+
+.guild-selector .Select-menu-outer {
+	border-color: #555;
+}
+
+@media (max-width: 1200px) {
+	.guild-selector {
+		width: 200px;
+		max-width: 200px;
+	}
+}
+
+@media (max-width: 769px) {
+	.guild-selector {
+		width: 200px;
+		max-width: 200px;
+	}
+}
+
+/* #select-server {
+	width: 200px;
+} */
+
+/* .select select
+	background-color: $accent-background;
+	color: $text;
+	border: solid #555 1px;
+
+.server-select
+	max-width: 200px;
+	select
+		max-width: 200px; */

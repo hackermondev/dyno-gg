@@ -1,0 +1,83 @@
+.sort-wrapper .Select-control,
+.sort-wrapper .Select.is-open > .Select-control,
+.sort-wrapper .Select.is-focused > .Select-control,
+.sort-wrapper .Select.is-focused:not(.is-open) > .Select-control,
+.sort-wrapper .Select-menu-outer,
+.sort-wrapper .Select-option {
+	background: #222C45;
+}
+
+.automod-toggles .automod-selector.control.rich-select {
+	padding: 0.5em 1em;
+}
+
+
+.sort-wrapper .Select-control,
+.sort-wrapper .Select--multi .Select-value,
+.sort-wrapper .Select--multi .Select-value-icon,
+.sort-wrapper .Select.is-open > .Select-control,
+.sort-wrapper .Select.is-focused > .Select-control,
+.sort-wrapper .Select.is-focused:not(.is-open) > .Select-control {
+	border: none;
+	/* border-color: rgba(12,233,211, 0.4); */
+}
+
+.Select.is-open > .Select-control,
+.Select-menu-outer {
+	border: none !important;
+}
+
+.Select-menu-outer,
+.Select-option,
+.Select-menu {
+	border-top-color: #606a7b !important;
+    color: #6B7E91 !important;
+    font-weight: 400;
+}
+
+.Select-option {
+    background: transparent !important;
+}
+
+.Select-value-label,
+.Select-placeholder {
+    color: #6B7E91 !important;
+}
+
+.rich-select {
+    background-color: transparent;
+    border-radius: 4px;
+    outline-color: rgba(243,83,83,0.25);
+}
+
+.rich-select:focus {
+    box-shadow: 0 0 0 0.125em rgba(243,83,83,0.25);
+}
+
+.rich-select .rich-select-top {
+	display: flex;
+	justify-content: space-between;
+	background-color: transparent;
+    border-radius: 5px;
+}
+
+.rich-select label {
+	color: #6B7E91;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+
+@media (max-width: 1200px) {
+	.sort-wrapper {
+		width: 47%;
+	}
+}
+
+/* @media (max-width: 769px) {
+	.sort-wrapper {
+		width: 99%;
+	}
+} */

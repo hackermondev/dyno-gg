@@ -1,0 +1,22 @@
+<div class="page-account">
+	<div class="hero hero-small">
+        <div class="container user">
+            <div class="user-avatar" href="/">
+                {{#if user.avatar}}
+                    <img alt="Your discord avatar" class="image is-128x128" src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.jpg?size=128" />
+                {{else}}
+                    <img alt="Your discord avatar" class="image is-128x128" src="https://discordapp.com/assets/6debd47ed13483642cf09e832ed0bc1b.png?size=128" />
+                {{/if}}
+            </div>
+
+            <div class="user-details">
+                <h3 class="user-name title is-3" href="/">{{user.username}}<span class="discriminator has-text-primary">#{{user.discriminator}}</span></h3>
+                <h5 class="subtitle is-5">{{premiumServers}} premium guilds</h5>
+            </div>
+
+        </div>
+	</div>
+	<div class="account-content">
+        <div id="account-mount"></div>
+	</div>
+</div>

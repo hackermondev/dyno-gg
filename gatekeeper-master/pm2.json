@@ -1,0 +1,22 @@
+{
+	"apps": [
+		{
+			"name": "gatekeeper",
+            "script": "build/index.js",
+            "env": {
+                "NODE_ENV": "production"
+            }
+		}
+	],
+	"deploy": {
+		"production": {
+			"user": "dyno",
+			"host": "10.12.0.85",
+			"ref": "origin/master",
+			"repo": "-b master git@git.dyno.sh:Dyno/gatekeeper.git",
+			"path": "/home/dyno/deploy/gatekeeper/",
+			"pre-setup": "rm -rf /home/dyno/deploy/gatekeeper/*",
+			"post-deploy": "yarn && yarn build && cp -f /home/dyno/gatekeeper/config/config.yml ./config/config.yml && mkdir /home/dyno/gatekeeper-temp/ && cp -rf /home/dyno/deploy/gatekeeper/source/. /home/dyno/gatekeeper-temp && rm -rf /home/dyno/old.gatekeeper && mv /home/dyno/gatekeeper /home/dyno/old.gatekeeper && mv /home/dyno/gatekeeper-temp /home/dyno/gatekeeper && pm2 restart gatekeeper"
+		}
+	}
+}

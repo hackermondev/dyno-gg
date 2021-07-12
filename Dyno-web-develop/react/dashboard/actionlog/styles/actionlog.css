@@ -1,0 +1,27 @@
+.log-channel {
+	width: 100%;
+}
+
+.actionlog-setting:hover, .log-channel:hover {
+	background-color: inherit;
+}
+
+.actionlog-toggles .Select-control,
+.actionlog-toggles .Select.is-open > .Select-control,
+.actionlog-toggles .Select.is-focused > .Select-control,
+.actionlog-toggles .Select.is-focused:not(.is-open) > .Select-control,
+.actionlog-toggles .Select-menu-outer,
+.actionlog-toggles .Select-option {
+	background: #0C121D;
+	background-color: #0C121D;
+}
+
+.actionlog-toggles .Select-control,
+.actionlog-toggles .Select--multi .Select-value,
+.actionlog-toggles .Select--multi .Select-value-icon,
+.actionlog-toggles .Select.is-open > .Select-control,
+.actionlog-toggles .Select.is-focused > .Select-control,
+.actionlog-toggles .Select.is-focused:not(.is-open) > .Select-control {
+	/* border-color: #0CE9D3; */
+	border-color: rgba(12,233,211, 0.4);
+}

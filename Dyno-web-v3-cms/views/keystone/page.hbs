@@ -1,0 +1,33 @@
+<div class="page-home">
+	{{#if page.hero}}
+	<div class="hero{{#if page.heroSmall}} hero-small{{/if}}">
+		{{#if page.heroLeft}}
+			<h1 class="title">{{#if page.title}}{{{page.title}}}{{else}}{{page.name}}{{/if}}</h1>
+		{{else}}
+			<h1 class="title">{{#if page.title}}{{{page.title}}}{{else}}{{page.name}}{{/if}}</h1>
+		{{/if}}
+		
+		{{#if page.heroLarge}}
+			{{{page.heroContent}}}
+			{{#if page.heroCarbon}}
+				{{>carbon}}
+			{{/if}}
+		{{/if}}
+	</div>
+	{{/if}}
+
+	<div class="container">
+		<div class="columns">
+			{{#if page.sidebar}}
+				<div class="column is-3">
+					{{#each page.sidebar.widgets}}
+						{{{hbs content ..}}}
+					{{/each}}
+				</div>
+			{{/if}}
+			<div class="column">
+				{{{page.content}}}
+			</div>
+		</div>
+	</div>
+</div>

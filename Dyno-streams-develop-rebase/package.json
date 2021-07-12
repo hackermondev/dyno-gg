@@ -1,0 +1,17 @@
+{
+  "name": "dyno-stream",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "Dyno-datafactory": "git+https://github.com/FlexLabs/Dyno-datafactory.git",
+    "eris": "^0.7.0",
+    "superagent": "^3.5.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "ws": "node ./lib/eris.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

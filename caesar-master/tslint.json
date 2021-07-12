@@ -1,0 +1,57 @@
+ {
+  "extends": [
+    "tslint-microsoft-contrib"
+  ],
+  "rules": {
+    "no-empty": false,
+    "align": false,
+    "mocha-no-side-effect-code": false,
+    "missing-jsdoc": false,
+    "no-relative-imports": false,
+    "export-name": false,
+    "import-name": false,
+    "indent": [true, "tabs"],
+    "insecure-random": false,
+    "promise-function-async": false,
+    "newline-before-return": false,
+    "max-func-body-length": false,
+    "no-for-in": false,
+    "forin": false,
+    "no-increment-decrement": false,
+    "no-default-export": false,
+    "no-bitwise": false,
+    "no-require-imports": false,
+    "no-reserved-keywords": false,
+    "no-stateless-class": false,
+    "no-var-requires": false,
+    "no-any": false,
+    "no-unsafe-any": false,
+    "no-http-string": false,
+    "non-literal-require": false,
+    "no-multiline-string": false,
+    "no-single-line-block-comment": false,
+    "no-backbone-get-set-outside-model": false,
+    "strict-boolean-expressions": false,
+    "function-name": false,
+    "triple-equals": false,
+    "variable-name": [
+      false,
+      "check-format",
+      "allow-leading-underscore"
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
+    "typedef": [
+      true,
+      "parameter",
+      "arrow-parameter",
+      "property-declaration",
+      "member-variable-declaration"
+    ]
+  }
+}

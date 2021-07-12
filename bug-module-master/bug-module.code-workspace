@@ -1,0 +1,25 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "editor.insertSpaces": true,
+        "editor.autoIndent": true,
+        "editor.tabSize": 4,
+
+        "editor.wordWrap": "on",
+        "files.eol": "\n",
+
+        // files   
+        "files.insertFinalNewline": false,
+
+        // VSCode eslint support
+        "eslint.enable": true,
+        "eslint.autoFixOnSave": true,
+
+        // Discord rich presence support
+        "discord.enabled": true
+    }
+}

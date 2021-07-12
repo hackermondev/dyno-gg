@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="columns">
+		<div class="column is-2">
+			<div id="carbon">
+				<div class="carbon-wrapper">
+					{{!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=dynobotnet" id="_carbonads_js"></script> --}}
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="level">
+				<div class="level-left">
+					<h3 class="title is-4">Playlist: {{server.name}}</h3>
+				</div>
+				<div class="level-right">
+					{{#if isManager}}<a class="button is-info playlist-clear" href="#">Clear</a>{{/if}}
+				</div>
+			</div>
+			{{#if queue}}
+				<table class="table">
+					<thead>
+						<tr><th>#</th><th>Thumb</th><th>Title</th><th></th></tr>
+					</thead>
+					<tbody>
+					{{#each queue}}
+						<tr>
+							<td>{{this.index}}</td>
+							<td>
+								<img class="playlist-thumb" src="{{this.thumbnail_url}}" />
+							</td>
+							<td>
+								<span class="playlist-title">
+									<a href="https://www.youtube.com/watch?v={{this.id}}" target="_blank">{{this.title}}</a>
+								</span>
+							</td>
+							<td>{{#if ../isManager}}<a id="{{this.index}}" class="button is-info playlist-remove" href="#">Remove</a>{{/if}}</td>
+						</tr>
+					{{/each}}
+					</tbody>
+				</table>
+			{{else}}
+				<p>There are no songs in queue.</p>
+			{{/if}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+{
+  "name": "@dyno.gg/image-service",
+  "version": "1.0.0",
+  "description": "Service to generate images",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "canvas": "^2.6.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}

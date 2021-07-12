@@ -1,0 +1,99 @@
+@import './pages/server.sass';
+@import '../node_modules/bulma/sass/components/tabs';
+@import '../node_modules/bulma/sass/elements/notification';
+@import './partials/mobile.sass';
+@import './partials/customcommands.sass';
+@import './pages/serverlist.scss';
+@import './partials/footer.sass';
+
+
+@font-face {
+  font-family: "Font Awesome 5 Regular";
+  src: url("../fonts/fa-regular-400.woff") format('woff');
+}
+
+.tag.is-small {
+  margin: 0.2em;
+  border-radius: 0.4em;
+  background-color: $secondary;
+  border: solid $border 1px;
+  padding: 1em 0.8em;
+}
+
+.tag .delete {
+  margin-left: 5px;
+  color: $text;
+}
+
+.playlist-thumb,
+.playlist-title {
+  height: 60px;
+  line-height: 60px;
+}
+
+.playlist-clear {
+  margin-right: 3rem;
+}
+
+.message hr {
+  margin: 0.5rem 0 1rem;
+}
+
+.settings-inline {
+  display: block;
+  min-width: 250px;
+  float: left;
+  margin-right: 1rem;
+}
+
+.level.mod {
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  word-break: normal;
+}
+
+.has-addons .label {
+  background-color: $control-background;
+  height: 32px;
+  padding: 5px 10px;
+  border-radius: 3px 0 0 3px;
+}
+
+.new-command textarea, .new-response textarea, .new-tag textarea {
+  height: 84px;
+  max-width: 50%;
+}
+
+.webhook-output {
+  display: block;
+  padding: 1em 0.5em;
+}
+
+.warn {
+  color: $red;
+}
+
+.module-multitext {
+  margin-bottom: 1em;
+}
+
+.module-multitext textarea {
+  height: 5em;
+  line-height: 1.5em;
+}
+
+#loader {
+  min-height: 200px;
+  margin-top: 100px;
+}
+
+#loader .loading {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  background: url("/images/gears.png") no-repeat center;
+  background-image: url("/images/gears.svg");
+  background-size: contain;
+}

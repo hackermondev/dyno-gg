@@ -1,0 +1,99 @@
+@import '../layouts/main.sass';
+
+.page-home .hero
+	padding-bottom: 1em;
+	.title
+		margin: 1em 0 0.5em;
+	p
+		max-width: 40%;
+		margin: 0.5em 0;
+		text-align: center;
+
+.team-hero
+	padding-top: 10px;
+	min-height: 400px;
+	background: url(/images/v3/dyno-ghost.png) no-repeat center center;
+	background-color: #1a1a1a;
+	text-align: center;
+
+.team-hero h1 strong
+	color: #337fd5;
+	font-weight: 600;
+
+.team-members
+	margin-top: 30px;
+	text-align: center;
+	h1
+		strong
+			color: #337fd5;
+			font-weight: 600;
+	.columns
+		margin-top: 60px;
+
+.team-member-list
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 0 auto 2em;
+	max-width: 60%;
+
+.team-member
+	margin-top: 30px;
+	text-align: center;
+	margin: 1em;
+	.team-member-picture
+		background: url(https://placehold.it/100x100) center center no-repeat;
+		background-size: 100px;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		margin: 10px auto;
+		position: relative;
+		overflow: hidden;
+		display: inline-block;
+		&:hover
+			.team-member-overlay
+				opacity: 1;
+	.team-member-username
+		font-weight: 600;
+		max-width: 150px;
+		margin: auto;
+	.team-member-overlay
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		height: 200%;
+		width: 200%;
+		opacity: 0;
+		transition: .5s ease;
+		background-color: $info;
+	.team-member-overlay-text
+		color: white;
+		font-size: 0.9em;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+	&.team-member-core
+		margin: 1.5em;
+		.team-member-picture
+			width: 150px;
+			height: 150px;
+			background: url(https://placehold.it/150x150) center center no-repeat;
+			background-size: 150px;
+
+.team-member-username
+	font-weight: 600;
+	color: $info;
+
+.team-member-social .fa
+	font-size: 30px;
+
+@media screen and (max-width: $break-mobile)
+	.page-home .hero
+		p
+			max-width: 90%;
+	.team-member-list
+		max-width: 100%;

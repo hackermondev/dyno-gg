@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> Service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/45</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as schedule from 'node-schedule';
+<span class="cstat-no" title="statement not covered" >import {logger} from './logger';</span>
+import * as model<span class="cstat-no" title="statement not covered" >s from './models';</span>
+import {Patreon} <span class="cstat-no" title="statement not covered" >from './Patreon';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+/**<span class="cstat-no" title="statement not covered" ></span>
+ * Patreon service
+ */
+export class Service {
+	public job: schedule.Job;
+	pub<span class="fstat-no" title="function not covered" >li</span>c patreon: Patreon;
+<span class="cstat-no" title="statement not covered" ></span>
+	constructor() {
+		th<span class="fstat-no" title="function not covered" >is</span>.patreon = new Patreon();
+	}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+	pub<span class="fstat-no" title="function not covered" >li</span>c start(): void {
+		this.job = schedule.scheduleJob('*/5 * * * *', this.processPledges.bind(this));
+	}
+<span class="cstat-no" title="statement not covered" ></span>
+	private<span class="cstat-no" title="statement not covered" > async processPledges() {</span>
+		let pledge<span class="cstat-no" title="statement not covered" >s: PatronPledge[];</span>
+		let existingPatrons: models.PatronDocument[];
+&nbsp;
+		logger.inf<span class="cstat-no" title="statement not covered" >o(`[${new Date()}] Pledge pr</span>ocessing started.`);
+<span class="cstat-no" title="statement not covered" ></span>
+		try {
+			pledg<span class="cstat-no" title="statement not covered" >es = await this.patreon.getPledges();</span>
+		} catch (e<span class="cstat-no" title="statement not covered" >rr) {</span>
+			logger.error(err);
+			return;
+		}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+		try {
+			exist<span class="cstat-no" title="statement not covered" >ingPatrons = await (await models.patrons<span class="fstat-no" title="function not covered" >.f</span>ind({ d<span class="cstat-no" title="statement not covered" >eleted: false })).fetchAll(</span>);</span>
+		} catc<span class="cstat-no" title="statement not covered" >h (err) {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+			logge<span class="cstat-no" title="statement not covered" >r.error(err);<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+			return;
+		}<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+		await <span class="cstat-no" title="statement not covered" >this.addNewPatrons(pledges).catch((err: string) =&gt; logger.error(err));</span>
+		this.updat<span class="cstat-no" title="statement not covered" >eDeletedPatrons(pledges, existingPatrons).catch((err: string) =&gt; logger.error(err));</span>
+		this.updateRenewedPa<span class="fstat-no" title="function not covered" >tr</span>ons(pledges, existingPatrons).catch((err: string) =&gt; logger.error(err));
+	}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+	private async addNewPa<span class="fstat-no" title="function not covered" >tr</span>ons(pledges: PatronPledge[]): Promise&lt;void&gt; {
+		let upsertCoun<span class="cstat-no" title="statement not covered" >t = 0;</span>
+&nbsp;
+		for (const pledge of pledges) {
+			await models.patrons.updateOne({ id: pledge.id }, { $set: pledge }, { upsert: true })
+<span class="fstat-no" title="function not covered" >				.t</span>hen(() =&gt; {
+					upsertCount = upsertCo<span class="cstat-no" title="statement not covered" >un</span>t + 1;
+				})<span class="cstat-no" title="statement not covered" ></span>
+				.catch((err: Error) =&gt; {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+					throw e<span class="cstat-no" title="statement not covered" >rr;</span>
+				});<span class="cstat-no" title="statement not covered" ></span>
+		}<span class="fstat-no" title="function not covered" ></span>
+	}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+	private async updateRenewedPatrons(pledges: PatronPledge[], existingPatrons: models.PatronDocument[]): Promise&lt;void&gt; {
+		let renewedCount = 0;<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+		for (const patron of existingPatrons) {
+			const foundPatron = pledges.find((p: PatronPledge) =&gt; p.id === patron.id);
+&nbsp;
+			if (f<span class="cstat-no" title="statement not covered" >oundPatron != undefined &amp;&amp; foundPatron.pledge.declined_since == undefined &amp;&amp; patron.pledge.declined_since != undefined) {</span>
+				await mo<span class="cstat-no" title="statement not covered" >dels.patrons.updateOne({ id: patron.id }, { $set: { delete</span>d: false, 'pledge.declined_since': patron.pledge.declined_since } })
+					.then(() =&gt; {
+						renewedCount = renewedCount + 1;
+<span class="fstat-no" title="function not covered" ></span>						logger.debug(`Deleted ${patron.id}`);
+					})<span class="cstat-no" title="statement not covered" ></span>
+					.ca<span class="cstat-no" title="statement not covered" >tch((err: Error) =&gt; {</span>
+						throw err;<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+					});<span class="cstat-no" title="statement not covered" ></span>
+			}<span class="cstat-no" title="statement not covered" ></span>
+		}<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+		if (renewedCount &gt;<span class="cstat-no" title="statement not covered" > 0) {</span>
+			logger.info(`Renewed ${renewedCount} patrons.`);
+		}<span class="fstat-no" title="function not covered" ></span>
+	}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+	private async updateDeletedPatrons(pledges: PatronPledge[], existingPatrons: models.PatronDocument[]): Promise&lt;void&gt; {
+		let deletedCount = 0;
+<span class="cstat-no" title="statement not covered" ></span>
+		for (const<span class="cstat-no" title="statement not covered" > patron of existingPatrons) {</span>
+			const foundPatron = pledges.find((p: PatronPledge) =&gt; p.id === patron.id);
+&nbsp;
+			if (foundPatron == undefined || foundPatron.pledge.declined_since != undefined) {
+<span class="cstat-no" title="statement not covered" >				await models.patrons.up</span>dateOne({ id: patron.id }, { $set: { deleted: true, 'pledge.declined_since': patron.pledge.declined_since } })
+					.then(() =&gt; {
+						deletedCount = deletedCount + 1;
+						logger.debug(`Deleted ${patron.id}`);
+					})
+					.catch((err: Error) =&gt; {
+						throw err;
+					});
+			}
+		}
+&nbsp;
+		if (deletedCount &gt; 0) {
+			logger.info(`Deleted ${deletedCount} patrons.`);
+		}
+	}
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 04 2017 20:49:22 GMT-0400 (EDT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

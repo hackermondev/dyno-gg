@@ -1,0 +1,61 @@
+<div class="page-home">
+	<div class="hero hero-small">
+		<h1 class="title">The <strong>Team</strong></h1>
+		<p>Dyno has grown a lot since starting in August 2016. To operate and maintain Dyno and the community/support server wouldn't be possible without some great people who have helped out in many ways. This is the Dyno team.</p>
+		<p><a href="https://discord.gg/NVhGHTx" target="_blank">Join Us on Discord.</a></p>
+	</div>
+	<div class="team-members">
+		<h1 class="title">Core <strong>Team</strong></h1>
+		<div class="team-member-list">
+			{{#each team.core}}
+				<div class="team-member team-member-core">
+					<div class="team-member-picture" style="background-image: url({{this.avatar}});">
+						<div class="team-member-overlay">
+							<div class="team-member-overlay-text">{{this.description}}</div>
+						</div>
+					</div>
+					<h4 class="team-member-username">{{this.name}}</h4>
+					<span class="team-member-title">{{this.title}}</span>
+					<br/>
+					{{!-- <a class="team-member-social" href="https://twitter.com/dynodiscord"><i class="fa fa-twitter" aria-hidden="true"></i></a> --}}
+				</div>
+			{{/each}}
+		</div>
+		<h1 class="title">Discord <strong>Moderators</strong></h1>
+		<div class="team-member-list">
+			{{#each team.moderators}}
+				<div class="team-member">
+					<div class="team-member-picture" style="background-image: url({{this.avatar}});"></div>
+					<h4 class="team-member-username">{{this.name}}</h4>
+				</div>
+			{{/each}}
+		</div>
+		<h1 class="title">Senior <strong>Support</strong></h1>
+		<div class="team-member-list">
+			{{#each team.accomplices}}
+				<div class="team-member">
+					<div class="team-member-picture" style="background-image: url({{this.avatar}});"></div>
+					<h4 class="team-member-username">{{this.name}}</h4>
+				</div>
+			{{/each}}
+		</div>
+		<h1 class="title">Discord <strong>Support</strong></h1>
+		<div class="team-member-list">
+			{{#each team.support}}
+				<div class="team-member">
+					<div class="team-member-picture" style="background-image: url({{this.avatar}});"></div>
+					<h4 class="team-member-username">{{this.name}}</h4>
+				</div>
+			{{/each}}
+		</div>
+		<h1 class="title">Dyno <strong>Contributors</strong></h1>
+		<div class="team-member-list">
+			{{#each team.contributors}}
+				<div class="team-member">
+					<div class="team-member-picture" style="background-image: url({{this.avatar}});"></div>
+					<h4 class="team-member-username">{{this.name}}</h4>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,412 @@
+@import "../core/base.scss";
+@import "../core/common.sass";
+
+.container
+	&.circles
+		display: block;
+		background-image: url('https://s.dyno.gg/web-assets/landing/background-circle.svg');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+		margin-top: 130px;
+
+		.home-description 
+			text-align: center;
+
+		.description-title
+			color: #fff;
+			max-width: 700px;
+			margin: auto;
+			font-weight: 700;
+			line-height: 61px;
+
+		.description-text
+			max-width: 600px;
+			margin: auto;
+			opacity: 0.75;
+			font-weight: 200;
+			background-color: $body-background;
+			padding: 40px;
+			padding-bottom: 50px;
+		
+		.columns
+			margin-top: 50px;
+			>div
+				max-width: 500px;
+				margin-left: 10px;
+				margin-right: 10px;
+				&:nth-child(1)
+					text-align: left;
+				
+				&:nth-child(2)
+					text-align: right;
+			
+			.carbon-wrapper
+				max-width: 330px;
+
+			.carbon-wrap
+				background-color: #222C45;
+				border-radius: 5px;
+
+		.home-logo
+			margin-top: -20px;
+			margin-bottom: 60px;
+		
+		.button
+			margin-left: 10px;
+			margin-right: 10px;
+
+		
+		@include until($tablet)
+			background-repeat: repeat-y;
+
+			.columns
+				>div
+					padding-right: 30px;
+					padding-left: 30px;
+					margin: auto;
+					min-width: 80%;
+					&:nth-child(1)
+						text-align: center;
+				
+					&:nth-child(2)
+						text-align: center;
+						display: flex;
+						justify-content: center;
+						margin-top: 30px;
+
+.features-section
+	margin-top: -80px;
+
+	h3
+		text-align: center;
+	
+	h5
+		margin-bottom: 60px;
+		
+	.features
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+		justify-items: center;
+		width: 100%;
+		flex-wrap: wrap;
+		margin-top: 40px;
+		margin-bottom: 60px;
+
+		.feature
+			background: linear-gradient(-45deg, #1A2737 0%, #192534 100%);
+			border-radius: 5px 5px 5px 5px;
+			height: 281px;
+			width: 231px;
+			margin-left: 20px;
+			margin-right: 20px;
+			padding: 0px 20px;
+
+			h4
+				margin-bottom: 10px;
+
+			.feature-card-icon
+				margin-top: -15px;
+				margin-bottom: 22px;
+
+.getting-started
+	margin-top: 40px;
+
+body
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	font-family: 'Maison Neue', sans-serif;
+	margin: 0;
+	background-color: $body-background;
+
+.page-wrapper
+	flex: 1;
+	padding-bottom: 1.5em;
+
+.section, .box
+	background-color: $background;
+
+.page-wrapper
+	min-height: 100%;
+	.button
+		text-shadow: 1px 1px rgba(0,0,0,0.2);
+	&:after
+		content: "";
+		display: block;
+
+.icon
+	&.is-link
+		width: 24px;
+		height: 20px;
+		line-height: 20px;
+		font-size: 16px;
+
+.getting-started
+	text-align: center;
+	p
+		display: block;
+		font-size: 18px;
+		text-align: center;
+		margin: 1em 0;
+	a
+		padding: 0 1.5em;
+		text-transform: uppercase;
+
+.hero
+	background-color: $hero-background;
+	.hero-content
+		max-width: 50%;
+		margin: auto;
+	.columns
+		margin: 0 0 1em;
+		.title
+			margin: 0.3em 0;
+
+.tab-content, .subtab-content
+	display: none;
+	&.is-active
+		display: block;
+
+.page-wrapper
+	.menu
+		padding: 1em;
+		background-color: $secondary;
+		border: solid $border 1px;
+		padding-top: 1em;
+		border-radius: 5px;
+		position: relative;
+		margin-bottom: 1em;
+		&.has-label
+			padding-top: calc(1.2em + 25px);
+			.menu-label
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 25px;
+				text-align: center;
+				line-height: 25px;
+				border-radius: 5px 5px 0 0;
+				background-color: $info;
+
+	.menu-list a.is-active
+		background-color: $info;
+
+.avatar
+	border: solid #fff 3px;
+	margin-right: 1em;
+	&.avatar-32
+		width: 32px;
+		height: 32px;
+		border-radius: 16px;
+		border: solid #fff 1px;
+	&.avatar-48
+		width: 48px;
+		height: 48px;
+		border-radius: 24px;
+		border: solid #fff 1px;
+	&.avatar-64
+		width: 64px;
+		height: 64px;
+		border-radius: 32px;
+	&.avatar-128
+		width: 128px;
+		height: 128px;
+		border-radius: 64px;
+
+.guild-icon
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	overflow: hidden;
+	background-color: #666;
+	&.is-48
+		width: 48px;
+		height: 48px;
+	img
+		width: 100%;
+		height: 100%;
+		&.no-icon
+			opacity: 0.6;
+	[data-initials]
+		position: relative;
+		width: 64px;
+		height: 64px;
+		display: block;
+		border-radius: 50%;
+		&::after
+			content: attr(data-initials);
+			position: absolute;
+			color: white;
+			font-size: 20px;
+			top: 0;
+			left: 0;
+			line-height: 64px;
+			text-align: center;
+			width: 100%;
+
+.select select
+	background-color: $accent-background;
+	color: $text;
+	border: solid #555 1px;
+
+.server-select
+	max-width: 200px;
+	select
+		max-width: 200px;
+
+.message
+	background-color: transparent;
+	&.manage-server
+		margin-bottom: 1em;
+		.select
+			width: 100%;
+			select
+				width: 100%;
+
+.message-header
+	background-color: $info;
+
+.message-body
+	background-color: $secondary;
+
+.sidebar-content
+	border: solid 1px #222222;
+	border-radius: 3px;
+	background-color: $secondary;
+	padding: 1em;
+	margin-bottom: 1em;
+	min-height: 125px;
+	.title
+		color: $info;
+		font-size: 1.5em;
+		margin-bottom: 8px;
+		padding-bottom: 10px;
+		border-bottom: solid #333 1px;
+		a
+			color: $info;
+			&:hover
+				text-decoration: none;
+				border-bottom: none;
+
+.control
+	margin-bottom: 10px;
+
+.discord-widget
+	display: block;
+	margin: 1em 0;
+	img
+		border-radius: 5px;
+	@media screen and (max-width: $break-mobile)
+		display: none;
+
+.table
+  background-color: $background
+  &.is-striped
+    thead
+      background-color: darken($background, 3%)
+      tr
+        &:hover
+          background-color: darken($background, 3%)
+    tbody
+      tr
+        &:hover
+          background-color: darken($background, 3%)
+        &:nth-child(2n)
+          background-color: darken($background, 1%)
+          &:hover
+            background-color: darken($background, 3%)
+
+#doorbell-button
+	background-color: $info;
+
+.paypal-button
+	display: block;
+	width: 195px;
+	background-color: #fff;
+	background-image: url(https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png);
+	background-repeat: no-repeat;
+	background-position: calc(100% - 0.9em) center;
+	border-radius: 5px;
+	color: $info;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+	text-shadow: none;
+	margin: 1em auto 0;
+	padding: 0.7em 0.9em;
+	font-weight: bold;
+	&:hover
+		color: $info;
+		background-color: #efefef;
+
+.upgrade-select
+	text-align: center;
+	.select
+		margin: 0.8em auto 0;
+		select
+			min-width: 160px;
+			background-color: #efefef;
+			color: #262626;
+			border-color: #777;
+			box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+.modal-content
+	background: #262626;
+	border-radius: 10px;
+	padding: 15px;
+
+.pagination-list
+	justify-content: left !important;
+	li
+		border: solid #555 1px;
+		border-radius: 3px;
+		a
+			color: #ececec;
+	li.active
+		background-color: $info;
+	li.disabled
+		border: none;
+		a
+			color: #777;
+
+.fieldset
+	@extend .box
+	border: solid #666 1px
+	box-shadow: none;
+	padding: 15px;
+	// box-shadow: 0 2px 3px rgba(245,245,245,0.2),0 0 0 1px rgba(245,245,245,0.2);
+	> legend
+		@extend .label
+		padding: 0 6px;
+		margin-bottom: 0 !important;
+
+.is-clearfix
+	display: block;
+	clear: both;
+
+::-webkit-scrollbar
+	width: 10px;
+
+::-webkit-scrollbar-track
+	background: transparent;
+
+::-webkit-scrollbar-thumb
+	background: #262626;
+	border-radius: 5px;
+
+::-webkit-scrollbar-thumb:hover
+	background: darken(#262626, 3%);
+
+#loader
+  min-height: 200px
+  margin-top: 100px
+
+#loader .loading 
+  width: 140px
+  height: 140px
+  margin: 0 auto
+  background: url("/images/gears.png") no-repeat center
+  background-image: url("/images/gears.svg")
+  background-size: contain

@@ -1,0 +1,36 @@
+.cc-tabs {
+	display: flex;
+	margin: 1em 0;
+}
+
+.cc-list {
+	width: 25%;
+	background: #1a1a1a;
+	border-radius: 6px;
+	padding: 1em;
+	margin-right: 1em;
+	position: relative;
+}
+
+.cc-list ul {
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	right: 1em;
+	bottom: 1em;
+	overflow-y: scroll;
+}
+
+.cc-list li {
+	height: 34px;
+	line-height: 34px;
+	padding: 0 1em;
+}
+
+.cc-list li:hover, .cc-list li.is-active {
+	background: #262626;
+}
+
+.cc-list li:first-child {
+	border-bottom: solid #444 1px;
+}

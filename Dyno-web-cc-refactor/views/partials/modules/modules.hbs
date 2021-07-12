@@ -1,0 +1,23 @@
+<div id="modules" class="tab-content">
+	<h3 class="title is-4">Modules</h3>
+
+    {{>moduleheader}}
+
+    <div class="settings-top">
+    	<div class="flex-container">
+    	{{#each modules}}
+    		{{#unless this.adminEnabled}}
+                {{#unless this.hide}}
+                <div class="control module-toggle is-pulled-left">
+                    <input id="m{{this.module}}" class="module" type="checkbox" value="{{this.module}}"{{#if this.enabled}} checked="checked"{{/if}}>
+                    <label class="checkbox" for="m{{this.module}}">
+                        {{this.friendlyName}}
+                    </label>
+                    <p class="help-text">{{this.description}}</p>
+                </div>
+                {{/unless}}
+    		{{/unless}}
+    	{{/each}}
+    	</div>
+    </div>
+</div>

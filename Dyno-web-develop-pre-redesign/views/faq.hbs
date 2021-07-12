@@ -1,0 +1,336 @@
+<div class="page-faq">
+	<div class="hero">
+		<div class="container">
+			<div class="columns">
+				<div class="column">
+					<h1 class="title">Frequently Asked Questions</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="columns">
+			<div class="column is-3">
+				<aside class="menu">
+					<ul class="menu-list">
+						<li><a href="#/general" class="tab-control-legacy is-active">General FAQ</a></li>
+						<li><a href="#/moderation" class="tab-control-legacy">Moderation FAQ</a></li>
+						<li><a href="#/utility" class="tab-control-legacy">Utility FAQ</a></li>
+						<li><a href="#/music" class="tab-control-legacy">Music FAQ</a></li>
+					</ul>
+				</aside>
+				<div class="sidebar-content">
+					<p class="title"><a href="https://discord.gg/MRaPFTH" target="_blank" title="Dyno server" target="_blank">Can't find an answer?</a></p>
+					<p class="content">If you have any other questions or feature requests, join us on the <a href="https://discord.gg/MRaPFTH" target="_blank" title="Dyno server" >Dyno&nbsp;server</a> and let us know!</p>
+				</div>
+				<div id="carbon">
+					<div class="carbon-wrapper">
+						<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=dynobotnet" id="_carbonads_js"></script>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				{{!-- General FAQ --}}
+				<div id="general" class="container tab-content is-active">
+					<div class="tile">
+						<div class="tile is-vertical faq">
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. How do I use Dyno?</a>
+									<div class="content faq-answer">
+										<p>
+											{{#unless user}}Start by <a href="/auth" title="Login with Discord">logging in here</a>.{{/unless}}
+											{{#if user}}Start by selecting your server on the <a href="/account" title="Manage Server">Manage Server</a> page.{{/if}}
+										</p>
+										<p>Once you're in the server manager, you can configure commands, modules, and more.</p>
+										<p>For a full list of commands, head over to the <a href="/commands" title="Command List">Command List</a>.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Dyno is not responding to commands, what do I do?</a>
+									<div class="content faq-answer">
+										<p>Try the following:</p>
+										<ul>
+											<li>1. Check if Dyno has the <code>Read and Send Messages</code> permissions, as well as <code>Embed Links</code> in that channel.</li>
+											<li>2. Do <code>@Dyno prefix</code>, and see if you're using the correct prefix.</li>
+											<li>3. Check whether the command you're trying to use is enabled by heading to your <code>Server Dashboard > Commands</code>. Then search for your command and check whether it's enabled</li>
+										</ul>
+										<p>If none of these work, please head over to our <a href="https://discord.gg/MRaPFTH" target="_blank" title="Dyno discord">support server.</a></p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Who does Dyno consider mod and admin?</a>
+									<div class="content faq-answer">
+										<p>Admins are users who have the <code>Manage server</code> or <code>Administrator</code> permission.</p>
+										<p>Moderators are users or roles that are added using the <code>?addmod</code> command.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Why can't I see my server?</a>
+									<div class="content faq-answer">
+										<p>Make sure you're logged onto the right account on <a href="https://discordapp.com/channels/@me" title="Check your account">Discord</a>, then refresh the website.</p>
+										<p>Also, please make sure you have the <code>Manage Server</code> or <code>Administrator</code> permission in the server; otherwise you won't find it.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Why won't Dyno assign roles?</a>
+									<div class="content faq-answer">
+										<p>Discord works on a role heiarchy and requires someone to have a physically higher role in order to modify/give a role below it.</p>
+										<p>Desktop Fix: Drag Dyno's role up in <code>Server Settings > Roles</code>.</p>
+										<p>Mobile Fix: Go to <code>Server Settings > Roles</code> and hit edit and drag Dyno's role up.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. How can I donate?</a>
+									<div class="content faq-answer">
+										<p>You can donate <a href='/upgrade'>here.</a></p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. What are the benefits of Dyno premium?</a>
+									<div class="content faq-answer">
+										<p>Premium benefits include higher speed and performance, better uptimes, fewer/quicker restarts for updates, less downtime, unlimited song/play length, volume control, slowmode, autopurge, and some other things we can't add to the public Dyno for performance or cost purposes.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Is Dyno open source?</a>
+									<div class="content faq-answer">
+										<p>Dyno is not open source for several reasons.</p>
+										<p>1. Dyno is a public bot and platform that is comprised of multiple services, which also depend on multiple services, we do not plan to make it self-contained and distributable.</p>
+										<p>2. We value the enormous amount of time and effort that's been put into Dyno and would prefer people to use it as we provide it, a service to you.</p>
+										<p>3. A private hosted service will be available soon, which will allow you to change various aspects of Dyno as if it were a self-hosted bot, completely maintained, updated, and supported by us.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. I see a blank message from Dyno but others can see it, why so?</a>
+									<div class="content faq-answer">
+										<p> Please make sure you enable the <code>Show website preview info from links pasted into chat.</code> option in your account settings, shown here:</p>
+										<img src='images/faq/embedded.png'/>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{!-- Moderation FAQ --}}
+				<div id="moderation" class="container tab-content">
+					<div class="tile">
+						<div class="tile is-vertical faq">
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Why isn't automod deleting messages?</a>
+									<div class="content faq-answer">
+										<p>The following are the probable reasons automod isn't deleting messages</p>
+										<ul>
+											<li>1. Automod ignores mods/admins by default.</li>
+											<li>2. Dyno doesn't have manage messages.</li>
+											<li>3. The automod module is not enabled.</li>
+										</ul>
+										<p>If none of these seems to be the root cause of this issue, please head over to our <a href="https://discord.gg/MRaPFTH" target="_blank" title="Dyno discord">support server.</a></p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Why can users speak even if they have the muted role?</a>
+									<div class="content faq-answer">
+										<p> It depends upon your channel perms. Configure your channel's send message perms to be <img src='images/faq/neutral.png'/> for all the roles (which includes everyone role) and deny it <img src='images/faq/redtick.png'/> for the muted role.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Why can’t my mods purge?</a>
+									<div class="content faq-answer">
+										<p>Purge is an admin command by default. However, you can change that setting by clicking the <i class="fa fa-cog"></i> option under <code>purge</code> in your manager commands. Then you add accordingly.</p>
+										<img src='images/faq/purge.png'/>
+
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. How do I unwarn someone?</a>
+									<div class="content faq-answer">
+										<p><code>?clearwarn [user]</code> will clear all active warnings for that user.</p>
+										<p>Keep in mind that you cannot clear individual warnings for a user.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. How do I ban someone who is not in the server anymore?</a>
+									<div class="content faq-answer">
+										<p>You would use their ID, like so: <code>?ban userID reason</code></p>
+										<p>To get a user's ID, right click them anywhere on Discord, then click Copy ID.</p>
+										<p><strong>Note: </strong>If you don't see the copy ID option, make sure you have developer mode on. Like so:</p>
+										<img src="images/faq/devMode.png">
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. My moderators can use commands, but regular members can't. Why?</a>
+									<div class="content faq-answer">
+										<p> That means your <code>Make commands moderator only</code> option is enabled. Disable it on the dashboard in the <code>Home</code> tab, as shown below:</p>
+										<img src='images/faq/mod-only.png'/>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Why can't I purge messages older than 14 days in a channel?</a>
+									<div class="content faq-answer">
+										<p>Bots on Discord cannot purge messages that are over 14 days old due to Discord's API.</p>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{{!-- Utility FAQ --}}
+				<div id="utility" class="container tab-content">
+					<div class="tile">
+						<div class="tile is-vertical faq">
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Why are some (if not all) roles greyed out when attempting to set autorole?</a>
+									<div class="content faq-answer">
+										<p>You have to move Dyno's role above the role you're trying to assign to new members, like so:</p>
+										<img src='images/faq/hierarchy1.png'/>
+										<p>Drag the role up higher, which should result in this:</p>
+										<img src='images/faq/hierarchy2.png'/>
+										<p>To learn more about role hierarchy, <a href="https://support.discordapp.com/hc/en-us/articles/214836687-Role-Management-101" target="_blank" title="Role Management 101">click here.</a></p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. What are tags?</a>
+									<div class="content faq-answer">
+										<p>Tags are an easy way to quickly store text/information that can be recalled at a later time. Examples of how to use them:</p>
+										<p>Create the tag: <code>?tag create test I'm a test!</code></p>	
+										<p>Call the tag: <code>?tag test</code></p>
+										<p>Dyno would then reply with <code>I'm a test!</code></p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Can I use {dm} to message everyone in a role on my server?</a>
+									<div class="content faq-answer">
+										<p>No, mass direct messaging people will never be a feature in Dyno. Therefore, you can only dm one person per custom command.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Why are some custom commands not working?</a>
+									<div class="content faq-answer">
+										<ul>
+											<li>1. Make sure that the name does not contain caps and spaces.</li>
+											<li>2. Try removing then re-adding it.</li>
+											<li>3. Check if Dyno is missing access to the channel you're using it in.</li>
+											<li>4. If none of these work, don't hesitate to join our <a href="https://discord.gg/MRaPFTH" target="_blank" title="Dyno discord">support server.</a></li>
+										</ul>
+										
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Logs aren't working on my server, what do I do?</a>
+									<div class="content faq-answer">
+										<p><strong>Note:</strong> This applies to all logging modules including actionlogs, moderation logs, and automod logs.</p>
+										<p>- Check if the module is disabled by doing <code>?diagnose [module Name]</code></p>
+										<p>- If the module is enabled, check if Dyno can <code>Read Messages</code> and <code>Send Messages</code> in the log channel, as well as <code>Embed Links</code>. To quickly check if Dyno has those permissions, do <code>?uptime</code> in the channel.</p>
+										<p>- Lastly, check if Dyno has <code>manage webhooks</code> in that channel and in his role permissions. </p>
+										<p>If none of these work, don't hesitate to join our <a href="https://discord.gg/MRaPFTH" target="_blank" title="Dyno discord">support server.</a></p>
+									</div>
+									
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{{!-- Music FAQ --}}
+				<div id="music" class="container tab-content">
+					<div class="tile">
+						<div class="tile is-vertical faq">
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. How do I play music?</a>
+									<div class="content faq-answer">
+										<p>First, take a look through the list of commands that you can <a href="https://nubbot.ngrok.io/commands#/Music" title="Music Commands">find here</a></p>
+										<p>If you need further examples, you can type <code>?help [command]</code> for more help with any command. eg. <code>?help play</code></p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Why won't Dyno join my channel?</a>
+									<div class="content faq-answer">
+										<ul>
+											<li>1. Be sure Dyno has the following permissions: <code>Connect, Speak, Use Voice Activity</code>.</li>
+											<li>2. If Dyno has these permissions, try <code>?stop</code> then <code>?play</code>.</li>
+											<li>3. If that does not work head over to the support channel on the <a href="https://discord.gg/MRaPFTH" target="_blank" title="Dyno discord">Dyno Discord Server</a></li>
+										</ul>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. Why is the music stuttering?</a>
+									<div class="content faq-answer">
+										<p>Lag and stuttering can be caused by several factors, some things to consider are:</p>
+										<ul>
+											<li>1. Try changing your voice region briefly which will change the voice server that you and Dyno are connected to.</li>
+											<li>2. If the above didn't work and you are using the free Dyno, try changing your region to US East.</li>
+										</ul>
+										<p>We suggest you moving your voice server region to US East as it is the closest server region to the bot host.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. How can I lower Dyno's volume?</a>
+									<div class="content faq-answer">
+										<p>For performance purposes, the volume command is not available in the free version of Dyno.</p>
+										<p>If you would like to be able to adjust the volume using the command, we offer this and other features and perks if you <a href="/upgrade" title="Upgrade">upgrade to Dyno premium</a>.</p>
+										<p>This also supports the cost of development and hosting.</p>
+									</div>
+								</article>
+							</div>
+							<div class="tile is-parent faq-item">
+								<article class="tile is-child">
+									<a href="#" class="title faq-title">Q. How do I change the server/voice region?</a>
+									<div class="content faq-answer">
+										<p>Go to <code>Server Settings > Overview</code> and select <code>Server Region</code> below the <strong>Server Name</strong> field.</p>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

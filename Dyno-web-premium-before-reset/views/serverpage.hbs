@@ -1,0 +1,9 @@
+<div class="page-serverlisting">
+    <div class="container serverpage" id="serverpage-mount">
+
+    </div>
+    {{#if guildId}}
+        <script>const guildId = "{{guildId}}"</script>
+    {{/if}}
+    <script src="{{getVersionedPath '/js/react/serverPage.js'}}"></script>
+</div>

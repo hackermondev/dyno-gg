@@ -1,0 +1,49 @@
+<div id="module-voicetextlinking" class="tab-content">
+	<h3 class="title is-4">Voice Text Linking</h3>
+
+	{{>moduleheader}}
+
+	<div class="settings-top">
+		{{>moduletoggle}}
+	</div>
+
+	<div class="module-toggles">
+		<p class="control setting-toggle is-pulled-left">
+			<input id="announceMember" class="module-setting-checkbox" type="checkbox" data-module="voicetextlinking" name="announceMember" value="{{@root.server.voicetextlinking.announceMember}}"{{#if @root.server.voicetextlinking.announceMember}} checked="checked"{{/if}}>
+			<label class="checkbox" for="announceMember">
+				Show join/leave messages
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<input id="purgeChannel" class="module-setting-checkbox" type="checkbox" data-module="voicetextlinking" name="purgeChannel" value="{{@root.server.voicetextlinking.purgeChannel}}"{{#if @root.server.voicetextlinking.purgeChannel}} checked="checked"{{/if}}>
+			<label class="checkbox" for="purgeChannel">
+				Purge channel when VC empty
+			</label>
+		</p>
+	</div>
+
+	<div class="settings-content">
+		<div class="module-multitext">
+			<label class="label">Join Message</label>
+			<form class="text-form">
+				<p class="control has-addons">
+					<input class="input is-expanded" type="text" name="joinMessage" data-module="voicetextlinking" placeholder="{user} has joined the channel." value="{{@root.server.voicetextlinking.joinMessage}}" />
+					<input class="button update-module-setting is-info" type="button" value="Update">
+					{{!-- <textarea class="input" name="joinMessage" data-module="voicetextlinking">{{@root.server.voicetextlinking.joinMessage}}</textarea> --}}
+				</p>
+			</form>
+		</div>
+
+		<div class="module-multitext">
+			<label class="label">Leave Message</label>
+			<form class="text-form">
+				<p class="control has-addons">
+					<input class="input is-expanded" type="text" name="leaveMessage" data-module="voicetextlinking" placeholder="{user} has left the channel." value="{{@root.server.voicetextlinking.leaveMessage}}" />
+					<input class="button update-module-setting is-info" type="button" value="Update">
+					{{!-- <textarea class="input" name="leaveMessage" data-module="voicetextlinking">{{@root.server.voicetextlinking.leaveMessage}}</textarea> --}}
+				</p>
+			</form>
+		</div>
+	</div>
+</div>

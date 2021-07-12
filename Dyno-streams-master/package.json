@@ -1,0 +1,30 @@
+{
+  "name": "Dyno-streams",
+  "version": "0.1.0",
+  "homepage": "https://github.com/FlexLabs/Dyno-streams",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlexLabs/Dyno-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlexLabs/Dyno-api/issues"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "engineStrict": true,
+  "dependencies": {
+    "Dyno-DataFactory": "git+https://git.dvguild.tk/Dyno/DataFactory.git",
+    "colors": "^1.1.2",
+    "eris": "^0.7.0",
+    "getenv": "^0.7.0",
+    "superagent": "^3.5.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@dyno.gg/manager",
+  "version": "1.1.0",
+  "description": "Fun module for use in Dyno.",
+  "engineStrict": true,
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "main": "src/index.js",
+  "author": "Brian Tanner <brian@tanner.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlexLabs/Dyno-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlexLabs/Dyno-manager/issues"
+  },
+  "homepage": "https://github.com/FlexLabs/Dyno-manager#readme",
+  "dependencies": {
+    "@dyno.gg/dyno-core": "^1.0.1",
+    "async-each": "^1.0.1"
+  }
+}

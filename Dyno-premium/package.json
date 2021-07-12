@@ -1,0 +1,69 @@
+{
+  "name": "Dyno-core",
+  "version": "3.2.0",
+  "homepage": "https://github.com/FlexLabs/Dyno-core",
+  "author": {
+    "name": "Brian Tanner",
+    "email": "brian@tanner.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlexLabs/Dyno-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlexLabs/Dyno-core/issues"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node src/index.js",
+    "web": "node src/web/index.js"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "engineStrict": true,
+  "dependencies": {
+    "Dyno-DataFactory": "git+ssh://git@github.com:FlexLabs/Dyno-datafactory.git",
+    "Dyno-datafactory": "github:FlexLabs/Dyno-datafactory#bf790f96f7a8ed3f9f7e6a457be0e64572bf1abe",
+    "Sherlock": "github:neilgupta/Sherlock",
+    "async-each": "^1.0.1",
+    "blocked": "^1.2.1",
+    "bluebird": "^3.4.1",
+    "bufferutil": "^1.2.1",
+    "chalk": "^2.0.1",
+    "cleverbot-node": ">=0.2.3",
+    "dot-object": "^1.5.4",
+    "dotenv": "^2.0.0",
+    "eris": "github:briantanner/eris#dyno-backport",
+    "erlpack": "github:hammerandchisel/erlpack",
+    "eventemitter3": "^2.0.2",
+    "getenv": "^0.6.0",
+    "google": "^2.1.0",
+    "hot-shots": "^4.3.1",
+    "i18next": "^3.4.3",
+    "lodash": "^4.17.3",
+    "longjohn": "^0.2.12",
+    "miniget": "^1.0.0",
+    "moment": "^2.13.0",
+    "moment-duration-format": "^1.3.0",
+    "mongoose_schema-json": "^1.0.3",
+    "node-schedule": "^1.1.1",
+    "pidusage": "^1.1.0",
+    "raven": "^1.1.1",
+    "redis": "^2.6.3",
+    "require-reload": "^0.2.2",
+    "sherlock.js": "0.0.221-b",
+    "sherlockjs": "^1.3.7",
+    "superagent": "^2.0.0",
+    "winston": "github:briantanner/winston",
+    "youtube-node": "^1.3.0",
+    "ytdl-core": "^0.14.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "eslint": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^3.0.1"
+  }
+}

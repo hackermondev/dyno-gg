@@ -1,0 +1,65 @@
+<div class="page-commands">
+	<div class="hero">
+		<div class="container">
+			<div class="columns">
+				<div class="column">
+					<h1 class="title">Commands</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="columns">
+			<div class="column is-3">
+				<aside class="menu">
+					<ul class="menu-list">
+					{{#each commands}}
+						<li><a href="#/{{this.name}}" class="tab-control{{#if this.isActive}} is-active{{/if}}">{{this.name}}</a></li>
+					{{/each}}
+					</ul>
+				</aside>
+				<div id="carbon">
+					<div class="carbon-wrapper carbon-bottom">
+						<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=dynobotnet" id="_carbonads_js"></script>
+					</div>
+				</div>
+			</div>
+
+			<div class="column">
+				<script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+				<div class="bsa-cpc"></div>
+				<script>(function(){ if(typeof _bsa !== 'undefined' && _bsa) { _bsa.init('default', 'CKYD4KQU', 'placement:dynobotnet', { target: '.bsa-cpc', align: 'horizontal', disable_css: 'true' }); } })();</script>
+				{{#each commands}}
+					<div id="{{this.name}}" class="container tab-content{{#if this.isActive}} is-active{{/if}}">
+						<table class="table is-striped">
+							<thead>
+								<tr><th>Command</th><th>Description</th><th>Usage</th></tr>
+							</thead>
+							<tbody>
+							{{#each this.commands}}
+								<tr>
+									<td><strong>{{this.name}}</strong></td>
+									<td>{{this.description}}</td>
+									{{#unlessArray this.usage}}<td>{{this.usage}}</td>{{/unlessArray}}
+									{{#ifArray this.usage}}
+										{{#if this.defaultUsage}}<td>{{this.defaultUsage}}</td>{{/if}}
+									{{/ifArray}}
+								</tr>
+								{{#ifArray this.commands}}
+									{{#each this.commands}}
+										<tr>
+											<td><strong>{{../name}} {{this.name}}</strong></td>
+											<td>{{this.desc}}</td>
+											{{#if this.usage}}<td>{{../this.name}} {{this.usage}}</td>{{/if}}
+										</tr>
+									{{/each}}
+								{{/ifArray}}
+							{{/each}}
+							</tbody>
+						</table>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>

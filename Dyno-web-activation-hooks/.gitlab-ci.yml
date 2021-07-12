@@ -1,0 +1,84 @@
+stages:
+  - build
+  - deploy
+
+before_script:
+  - apt-get update -y > /dev/null
+  - apt-get install curl build-essential git -y > /dev/null
+  - curl -sL https://deb.nodesource.com/setup_8.x | bash > /dev/null
+  - apt-get install -y nodejs > /dev/null
+  - npm i yarn -g > /dev/null
+  - npm i gulp -g > /dev/null
+  
+
+build:
+  stage: build
+  script: 
+    - npm i
+    - cd react
+    - yarn
+    - yarn build:prod
+    - cd ..
+    - gulp sass
+
+deploy to production:
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | ssh-add - > ~/.ssh/id_rsa
+    - 'echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - apt-get install curl build-essential git -y > /dev/null
+    - curl -sL https://deb.nodesource.com/setup_8.x | bash > /dev/null
+    - apt-get install -y nodejs > /dev/null
+    - npm i pm2 -g > /dev/null
+  script:
+    - pm2 deploy pm2/dyno.web.json production setup
+    - pm2 deploy pm2/dyno.web.json production
+  when: manual
+  only: 
+    - master
+  
+
+deploy to premium:
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | ssh-add - > ~/.ssh/id_rsa
+    - 'echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - apt-get install curl build-essential git -y > /dev/null
+    - curl -sL https://deb.nodesource.com/setup_8.x | bash > /dev/null
+    - apt-get install -y nodejs > /dev/null
+    - npm i pm2 -g > /dev/null
+  script:
+    - pm2 deploy pm2/premium.web.json premium setup
+    - pm2 deploy pm2/premium.web.json premium
+  when: manual
+  only: 
+    - premium
+  
+
+deploy to alpha:
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | ssh-add - > ~/.ssh/id_rsa
+    - 'echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - apt-get install curl build-essential git -y > /dev/null
+    - curl -sL https://deb.nodesource.com/setup_8.x | bash > /dev/null
+    - apt-get install -y nodejs > /dev/null
+    - npm i pm2 -g > /dev/null
+  script:
+    - pm2 deploy pm2/alpha.web.json alpha setup
+    - pm2 deploy pm2/alpha.web.json alpha
+  only: 
+    - develop
+  

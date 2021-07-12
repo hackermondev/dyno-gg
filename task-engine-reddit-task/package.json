@@ -1,0 +1,24 @@
+{
+  "name": "task-engine",
+  "version": "1.0.0",
+  "description": "Task engine for Dyno",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://git.dyno.sh/Dyno/task-engine.git"
+  },
+  "author": "Brian Tanner <brian@tanner.io>",
+  "private": true,
+  "dependencies": {
+    "@dyno.gg/datafactory": "^1.3.3",
+    "@dyno.gg/eris": "^0.8.11",
+    "@dyno.gg/logger": "^1.0.0",
+    "config": "^3.0.1",
+    "eris": "^0.9.0",
+    "glob": "^7.1.3",
+    "glob-promise": "^3.4.0",
+    "js-yaml": "^3.12.1",
+    "node-schedule": "^1.3.1",
+    "snoowrap": "^1.17.0"
+  }
+}

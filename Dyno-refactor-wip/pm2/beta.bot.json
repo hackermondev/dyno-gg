@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "Beta",
+      "script": "build/index.js",
+      "pmx": false,
+      "vizion": false,
+      "watch": false,
+      "ignore_watch" : ["node_modules", ".git", "public", "views", "package.json"],
+      "watch_options": {
+        "followSymlinks": false
+      }
+    }
+  ]
+}

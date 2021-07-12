@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "Pro",
+      "script": "src/index.js",
+      "pmx": false,
+      "vizion": false
+    }
+  ]
+}

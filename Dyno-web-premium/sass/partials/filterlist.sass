@@ -1,0 +1,72 @@
+.filter-list input.filter-list-search
+	background: #0C121D;
+	background-color: #0C121D;
+	border: solid rgba(12,233,211, 0.4) 1px;
+	padding-left: 0.6em;
+	color: #ccc;
+	caret-color: #eee;
+	// background: #2A2B30;
+	// color: #aaa;
+	// border: solid #555 1px;
+	border-radius: 4px;
+	width: 100%;
+	height: 36px;
+	outline: none;
+	margin: 0.5em 0;
+	font-size: 14px;
+	line-height: 34px;
+
+.filter-list
+	ul.filter-list-items
+		margin: 0;
+		border: solid #343434 1px;
+		border-radius: 4px;
+		padding: 1px;
+	li.filter-list-item
+		list-style: none;
+		margin-top: -1px;
+		line-height: 2;
+		padding: 0.8em 20px;
+		background: darken($background, 3%);
+		position: relative;
+		&:nth-child(even)
+			background: darken($background, 1%);
+		&:hover
+			background: darken($background, 3%);
+
+.list-item-remove
+	display: block;
+	position: absolute;
+	top: 0.5em;
+	right: 1em;
+	line-height: 30px;
+	/* height: 36px; */
+	/* line-height: 34px; */
+	/* color: #ed6c63; */
+
+.filter-list
+	> label
+		display: flex;
+		flex-direction: row;
+	.Select
+		width: 100%;
+		margin-right: 0.8em;
+	.button
+		height: 42px;
+		font-weight: normal;
+		text-transform: none;
+
+// .filter-list .Select-control
+// 	border-top-right-radius: 0;
+// 	border-bottom-right-radius: 0;
+// 	border-right: none;
+
+// .filter-selector .button
+// 	height: 36px;
+// 	border-top-left-radius: 0;
+// 	border-bottom-left-radius: 0;
+// 	margin-right: 0;
+
+.filter-selector > label
+	display: flex;
+	flex-direction: row;

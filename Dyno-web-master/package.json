@@ -1,0 +1,98 @@
+{
+  "name": "Dyno-web",
+  "version": "1.2.10",
+  "homepage": "https://github.com/FlexLabs/Dyno-web",
+  "author": {
+    "name": "Brian Tanner",
+    "email": "brian@tanner.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlexLabs/Dyno-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlexLabs/Dyno-web/issues"
+  },
+  "private": true,
+  "scripts": {
+    "preinstall": "$npm_execpath --silent run checknpm",
+    "checknpm": "node -e 'if(!/npm.*\\.js$/.test(process.env.npm_execpath))throw new Error(\"⚠️  Use npm not yarn! ⚠️ \")'",
+    "start": "node src/index.js",
+    "dev": "concurrently -n 'JS,SASS,REACT' -c \"yellow,cyan,magenta\" 'npm:watch-js' 'npm:watch-sass' 'npm:watch-react'",
+    "watch-js": "nodemon src/index.js -e js -w src",
+    "watch-react": "cd react && ./node_modules/webpack/bin/webpack.js --watch --hide-modules",
+    "watch-sass": "gulp sass:watch"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "engineStrict": true,
+  "dependencies": {
+    "@dyno.gg/datafactory": "git+https://git@github.com/FlexLabs/Dyno-datafactory.git",
+    "@dyno.gg/logger": "^2.0.1",
+    "accounting": "^0.4.1",
+    "aws-sdk": "^2.210.0",
+    "axios": "^0.18.0",
+    "bluebird": "^3.4.1",
+    "body-parser": "^1.15.2",
+    "braintree": "^2.11.0",
+    "braintree-dropin-react": "^0.1.0",
+    "braintree-web-drop-in": "^1.11.0",
+    "bulma": "^0.7.5",
+    "chalk": "^1.1.3",
+    "compression": "^1.6.2",
+    "connect-redis": "^3.2.0",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^2.0.0",
+    "envkey": "^1.2.7",
+    "eris": "github:abalabahaha/eris#dev",
+    "eventemitter3": "^2.0.2",
+    "express": "^4.14.0",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^3.0.0",
+    "express-rate-limit": "^5.0.0",
+    "express-remove-route": "^0.1.1",
+    "express-robots-txt": "^0.4.1",
+    "express-session": "^1.13.0",
+    "getenv": "^0.6.0",
+    "gulp": "^4.0.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-wait": "0.0.2",
+    "ioredis": "^3.2.2",
+    "jayson": "^3.0.2",
+    "js-base64": "^2.5.1",
+    "minio": "^6.0.0",
+    "minireset.css": "0.0.5",
+    "moment": "^2.13.0",
+    "moment-duration-format": "^2.3.2",
+    "moment-timezone": "^0.5.16",
+    "mongoose_schema-json": "^1.0.3",
+    "morgan": "^1.7.0",
+    "morgan-json": "^1.1.0",
+    "multer": "^1.1.0",
+    "multer-s3": "^2.7.0",
+    "patreon": "^0.4.1",
+    "rate-limit-redis": "^1.6.0",
+    "require-reload": "^0.2.2",
+    "safe-json-stringify": "^1.2.0",
+    "seedrandom": "^2.4.3",
+    "sharp": "^0.23.0",
+    "sitemap": "^4.1.1",
+    "slugify": "^1.3.5",
+    "staticify": "^3.2.0",
+    "superagent": "^2.0.0",
+    "uuid": "^3.3.3",
+    "ws": "^1.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "eslint": "^3.5.0",
+    "nodemon": "^1.19.2"
+  },
+  "peerDependencies": {
+    "bufferutil": "^1.2.1"
+  }
+}

@@ -1,0 +1,118 @@
+// Side list and panel
+
+.cc-tabs
+	display: flex;
+	margin: 1em 0;
+
+.cc-list
+	width: 25%;
+	background: $new-background;
+	border-radius: 6px;
+	padding: 1em;
+	margin-right: 1em;
+	position: relative;
+	ul
+		position: absolute;
+		top: 1em;
+		left: 1em;
+		right: 1em;
+		bottom: 1em;
+		overflow-y: scroll;
+		li
+			outline: none;
+			min-height: 34px;
+			// line-height: 34px;
+			padding: 0.6em 1em;
+			margin: 0.5em 0;
+			cursor: pointer;
+			background: lighten($new-background, 5%);
+			&:hover, &.is-active
+				background: lighten($new-background, 10%);
+			.embed-list-name, .embed-list-channel
+				display: block;
+				font-size: 13px;
+				letter-spacing: 1px;
+				margin-bottom: 5px;
+				text-transform: uppercase;
+			.embed-list-channel
+				display: block;
+				font-size: 12px;
+				text-transform: lowercase;
+			&.embed-list-new
+				.embed-list-name
+					position: relative;
+					padding-left: 1.3em;
+					margin-bottom: 0;
+					height: 20px;
+					line-height: 20px;
+					strong
+						position: absolute;
+						left: 0;
+						font-weight: bold;
+						font-size: 20px;
+
+.cc-panel
+	width: 74%;
+
+.cc-add
+	.embed-wrapper
+		margin: 0.5em 0;
+	@media (max-width: 1200px)
+		> .control
+			width: 100% !important;
+
+.cc-input-group
+	display: flex;
+	flex-wrap: wrap;
+
+.control.has-addons.cc-name .input
+	width: 100%;
+
+.cc-input-group > div
+	width: calc(100% - 0.5em);
+	&.control
+		margin-right: 0.5em;
+
+.cc-input-group.is-2 > div
+	width: calc(50% - 0.5em);
+	&.control
+		margin-right: 0.5em;
+	@media (max-width: 1200px)
+		width: calc(50% - 0.5em);
+		&.control > .control
+			width: 100%;
+	@media (max-width: 769px)
+		width: calc(100% - 0.5em);
+
+.cc-input-group.is-3 > div
+	width: calc(33% - 0.5em);
+	&.control
+		margin-right: 0.5em;
+	@media (max-width: 1200px)
+		width: calc(50% - 0.5em);
+	@media (max-width: 769px)
+		width: calc(100% - 0.5em);
+
+.cc-input-group.is-4 > div
+	width: calc(25% - 0.5em);
+	&.control
+		margin-right: 0.5em;
+	@media (max-width: 1200px)
+		width: calc(50% - 0.5em);
+	@media (max-width: 769px)
+		width: calc(50% - 0.5em);
+
+.cc-response
+	min-height: 8em;
+	width: 100%;
+
+.cc-buttons
+	display: inline-block;
+	margin-top: 0.5em;
+
+.cc-buttons > span
+	display: inline-block;
+	margin-right: 0.5em;
+
+.cc-add-response
+	min-height: 4em;

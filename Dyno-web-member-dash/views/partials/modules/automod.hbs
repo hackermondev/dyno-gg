@@ -1,0 +1,393 @@
+<div id="module-automod" class="tab-content">
+	<h3 class="title is-4">Automod Settings</h3>
+
+	{{>moduleheader}}
+	
+	<div class="settings-top has-tabs">
+		{{>moduletoggle}}
+		<div class="tabs">
+		  <ul>
+			<li class="is-active"><a href="#/automod-settings" class="subtab-control">Settings</a></li>
+			<li><a href="#/automod-words" class="subtab-control">Banned Words</a></li>
+			<li><a href="#/automod-urls" class="subtab-control">Allowed URLs</a></li>
+			<li><a href="#/automod-blacklist" class="subtab-control">Blacklisted URLs</a></li>
+			<li><a href="#/automod-channels" class="subtab-control">Ignored Channels</a></li>
+			<li><a href="#/automod-roles" class="subtab-control">Allowed Roles</a></li>
+		  </ul>
+		</div>
+	</div>
+		
+	<div id="automod-settings" class="subtab-content is-active">
+		<div class="module-toggles">
+			<p class="control setting-toggle is-pulled-left">
+				<input id="badEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="badEnabled" value="{{@root.server.automod.badEnabled}}"{{#if @root.server.automod.badEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="badEnabled">
+					Delete bad words <code>(does not auto mute)</code>
+				</label>
+			</p>
+			
+			<p class="control setting-toggle is-pulled-left">
+				<input id="capsEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="capsEnabled" value="{{@root.server.automod.capsEnabled}}"{{#if @root.server.automod.capsEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="capsEnabled">
+					Delete many caps <code>(> 70% Caps, does not auto mute)</code>
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="dupEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="dupEnabled" value="{{@root.server.automod.dupEnabled}}"{{#if @root.server.automod.dupEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="dupEnabled">
+					Delete spammy duplicated text <code>(recommended)</code>
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="rateEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="rateEnabled" value="{{@root.server.automod.rateEnabled}}"{{#if @root.server.automod.rateEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="rateEnabled">
+					Delete quick message sending <code>(5 msgs/4 secs)</code>
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="invitesEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="invitesEnabled" value="{{@root.server.automod.invitesEnabled}}"{{#if @root.server.automod.invitesEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="invitesEnabled">
+					Delete server invites
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="linksEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="linksEnabled" value="{{@root.server.automod.linksEnabled}}"{{#if @root.server.automod.linksEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="linksEnabled">
+					Delete all links
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="mentionsEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="mentionsEnabled" value="{{@root.server.automod.mentionsEnabled}}"{{#if @root.server.automod.mentionsEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="mentionsEnabled">
+					Delete mass mentions <code>(5+ mentions)</code>
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="cooldownEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="cooldownEnabled" value="{{@root.server.automod.cooldownEnabled}}"{{#if @root.server.automod.cooldownEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="cooldownEnabled">
+					Enable link cooldown <code>(how quick a user can post links)</code>
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="attachmentsEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="attachmentsEnabled" value="{{@root.server.automod.attachmentsEnabled}}"{{#if @root.server.automod.attachmentsEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="attachmentsEnabled">
+					Enable attachment/embed cooldown and spam prevention
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="emojisEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="emojisEnabled" value="{{@root.server.automod.emojisEnabled}}"{{#if @root.server.automod.emojisEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="emojisEnabled">
+					Delete many emojis (5+ emojis)
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="banMentions" class="module-setting-checkbox" type="checkbox" data-module="automod" name="banMentions" value="{{@root.server.automod.banMentions}}"{{#if @root.server.automod.banMentions}} checked="checked"{{/if}}>
+				<label class="checkbox" for="banMentions">
+					Autoban mass mentions <code>(10+ mentions)</code>
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="warnUser" class="module-setting-checkbox" type="checkbox" data-module="automod" name="warnUser" value="{{@root.server.automod.warnUser}}"{{#if @root.server.automod.warnUser}} checked="checked"{{/if}}>
+				<label class="checkbox" for="warnUser">
+					Warn users for some moderations
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="muteAfter" class="module-setting-checkbox" type="checkbox" data-module="automod" name="muteAfter" value="{{@root.server.automod.muteAfter}}"{{#if @root.server.automod.muteAfter}} checked="checked"{{/if}}>
+				<label class="checkbox" for="muteAfter">
+					Auto mute users for repeated violations
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="selfbotEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="selfbotEnabled" value="{{@root.server.automod.selfbotEnabled}}"{{#if @root.server.automod.selfbotEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="selfbotEnabled">
+					Delete embeds from selfbots
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="regionalEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="regionalEnabled" value="{{@root.server.automod.regionalEnabled}}"{{#if @root.server.automod.regionalEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="regionalEnabled">
+					Delete regional indicator/emoji text (2+ letters)
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="adminEnabled" class="module-setting-checkbox" type="checkbox" data-module="automod" name="adminEnabled" value="{{@root.server.automod.adminEnabled}}"{{#if @root.server.automod.adminEnabled}} checked="checked"{{/if}}>
+				<label class="checkbox" for="adminEnabled">
+					Don't ignore mods/admins/owner (for testing)
+				</label>
+			</p>
+		</div>
+
+		<div class="settings-content">
+			{{! Log channel }}
+			<label class="label">Log Channel</label>
+			<p class="control">
+				<span class="select">
+					<select class="setting-dropdown" name="channel" data-module="automod">
+						<option>Select Channel</option>
+						{{#each @root.channels}}
+							<option value="{{this.id}}"{{#compare this.id @root.server.automod.channel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+						{{/each}}
+					</select>
+				</span>
+			</p>
+
+			<label class="label">Link Cooldown (in seconds, 30 = 30 seconds, 300 = 5 minutes)</label>
+			<form class="text-form">
+			  <p class="control has-addons">
+				<input class="input is-expanded" type="text" data-module="automod" name="linkCooldown" value="{{@root.server.automod.linkCooldown}}" maxlength="3" pattern="[0-9]{1,3}" title="Should only contain numbers" placeholder="20">
+				<input class="button update-module-setting is-info" type="button" value="Update">
+			  </p>
+			</form>
+
+			<label class="label">Number of minutes to auto mute</label>
+			<form class="text-form">
+			  <p class="control has-addons">
+				<input class="input is-expanded" type="text" data-module="automod" name="muteTime" value="{{@root.server.automod.muteTime}}" maxlength="5" pattern="[0-9]{1,5}" title="Should only contain numbers" placeholder="10">
+				<input class="button update-module-setting is-info" type="button" value="Update">
+			  </p>
+			</form>
+
+			<label class="label">Number of violations before auto mute (3 = 3 violations in 5 minutes)</label>
+			<form class="text-form">
+				<p class="control has-addons">
+					<input class="input is-expanded" type="text" data-module="automod" name="muteCount" value="{{@root.server.automod.muteCount}}" maxlength="3" pattern="[0-9]{1,3}" title="Should only contain numbers" placeholder="3">
+					<input class="button update-module-setting is-info" type="button" value="Update">
+				</p>
+				<p class="help-text">Must enable <code>Auto mute users for repeated violations</code> above for these settings.</p>
+			</form>
+		</div>
+	</div>
+
+	<div id="automod-words" class="subtab-content">
+		<div class="module-toggles">
+			<p class="control setting-toggle">
+				<input id="disableGlobal" class="module-setting-checkbox" type="checkbox" data-module="automod" name="disableGlobal" value="{{@root.server.automod.disableGlobal}}"{{#if @root.server.automod.disableGlobal}} checked="checked"{{/if}}>
+				<label class="checkbox" for="disableGlobal">
+					Disable global words
+				</label>
+			</p>
+		</div>
+		<div class="settings-content">
+			<fieldset class="fieldset">
+				<legend class="legend">Add Banned Words</legend>
+				<form class="banned-words-add text-form">
+					{{!-- <input type="hidden" name="type" value="badwords" /> --}}
+					<p class="control">
+						<label>Words (comma separated list)</label>
+						<textarea class="input" name="words"></textarea>
+					</p>
+					<p class="control">
+						<input id="badwords" class="radio" type="radio" name="type" value="badwords" checked/>
+						<label for="badwords">Match the word anywhere in the message.</label>
+					</p>
+					<p class="control">
+						<input id="exactwords" class="radio" type="radio" name="type" value="exactwords" />
+						<label for="exactwords">Match the exact word in the message.</label>
+					</p>
+					{{!-- <p class="help-text">These words will match the word anywhere in a message.</p> --}}
+					<p class="control">
+						<a class="button is-info">Add</a>
+					</p>
+				</form>
+			</fieldset>
+
+			{{!-- <fieldset class="fieldset">
+				<legend class="legend">Add Exact Words</legend>
+				<form class="banned-words-add text-form">
+					<input type="hidden" name="type" value="exactwords" />
+					<p class="control">
+						<label>Words (comma separated list)</label>
+						<textarea class="input" name="words"></textarea>
+					</p>
+					<p class="help-text">These words will match only the full word.</p>
+					<p class="control">
+						<a class="button is-info">Add</a>
+					</p>
+				</form>
+			</fieldset> --}}
+
+
+			<a class="button is-info banned-words-clear">Clear Banned Words</a>
+			<p class="help-text warn">Caution: This is irreversable</p>
+
+			<label class="label">Global Banned Words</label>
+			{{#each @root.globalwords}}
+				<span class="tag is-small">{{this}}</span>
+			{{/each}}
+			<br /><br />
+
+			<label class="label">Wildcard Banned Words</label>
+			{{#each @root.badwords}}
+				<span class="tag is-small badword">
+					{{this}}
+					<button data-tag="{{this}}" data-type="badwords" class="delete banned-words-remove"></button>
+				</span>
+			{{/each}}
+			<br /><br />
+
+			<label class="label">Exact Banned Words</label>
+			{{#each @root.exactwords}}
+				<span class="tag is-small badword">
+					{{this}}
+					<button data-tag="{{this}}" data-type="exactwords" class="delete banned-words-remove"></button>
+				</span>
+			{{/each}}
+		</div>
+	</div>
+	<div id="automod-urls" class="subtab-content">
+		<div class="settings-content">
+			<label class="label">URL Whitelist (for filter links, eg. <code>test.com</code>)</label>
+			<form class="text-form">
+			  <p class="control has-addons">
+				<input class="input is-expanded" type="text" data-module="automod" name="url" value="">
+				<input class="button add-whitelist-url is-info" type="button" value="Add">
+			  </p>
+			</form>
+
+			{{#if @root.server.automod.whiteurls}}
+			  <table class="table is-striped">
+				<thead>
+				  <tr>
+					<th>URL</th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  {{#each @root.server.automod.whiteurls}}
+					<tr>
+					  <td>{{this}}</td>
+					  <td><a class="button is-danger remove-whitelist-url" href="#" data-url="{{this}}">Remove</a></td>
+					</tr>
+				  {{/each}}
+				</tbody>
+			  </table>
+			{{/if}}
+		</div>
+	</div>
+	<div id="automod-blacklist" class="subtab-content">
+		<div class="settings-content">
+			<label class="label">URL Blacklist (eg. <code>test.com</code>)</label>
+			<form class="text-form">
+			  <p class="control has-addons">
+				<input class="input is-expanded" type="text" data-module="automod" name="url" value="">
+				<input class="button add-blacklist-url is-info" type="button" value="Add">
+			  </p>
+			</form>
+
+			{{#if @root.server.automod.blackurls}}
+			  <table class="table is-striped">
+				<thead>
+				  <tr>
+					<th>URL</th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  {{#each @root.server.automod.blackurls}}
+					<tr>
+					  <td>{{this}}</td>
+					  <td><a class="button is-danger remove-blacklist-url" href="#" data-url="{{this}}">Remove</a></td>
+					</tr>
+				  {{/each}}
+				</tbody>
+			  </table>
+			{{/if}}
+		</div>
+	</div>
+	<div id="automod-channels" class="subtab-content">
+		<div class="settings-content">
+			<form class="automod-ignored">
+				<input type="hidden" name="name" value="" />
+				<label class="label">Add Ignored Channel</label>
+				<p class="control has-addons">
+					<span class="select">
+						<select class="item-channel automod-channel" name="id">
+							<option>Select Channel</option>
+							{{#each @root.channels}}
+								<option name="{{this.name}}" value="{{this.id}}" data-name="{{this.name}}">#{{this.name}}</option>
+							{{/each}}
+						</select>
+					</span>
+					<input class="button add-module-item is-info" type="button" value="Add" data-module="automod" data-setting="ignoredChannels">
+				</p>
+			</form>
+
+			{{#if @root.server.automod.ignoredChannels}}
+			  <table class="table is-striped">
+				<thead>
+				  <tr>
+					<th>Channel</th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  {{#each @root.server.automod.ignoredChannels}}
+					<tr>
+					  <td>#{{this.name}}</td>
+					  <td>
+						<a class="button is-danger remove-module-item" href="#" data-id="{{this.id}}" data-name="{{this.name}}" data-module="automod" data-setting="ignoredChannels">Remove</a>
+					</td>
+					</tr>
+				  {{/each}}
+				</tbody>
+			  </table>
+			{{/if}}
+		</div>
+	</div>
+	<div id="automod-roles" class="subtab-content">
+		<div class="settings-content">
+			<form class="automod-ignored">
+				<input type="hidden" name="name" value="" />
+				<label class="label">Add Ignored Role</label>
+				<p class="control has-addons">
+					<span class="select">
+						{{!-- I know this isn't a channel... not fixing unless refactor --}}
+						<select class="item-channel automod-role-dropdown" name="id">
+							<option>Select Role</option>
+							{{#each @root.roles}}
+								<option value="{{this.id}}" data-name="{{this.name}}">{{this.name}}</option>
+							{{/each}}
+						</select>
+					</span>
+					<input class="button add-module-item is-info" type="button" value="Add" data-module="automod" data-setting="ignoredRoles">
+				</p>
+			</form>
+
+			{{#if @root.server.automod.ignoredRoles}}
+			  <table class="table is-striped">
+				<thead>
+				  <tr>
+					<th>Role</th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  {{#each @root.server.automod.ignoredRoles}}
+					<tr>
+					  <td>{{this.name}}</td>
+					  <td>
+						<a class="button is-danger remove-module-item" href="#" data-id="{{this.id}}" data-name="{{this.name}}" data-module="automod" data-setting="ignoredRoles">Remove</a>
+					</td>
+					</tr>
+				  {{/each}}
+				</tbody>
+			  </table>
+			{{/if}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+{
+	"compileOnSave": false,
+    "compilerOptions": {
+        "declaration": true,
+        "moduleResolution": "Node",
+        "module": "commonjs",
+        "outDir": "./build",
+        "lib": [
+            "es2017"
+        ],
+		"forceConsistentCasingInFileNames": true,
+        "pretty":                 true,
+        "target":                 "ES2017",
+        "noImplicitAny":          false,
+        "sourceMap":              true,
+        "skipLibCheck":           true,
+        "disableSizeLimit":       true
+    },
+    "include": [
+		"src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

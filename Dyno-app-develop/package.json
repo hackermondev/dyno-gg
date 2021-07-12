@@ -1,0 +1,82 @@
+{
+  "name": "@dyno.gg/dyno-app",
+  "version": "4.0.0",
+  "homepage": "https://github.com/FlexLabs/Dyno-app",
+  "author": {
+    "name": "Brian Tanner",
+    "email": "brian@tanner.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlexLabs/Dyno-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlexLabs/Dyno-app/issues"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node --experimental-modules src/start.js"
+  },
+  "main": "src/index.js",
+  "typings": "src/index.d.ts",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "engineStrict": true,
+  "dependencies": {
+    "@dyno.gg/automod": "^1.0.0",
+    "@dyno.gg/autoroles": "^1.0.0",
+    "@dyno.gg/datafactory": "^1.0.0",
+    "@dyno.gg/dyno-core": "^0.1.7",
+    "@dyno.gg/eris": "^0.7.5",
+    "@dyno.gg/modules": "^1.0.0",
+    "@dyno.gg/music": "^4.0.0",
+    "async-each": "^1.0.1",
+    "blocked": "^1.2.1",
+    "bluebird": "^3.4.1",
+    "bufferutil": "^1.2.1",
+    "chalk": "^2.0.1",
+    "cleverbot-node": ">=0.2.3",
+    "dot-object": "^1.5.4",
+    "dot-prop": "^4.2.0",
+    "dotenv": "^2.0.0",
+    "erlpack": "github:hammerandchisel/erlpack",
+    "eventemitter3": "^2.0.2",
+    "getenv": "^0.6.0",
+    "glob-promise": "^3.1.0",
+    "hot-shots": "^4.3.1",
+    "i18next": "^3.4.3",
+    "ioredis": "^3.2.1",
+    "lodash": "^4.17.3",
+    "longjohn": "^0.2.12",
+    "minimatch": "^3.0.4",
+    "moment": "^2.13.0",
+    "moment-duration-format": "^1.3.0",
+    "mongoose_schema-json": "^1.0.3",
+    "node-schedule": "^1.1.1",
+    "pidusage": "^1.1.0",
+    "raven": "^1.1.1",
+    "redis": "^2.6.3",
+    "require-reload": "^0.2.2",
+    "sherlockjs": "^1.3.7",
+    "superagent": "^2.0.0",
+    "winston": "github:briantanner/winston",
+    "winston-raven-sentry": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.0",
+    "@types/node": "^8.0.30",
+    "@types/moment-duration-format": "^1.3.8",
+    "babel-eslint": "^8.0.1",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-typescript": "^3.2.2",
+    "rimraf": "~2.6.1",
+    "ts-jest": "^21.0.1",
+    "tslib": "~1.7.1",
+    "tslint": "~5.7.0",
+    "tslint-microsoft-contrib": "~5.0.1",
+    "tsutils": "~2.8.2",
+    "typescript": "^2.5.3"
+  }
+}

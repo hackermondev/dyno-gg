@@ -1,0 +1,60 @@
+<div class="page-home">
+	<div class="hero">
+		<div class="hero-content container">
+			<div class="columns">
+				<div class="column">
+					<h1 class="title">About <strong>Dyno</strong></h1>
+					<p>Dyno is a fully customizable discord bot for your discord server that features a simple and intuitive web dashboard. It brings many features such as moderation, anti-spam/auto-moderation, role management, custom commands, music bot, and much more that will greatly simplify managing your server and provide many useful and interesting features&nbsp;for&nbsp;your&nbsp;members.</p>
+					<p>Dyno is used on <strong>{{#if guildCount}}{{guildCount}}{{/if}}{{#unless guildCount}}over 625,000{{/unless}}</strong> servers, we invite you to try it out and hope you enjoy!</p>
+				</div>
+				<div class="column is-6">
+					{{>carbon}}
+					<div class="getting-started">
+						{{#if user}}<a class="button is-info" href="/manage" title="Manage a Server">Manage a Server</a>{{/if}}
+						{{#unless user}}<a class="button is-info" href="/auth" title="Login with Discord">Login with Discord</a>{{/unless}}
+						<a class="button is-info" href="/discord?code=eYQnVv9" title="Join us on Discord">Join us on Discord</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="home">
+		<div class="home-content">
+			<h3>Features</h3>
+			<div class="features">
+				<div class="feature">
+					<h4 class="feature-moderation">Moderation</h4>
+					<div class="feature-body">
+						<p>Moderation with mod logs, timed mutes and bans. Auto-moderation/anti-spam, fully configurable.</p>
+					</div>
+				</div>
+				<div class="feature">
+					<h4 class="feature-dashboard">Web Dashboard</h4>
+					<div class="feature-body">
+						<p>A feature-rich, configurable web dashboard. You can easily enable, disable, and configure everything.</p>
+					</div>
+				</div>
+				<div class="feature">
+					<h4 class="feature-music">Music Player</h4>
+					<div class="feature-body">
+						<p>Dyno is also a Discord music bot with playlists, DJ roles, playlists, and more.</p>
+					</div>
+				</div>
+				<div class="feature">
+					<h4 class="feature-more">Much More</h4>
+					<div class="feature-body">
+						<p>Autoroles, Custom Commands, Announcements, Joinable Ranks, AFK Status, Reminders, and much more.</p>
+					</div>
+				</div>
+			</div>
+			<h3>Getting Started</h3>
+			<div class="getting-started">
+				<p>To get started with Dyno,{{#unless user}} login with discord and{{/unless}} select the server that you would like to setup.</p>
+				{{#if user}}<a class="button is-info" href="/manage" title="Manage a Server">Manage a Server</a>{{/if}}
+				{{#unless user}}<a class="button is-info" href="/auth" title="Login with Discord">Login with Discord</a>{{/unless}}
+				{{!-- <p><strong>Note:</strong> To be able to setup a server, you need the <strong>manage server</strong> permission.</p> --}}
+			</div>
+		</div>
+	</div>
+</div>

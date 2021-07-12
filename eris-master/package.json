@@ -1,0 +1,46 @@
+{
+  "name": "eris",
+  "version": "0.7.2",
+  "description": "A NodeJS Discord library",
+  "main": "./index.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "eslint": "eslint --fix lib index.js && echo \"\u001b[1m\u001b[32mOK\u001b[39m\u001b[22m\" || echo \"\u001b[1m\u001b[31mNot OK\u001b[39m\u001b[22m\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abalabahaha/eris.git"
+  },
+  "keywords": [
+    "api",
+    "discord",
+    "discordapp",
+    "eris",
+    "wrapper"
+  ],
+  "author": "abalabahaha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abalabahaha/eris/issues"
+  },
+  "homepage": "https://abal.moe/Eris/",
+  "dependencies": {
+    "ws": "^3.0.0"
+  },
+  "optionalDependencies": {
+    "opusscript": "^0.0.3",
+    "tweetnacl": "^1.0.0"
+  },
+  "browser": {
+    "child_process": false,
+    "dgram": false,
+    "dns": false,
+    "fs": false,
+    "node-opus": false,
+    "tls": false,
+    "tweetnacl": false,
+    "ws": false
+  }
+}

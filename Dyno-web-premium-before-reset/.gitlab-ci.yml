@@ -1,0 +1,86 @@
+stages:
+  - build
+  - deploy
+
+#before_script for deployment routines
+before_script:
+  - apt-get update -y
+  - which ssh-agent || ( apt-get install openssh-client -y )
+  - which wget || ( apt-get install wget -y )
+  - eval $(ssh-agent -s)
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo "$SSH_PRIVATE_KEY" | ssh-add - > ~/.ssh/id_rsa
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  - wget https://dl.minio.io/client/mc/release/linux-amd64/mc
+  - chmod +x mc
+  - ./mc config host add minio https://s.dyno.gg/ "$MINIO_ACCESS_KEY" "$MINIO_SECRET_KEY"
+
+build:
+  stage: build
+  before_script:
+    - apt-get update -y > /dev/null
+    - apt-get install curl build-essential git zip wget -y > /dev/null
+    - curl -sL https://deb.nodesource.com/setup_8.x | bash > /dev/null
+    - apt-get install -y nodejs > /dev/null
+    - npm i yarn -g > /dev/null
+    - npm i gulp -g > /dev/null
+    - wget https://dl.minio.io/client/mc/release/linux-amd64/mc
+    - chmod +x mc
+    - ./mc config host add minio https://s.dyno.gg/ "$MINIO_ACCESS_KEY" "$MINIO_SECRET_KEY"
+  script: 
+    - npm i
+    - cd react
+    - yarn
+    - yarn build:prod
+    - cd ..
+    - gulp sass:prod
+    - zip -r "$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.zip" public/
+    - ./mc cp "$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.zip" minio/web-deploy
+    - cp "deploy/$CI_COMMIT_REF_NAME.sh" "$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.sh"
+    - ./mc cp "$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.sh" minio/web-deploy
+
+deploy to production:
+  stage: deploy
+  script:
+    # Extract the minio download URL from the output & store it in a env var
+    - MINIO_URL=$(./mc share download "minio/web-deploy/$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.zip" | grep -o https:\/\/.\*\?.\*)
+    - MINIO_DEPLOY_SCRIPT=$(./mc share download "minio/web-deploy/$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.sh" | grep -o https:\/\/.\*\?.\*)
+    - ssh dyno@10.12.0.43 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.43 "sh deploy.sh \"$MINIO_URL\""
+    - ssh dyno@10.12.0.44 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.44 "sh deploy.sh \"$MINIO_URL\""
+    - ssh dyno@10.12.0.45 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.45 "sh deploy.sh \"$MINIO_URL\""
+  when: manual
+  only: 
+    - master
+  
+
+deploy to premium:
+  stage: deploy
+  script:
+    # Extract the minio download URL from the output & store it in a env var
+    - MINIO_URL=$(./mc share download "minio/web-deploy/$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.zip" | grep -o https:\/\/.\*\?.\*)
+    - MINIO_DEPLOY_SCRIPT=$(./mc share download "minio/web-deploy/$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.sh" | grep -o https:\/\/.\*\?.\*)
+    - ssh dyno@10.12.0.43 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.43 "sh deploy.sh \"$MINIO_URL\""
+    - ssh dyno@10.12.0.44 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.44 "sh deploy.sh \"$MINIO_URL\""
+    - ssh dyno@10.12.0.45 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.45 "sh deploy.sh \"$MINIO_URL\""
+  when: manual
+  only: 
+    - premium
+  
+
+deploy to alpha:
+  stage: deploy
+  script:
+    # Extract the minio download URL from the output & store it in a env var
+    - MINIO_URL=$(./mc share download "minio/web-deploy/$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.zip" | grep -o https:\/\/.\*\?.\*)
+    - MINIO_DEPLOY_SCRIPT=$(./mc share download "minio/web-deploy/$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.sh" | grep -o https:\/\/.\*\?.\*)
+    - ssh dyno@10.12.0.73 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.73 "sh deploy.sh \"$MINIO_URL\""
+  only: 
+    - develop

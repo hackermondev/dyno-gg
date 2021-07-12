@@ -1,0 +1,18 @@
+{
+  "name": "@dyno.gg/logger",
+  "version": "1.0.3",
+  "description": "Logging module for Dyno",
+  "main": "src/logger.js",
+  "repository": {
+    "type": "git",
+    "url": "https://git.dyno.sh/Dyno/Dyno-logger.git"
+  },
+  "author": "Brian Tanner <brian@tanner.io>",
+  "dependencies": {
+    "@ayana/logger": "git+https://gitlab.com/germanoeich/logger.git",
+    "chalk": "^2.4.2",
+    "elasticsearch": "^15.3.0",
+    "logform": "^2.1.0",
+    "moment": "^2.23.0"
+  }
+}

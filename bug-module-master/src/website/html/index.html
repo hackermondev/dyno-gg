@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<Title>Bug Report form</Title>
+	<link rel="icon" type="image/png" href="https://dyno.gg/images/v3/favicon.png"/>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="w3-theme-d2 w3-display-container" onresize="changeHeight()">
+	<header class="w3-container w3-theme-d3 w3-mobile">
+		<a id="link1" href="./form">
+			<h1 class="w3-left">
+				<img src="https://premium.dyno.gg/images/v3/dyno-44.svg" class="icon" alt="Dyno Logo"><span style="padding-left:  10px !important">Dyno</span>
+			</h1>
+		</a>
+		<br>
+		<div class="w3-right">
+			<a id="login" class="w3-hide-small" style="padding-right: 4px" href="./form"></a>
+			<a href="./form" style="text-decoration: none !important">
+				<img src="" id="userAvatar" alt="User-Avatar" width="32" height="32" style="padding-right: 2px">
+			</a>
+			<a id="logout" href="./logout">
+				<button class="w3-btn w3-theme-button w3-round">Logout</button>
+			</a>
+		</div>
+	</header>
+	<div class="w3-row-padding" style="overflow: hidden !important">
+		<br>
+		<div class="w3-col s12 m12 l12">
+			<div class="w3-card w3-topbar w3-round w3-container w3-theme-card" style="border-color: #336fd5 !important">
+				<h2 class="w3-text-white">Notes:</h2>
+				<div class="w3-container w3-text-white w3-border-top w3-border-grey"> <br>
+					1) Description, Repro steps, and Additional info fields support markdown. <br>
+					2) When you click submit, it will redirect you to the trello card if everything was successful. The amount of time it takes to redirect you to that card may depend on the number of attachments you're trying to upload and your network speeed. <br>
+					3) You can upload only a total of eight attachments or less. Same goes for attaching links. <br> <br>
+				</div>
+			</div>
+		</div>
+		<div class="w3-col s12 m12 l6" style="padding-top: 20px !important">
+			<Form method="post" enctype="multipart/form-data" action="./formparser" class="w3-card w3-topbar w3-round w3-container w3-theme-card w3-row"
+			 id="bug-report" style="border-color:#336fd5 !important" onreset='document.getElementById("additionalInfo2").innerHTML = ""; changeHeight(); collectiveClearer(); hideFilePreviewer(true); restoreBorder()'>
+				<br>
+				<label class="w3-text-white" for="textarea-bug" title="bug-input">
+					<b>Bug *</b>:
+					<br>
+					<div style="padding-top: 8px">
+						<textarea class="w3-input w3-theme" name="Bug" id="Bug" maxlength="210" style="resize:vertical" placeholder="A brief info about the bug" oninput="inputFunction(this); inputFunction2(); bugChanged = true" onblur="highlightBorder(this)" required></textarea>
+					</div>
+				</label>
+				<br>
+				<label class="w3-text-white" for="radio-type" title="type-input">
+					<b>Type *</b>:</label>
+				<br>
+				<label class="w3-text-white" for="Panel-radio-button" title="Dashboard-Bug">Dashboard bug:
+					<input type="Radio" value="Dashboard Bug" name="type" id="type1" onclick="borderFunction()" onkeypress="borderFunction()"
+					 required>
+				</label>
+				<br>
+				<label class="w3-text-white" for="Bot-radio-button" title="Bot-Bug">Bot bug:
+					<input type="Radio" value="Bot Bug" name="type" id="type2" onclick="borderFunction()" onkeypress="borderFunction()" required>
+				</label>
+				<br>
+				<br>
+				<label class="w3-text-white" for="input-tag" title="tag-input">
+					<b>Tag *:</b>
+					<br>
+					<div style="padding-top: 8px">
+						<input name="tag" type="text" class="w3-input w3-theme" id="tag" maxlength="24" placeholder="Unique identifier(s) used for reference purposes" oninput="inputFunction(this); inputFunction6(); tagChanged = true;" onblur="highlightBorder(this)" required/>
+					</div>
+				</label>
+				<br>
+				<label class="w3-text-white" for="textarea-Details" title="Details-input">
+					<b>Details *</b>:
+					<br>
+					<div style="padding-top: 8px">
+						<textarea class="w3-input w3-theme" name="Details" id="Details" maxlength="630" rows="4" style="resize:vertical" placeholder="A brief description about the bug" oninput="inputFunction(this); inputFunction3(); detailsChanged = true" onblur="highlightBorder(this)" required></textarea>
+					</div>
+				</label>
+				<br>
+				<label class="w3-text-white" for="textarea-reproSteps" title="Repro-Steps-input">
+					<b>Repro Steps *</b>:
+					<br>
+					<div style="padding-top: 8px">
+						<textarea class="w3-input w3-theme" name="reproSteps" id="reproSteps" maxlength="620" rows="8" style="resize:vertical" placeholder="Repro steps for the bug" oninput="inputFunction(this); inputFunction4(); reproChanged = true" onblur="highlightBorder(this)" required></textarea>
+					</div>
+				</label>
+				<div class="accordionElement" onclick="reveal()" onkeypress="reveal()" style="padding-top: 8px !important; padding-bottom: 4px !important">
+					<span class="fa" id="changeArrow" style="white-space: pre-wrap">&#xf107;  Additional fields  &#xf107;</span>
+				</div>
+				<div id="additional-fields" hidden>
+					<label class="w3-text-white" for="textarea-info" title="Additional-info-input">
+						<b>Additional Info</b>:
+						<br>
+						<div style="padding-top: 8px">
+							<textarea class="w3-input w3-theme" name="info" id="info" maxlength="690" rows="6" style="resize:vertical" placeholder="Additional info you want to add to this report"
+							 oninput="inputFunction5()"></textarea>
+						</div>
+					</label>
+					<br>
+					<label class="w3-text-white" for="input-file">
+						<b>Attachments</b>:
+					</label>
+					<div style="padding-top: 8px; padding-bottom: 12px">
+						<label class="w3-text-white" for="Attachment-type-button" title="file-button">
+							<button type="button" class="w3-btn w3-theme-button w3-round" id="fileButton" onclick="buttonFunction()" onkeypress="buttonFunction()">Upload file(s)</button>
+						</label>
+						<label class="w3-text-white" for="Attachment-type-button" title="link-button">
+							<button type="button" class="w3-btn w3-theme-button w3-round" id="linkButton" onclick="buttonFunction2()" onkeypress="buttonFunction2()">Upload link(s)</button>
+						</label>
+					</div>
+					<input type="file" id="file" name="Attachments" class="hideFile" multiple disabled/>
+					<label id="additionalInfo" for="textarea-Attachments2" title="Link-Info" hidden>
+						Please separate the links using <code class="w3-codespan">||</code> as the separator. The link must also be a direct link to the file.
+					</label>
+					<div id="hidden" style="padding-top: 8px; padding-bottom: 12px" hidden>
+						<label for="link-input" title="file-links">
+							<textarea class="w3-input w3-theme" name="Attachments2" id="fileText" rows="4" style="resize:vertical" oninput="inputFunction(this)"
+							 disabled></textarea>
+						</label>
+					</div>
+					<div id="fileDrop" title="file-upload-area" class="w3-col s12" style="width: 100% !important; padding-bottom: 12px !important; cursor: pointer" hidden>
+						<div class="droppable" onclick="document.getElementById('additionalInfo2').innerHTML = ''; changeHeight()"
+						 onkeypress="document.getElementById('additionalInfo2').innerHTML = ''; changeHeight()">
+							<div class="w3-center textContent" style="padding-top: 35px; padding-bottom: 35px"></div>
+						</div>
+						<label id="additionalInfo2" for="Attached file count" title="file-counter" style="padding-top: 8px !important" hidden></label>
+					</div>
+				</div>
+				<div>
+					<div class="w3-panel w3-red w3-display-container" id="attachWarn" style="overflow: hidden !important; padding-top: 4px" hidden>
+						<span onclick="this.parentElement.style.display='none'; changeHeight()" onkeypress="this.parentElement.style.display='none'; changeHeight()" class="w3-button w3-red w3-small w3-display-topright">&times;</span>
+						<p class="w3-col s11">Please contact the bug hunter if you want to upload more than eight attachments.</p>
+					</div>
+					<div class="w3-panel w3-red w3-display-container" id="attachWarnLink" style="overflow: hidden !important; padding-top: 4px" hidden>
+						<span onclick="this.parentElement.style.display='none'; changeHeight()" onkeypress="this.parentElement.style.display='none'; changeHeight()" class="w3-button w3-red w3-small w3-display-topright">&times;</span>
+						<p class="w3-col s11">Please contact the bug hunter if you want to upload more than eight attachment links</p>
+					</div>
+					<div class="w3-panel w3-red w3-display-container" id="submitWarn" style="overflow: hidden !important; padding-top: 4px" hidden>
+						<span onclick="this.parentElement.style.display='none'; changeHeight()" onkeypress="this.parentElement.style.display='none'; changeHeight()" class="w3-button w3-red w3-small w3-display-topright">&times;</span>
+						<p class="w3-col s11">Please fill in the highlighted field(s) before submitting the form.</p>
+					</div>
+					<div class="w3-panel w3-red w3-display-container" id="attachWarn2" style="overflow: hidden !important; padding-top: 4px" hidden>
+						<span onclick="this.parentElement.style.display='none'; changeHeight()" onkeypress="this.parentElement.style.display='none'; changeHeight()" class="w3-button w3-red w3-small w3-display-topright">&times;</span>
+						<p class="w3-col s11">Please contact the bug hunter if you want to upload files of size more than 8 MB.</p>
+					</div>
+					<div class="w3-panel w3-red w3-display-container" id="special-Char-Warn" style="overflow: hidden !important; padding-top: 4px" hidden>
+						<span onclick="this.parentElement.style.display='none'; changeHeight()" onkeypress="this.parentElement.style.display='none'; changeHeight()" class="w3-button w3-red w3-small w3-display-topright">&times;</span>
+						<p class="w3-col s11">Special characters aren't allowed to be used.</p>
+					</div>
+				</div>
+				<div style="padding-bottom: 20px">
+					<label for="submit-form" title="submit">
+						<button type="button" class="w3-btn w3-theme-button w3-round" onclick="submitFunction()" onkeypress="submitFunction()">Submit</button>
+					</label>
+					<label for="reset-form" title="reset">
+						<button type="reset" class="w3-btn w3-theme-button w3-round">Reset</button>
+					</label>
+				</div>
+			</Form>
+		</div>
+		<div class="w3-col s12 m12 l6" style="padding-top: 20px !important; padding-bottom: 20px !important">
+			<div class="w3-card w3-topbar w3-round w3-theme-card w3-display-container" id="visualizer" style="border-color: #336fd5 !important">
+				<div class="w3-card w3-round w3-display-middle w3-text-black center">
+					<div class="w3-row">
+						<div class="w3-center" id="image-parent" hidden>
+							<img id="card-cover" alt="cover-image" onclick="document.getElementById('zoomImage1').style.display = 'block'" onkeypress="document.getElementById('zoomImage1').style.display = 'block'" alt="card-cover-image" style="object-fit: contain !important; cursor: zoom-in; width: max-content; height: 100px; max-width: 100% !important">
+						</div>
+					</div>
+					<div class="w3-row-padding w3-display-container">
+						<div class="w3-panel w3-col" style="width: 10% !important">
+							<span class="fa w3-text-grey" style="font-size: 18px !important; padding-top: 3px !important">&#xf2d0;</span>
+						</div>
+						<div class="w3-col" style="width: 90% !important">
+							<div class="w3-display-topright w3-text-grey w3-hover-text-black" style="font-size: 18px !important; padding-top: 4px !important; padding-right: 8px !important; cursor: pointer">&times;</div>
+							<div class="w3-row">
+								<h5 class="w3-col s11 m11 l11" style="word-wrap: break-word !important; padding-top: 4px !important"><b id="codespan">Placeholder Title</b></h5>
+								<span class="w3-text-grey w3-col s10 m10 l10" style="padding-bottom: 28px !important">In list To be reviewed</span>
+							</div>
+						</div>
+					</div>
+					<div class="w3-row-padding">
+						<div class="w3-panel w3-col" style="width: 10% !important">
+							<span class="fa w3-text-grey" style="font-size: 18px !important; padding-top: 4px !important">&#xf039;</span>
+						</div>
+						<div class="w3-col" style="width: 90% !important">
+							<h5 class="w3-col s11 m11 l8" style="padding-top: 4px !important"><b>Description</b></h5>
+							<span class="w3-col l4 w3-panel w3-text-grey w3-right w3-hide-small w3-hide-medium">ACTIONS</span>
+							<div class="w3-row">
+								<span class="w3-col s11 m11 l8"><b>Details</b>:</span>
+								<span id="codespan2" class="w3-col s11 m11 l8" style="word-wrap: break-word !important; white-space: pre-line !important">Placeholder for Details</span>
+								<span class="w3-col s11 m11 l8" style="padding-top: 5px"><b>Repro Steps</b>:</span>
+								<span id="codespan3" class="w3-col s11 m11 l8" style="word-wrap: break-word !important; white-space: pre-line !important">Placeholder for Repro Steps</span>
+								<span class="w3-col s11 m11 l8" style="padding-top: 5px" id="infotitle" hidden><b>Additional info</b>:</span>
+								<span id="codespan4" class="w3-col s11 m11 l8" style="word-wrap: break-word !important; white-space: pre-line"></span>
+								<span class="w3-col s11 m11 l8" style="padding-top: 16px"><b>Tags</b>: <span id="codespan5" style="word-wrap: break-word !important; white-space: pre-line !important"></span></span>
+								<span class="w3-col s11 m11 l8" style="padding-top: 5px"><b>Reporter name</b>: <span id="codespan6" style="word-wrap: break-word !important"></span></span>
+								<span class="w3-col s11 m11 l8" style="padding-top: 5px"><b>Reporter ID</b>: <span id="codespan7" style="word-wrap: break-word !important"></span></span>
+								<div class="w3-rest w3-hide-small w3-hide-medium" style="padding-left: 16px !important">
+									<button class="w3-button fa button-class w3-block"><span class="w3-text-grey">&#xf06e;</span> Watch</button>
+									<div style="padding-top: 8px !important; padding-bottom: 16px !important"><button class="w3-button fa button-class w3-block"><span class="w3-text-grey">&#xf087;</span> Vote</button></div>
+									<button class="w3-button w3-block w3-text-grey w3-hover-text-grey w3-align-left fa" style="outline: none !important"><u>Share and more...</u></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="w3-row-padding" style="padding-top: 15px !important; padding-bottom: 8px !important" id="attachment-previewer" hidden>
+						<div class="w3-panel w3-col" style="width: 10% !important">
+							<span class="fa w3-text-grey" style="font-size: 18px !important; padding-top: 3px !important">&#xf0c6;</span>
+						</div>
+						<div class="w3-col" style="width: 90% !important">
+							<div class="w3-row">
+								<h5 class="w3-col s11 m11 l11" style="padding-top: 4px !important"><b>Attachments</b></h5>
+							</div>
+							<div class="w3-row">
+								<span class="w3-col s6 m12 l12 image-area-padding" id="attach-box-1" hidden>
+									<div class="w3-row">
+										<div class="w3-col w3-border w3-border-grey image-size">
+											<img id="image-1" onclick="document.getElementById('zoomImage1').style.display = 'block'" onkeypress="document.getElementById('zoomImage1').style.display = 'block'" alt="image-1" style="cursor: zoom-in !important; width: 80px !important; height: 80px !important">
+										</div>
+										<div class="w3-rest w3-border w3-border-grey w3-hide-small" style="height: 80px !important; font-size: 12px !important">
+											<div class="w3-row" style="height: 80px !important; padding-top: 11px !important; padding-left: 8px !important">
+												<span class="w3-col s12">
+													<span id="image-1-name">Image 1</span>
+													<a href="#" target="_blank" rel="noopener noreferrer" class="fa" style="padding-left: 2px !important" id="image-1-link">&#xf08e;</a>
+												</span>
+												<span class="w3-col s12">
+													<span>Added</span>
+													<time id="image-1-date"></time>
+													<span style="white-space: pre-wrap !important"> - <span class="hover-class">Comment</span> - <span class="hover-class">Delete</span></span>
+												</span>
+												<span class="w3-col s12 w3-text-grey">
+													<span class="hover-class w3-hover-text-black">Remove cover</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</span>
+								<span class="w3-col s6 m12 l12 image-area-padding" id="attach-box-2" hidden>
+									<div class="w3-row">
+										<div class="w3-col w3-border w3-border-grey image-size">
+											<img id="image-2" onclick="document.getElementById('zoomImage2').style.display = 'block'" onkeypress="document.getElementById('zoomImage2').style.display = 'block'" alt="image-2" style="cursor: zoom-in !important; width: 80px !important; height: 80px !important">
+										</div>
+										<div class="w3-rest w3-border w3-border-grey w3-hide-small" style="height: 80px !important; font-size: 12px !important">
+											<div class="w3-row" style="height: 80px !important; padding-top: 11px !important; padding-left: 8px !important">
+												<span class="w3-col s12">
+													<span id="image-2-name" >Image 2</span>
+													<a href="#" target="_blank" class="fa" style="padding-left: 2px !important" id="image-2-link">&#xf08e;</a>
+												</span>
+												<span class="w3-col s12">
+													<span>Added</span>
+													<time id="image-2-date"></time>
+													<span style="white-space: pre-wrap !important"> - <span class="hover-class">Comment</span> - <span class="hover-class">Delete</span></span>
+												</span>
+												<span class="w3-col s12 w3-text-grey">
+													<span class="hover-class w3-hover-text-black">Add cover</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</span>
+							</div>
+							<div class="w3-row">
+								<span class="w3-col s6 m12 l12 image-area-padding" id="attach-box-3" hidden>
+									<div class="w3-row">
+										<div class="w3-col w3-border w3-border-grey image-size">
+											<img id="image-3" onclick="document.getElementById('zoomImage3').style.display = 'block'" onkeypress="document.getElementById('zoomImage3').style.display = 'block'" alt="image-3" style="cursor: zoom-in !important; width: 80px !important; height: 80px !important">
+										</div>
+										<div class="w3-rest w3-border w3-border-grey w3-hide-small" style="height: 80px !important; font-size: 12px !important">
+											<div class="w3-row" style="height: 80px !important; padding-top: 11px !important; padding-left: 8px !important">
+												<span class="w3-col s12">
+													<span id="image-3-name">Image 3</span>
+													<a href="#" target="_blank" class="fa" style="padding-left: 2px !important" id="image-3-link">&#xf08e;</a></span>
+												<span class="w3-col s12">
+													<span>Added</span>
+													<time id="image-3-date"></time>
+													<span style="white-space: pre-wrap !important"> - <span class="hover-class">Comment</span> - <span class="hover-class">Delete</span></span>
+												</span>
+												<span class="w3-col s12 w3-text-grey">
+													<span class="hover-class w3-hover-text-black">Add cover</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</span>
+								<span class="w3-col s6 m12 l12 image-area-padding" id="attach-box-4" hidden>
+									<div class="w3-row">
+										<div class="w3-col w3-border w3-border-grey image-size">
+											<img id="image-4" onclick="document.getElementById('zoomImage4').style.display = 'block'" onkeypress="document.getElementById('zoomImage4').style.display = 'block'" alt="image-4" style="cursor: zoom-in !important; width: 80px !important; height: 80px !important">
+										</div>
+										<div class="w3-rest w3-border w3-border-grey w3-hide-small" style="height: 80px !important; font-size: 12px !important">
+											<div class="w3-row" style="height: 80px !important; padding-top: 11px !important; padding-left: 8px !important">
+												<span class="w3-col s12">
+													<span id="image-4-name">Image 4</span>
+													<a href="#" target="_blank" class="fa" style="padding-left: 2px !important" id="image-4-link">&#xf08e;</a>
+												</span>
+												<span class="w3-col s12">
+													<span>Added</span>
+													<time id="image-4-date"></time>
+													<span style="white-space: pre-wrap !important"> - <span class="hover-class">Comment</span> - <span class="hover-class">Delete</span></span>
+												</span>
+												<span class="w3-col s12 w3-text-grey">
+													<span class="hover-class w3-hover-text-black">Add cover</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</span>
+							</div>
+							<div class="w3-row">
+								<span class="w3-col s6 m12 l12 image-area-padding" id="attach-box-5" hidden>
+									<div class="w3-row">
+										<div class="w3-col w3-border w3-border-grey image-size">
+											<img id="image-5" onclick="document.getElementById('zoomImage5').style.display = 'block'" onkeypress="document.getElementById('zoomImage5').style.display = 'block'" alt="image-5" style="cursor: zoom-in !important; width: 80px !important; height: 80px !important">
+										</div>
+										<div class="w3-rest w3-border w3-border-grey w3-hide-small" style="height: 80px !important; font-size: 12px !important">
+											<div class="w3-row" style="height: 80px !important; padding-top: 11px !important; padding-left: 8px !important">
+												<span class="w3-col s12">
+													<span id="image-5-name">Image 5</span>
+													<a href="#" target="_blank" class="fa" style="padding-left: 2px !important" id="image-5-link">&#xf08e;</a>
+												</span>
+												<span class="w3-col s12">
+													<span>Added</span>
+													<time id="image-5-date"></time>
+													<span style="white-space: pre-wrap !important"> - <span class="hover-class">Comment</span> - <span class="hover-class">Delete</span></span>
+												</span>
+												<span class="w3-col s12 w3-text-grey">
+													<span class="hover-class w3-hover-text-black">Add cover</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</span>
+								<span class="w3-col s6 m12 l12 image-area-padding" id="attach-box-6" hidden>
+									<div class="w3-row">
+										<div class="w3-col w3-border w3-border-grey image-size">
+											<img id="image-6" onclick="document.getElementById('zoomImage6').style.display = 'block'" onkeypress="document.getElementById('zoomImage6').style.display = 'block'" alt="image-6" style="cursor: zoom-in !important; width: 80px !important; height: 80px !important">
+										</div>
+										<div class="w3-rest w3-border w3-border-grey w3-hide-small" style="height: 80px !important; font-size: 12px !important">
+											<div class="w3-row" style="height: 80px !important; padding-top: 11px !important; padding-left: 8px !important">
+												<span class="w3-col s12">
+													<span id="image-6-name">Image 6</span>
+													<a href="#" target="_blank" class="fa" style="padding-left: 2px !important" id="image-6-link">&#xf08e;</a>
+												</span>
+												<span class="w3-col s12">
+													<span>Added</span>
+													<time id="image-6-date"></time>
+													<span style="white-space: pre-wrap !important"> - <span class="hover-class">Comment</span> - <span class="hover-class">Delete</span></span>
+												</span>
+												<span class="w3-col s12 w3-text-grey">
+													<span class="hover-class w3-hover-text-black">Add cover</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</span>
+							</div>
+							<div class="w3-row">
+								<span class="w3-col s6 m12 l12 image-area-padding" id="attach-box-7" hidden>
+									<div class="w3-row">
+										<div class="w3-col w3-border w3-border-grey image-size">
+											<img id="image-7" onclick="document.getElementById('zoomImage7').style.display = 'block'" onkeypress="document.getElementById('zoomImage7').style.display = 'block'" alt="image-7" style="cursor: zoom-in !important; width: 80px !important; height: 80px !important">
+										</div>
+										<div class="w3-rest w3-border w3-border-grey w3-hide-small" style="height: 80px !important; font-size: 12px !important">
+											<div class="w3-row" style="height: 80px !important; padding-top: 11px !important; padding-left: 8px !important">
+												<span class="w3-col s12">
+													<span id="image-7-name">Image 7</span>
+													<a href="#" target="_blank" class="fa" style="padding-left: 2px !important" id="image-7-link">&#xf08e;</a></span>
+												<span class="w3-col s12">
+													<span>Added</span>
+													<time id="image-7-date"></time>
+													<span style="white-space: pre-wrap !important"> - <span class="hover-class">Comment</span> - <span class="hover-class">Delete</span></span>
+												</span>
+												<span class="w3-col s12 w3-text-grey">
+													<span class="hover-class w3-hover-text-black">Add cover</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</span>
+								<span class="w3-col s6 m12 l12 image-area-padding last-image" id="attach-box-8" hidden>
+									<div class="w3-row">
+										<div class="w3-col w3-border w3-border-grey image-size">
+											<img id="image-8" onclick="document.getElementById('zoomImage8').style.display = 'block'" onkeypress="document.getElementById('zoomImage8').style.display = 'block'" alt="image-8" style="cursor: zoom-in !important; width: 80px !important; height: 80px !important">
+										</div>
+										<div class="w3-rest w3-border w3-border-grey w3-hide-small" style="height: 80px !important; font-size: 12px !important">
+											<div class="w3-row" style="height: 80px !important; padding-top: 11px !important; padding-left: 8px !important">
+												<span class="w3-col s12">
+													<span id="image-8-name">Image 8</span>
+													<a href="#" target="_blank" class="fa" style="padding-left: 2px !important" id="image-8-link">&#xf08e;</a>
+												</span>
+												<span class="w3-col s12">
+													<span>Added</span>
+													<time id="image-8-date"></time>
+													<span style="white-space: pre-wrap !important"> - <span class="hover-class">Comment</span> - <span class="hover-class">Delete</span></span>
+												</span>
+												<span class="w3-col s12 w3-text-grey">
+													<span class="hover-class w3-hover-text-black">Add cover</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="w3-modal w3-center" id="zoomImage1">
+			<div class="close-modal" onclick="this.parentElement.style.display = 'none'"></div>
+			<img class="w3-animate-zoom w3-modal-content image-modal" id="image-copy1" alt="image-copy-1">
+		</div>
+		<div class="w3-modal w3-center" id="zoomImage2">
+			<div class="close-modal" onclick="this.parentElement.style.display = 'none'"></div>
+			<img class="w3-animate-zoom w3-center w3-modal-content image-modal" id="image-copy2" alt="image-copy-2">
+		</div>
+		<div class="w3-modal w3-center" id="zoomImage3">
+			<div class="close-modal" onclick="this.parentElement.style.display = 'none'"></div>
+			<img class="w3-animate-zoom w3-center w3-modal-content image-modal" id="image-copy3" alt="image-copy-3">
+		</div>
+		<div class="w3-modal w3-center" id="zoomImage4">
+			<div class="close-modal" onclick="this.parentElement.style.display = 'none'"></div>
+			<img class="w3-animate-zoom w3-center w3-modal-content image-modal" id="image-copy4" alt="image-copy-4">
+		</div>
+		<div class="w3-modal w3-center" id="zoomImage5">
+			<div class="close-modal" onclick="this.parentElement.style.display = 'none'"></div>
+			<img class="w3-animate-zoom w3-center w3-modal-content image-modal" id="image-copy5" alt="image-copy-5">
+		</div>
+		<div class="w3-modal w3-center" id="zoomImage6">
+			<div class="close-modal" onclick="this.parentElement.style.display = 'none'"></div>
+			<img class="w3-animate-zoom w3-center w3-modal-content image-modal" id="image-copy6" alt="image-copy-6">
+		</div>
+		<div class="w3-modal w3-center" id="zoomImage7">
+			<div class="close-modal" onclick="this.parentElement.style.display = 'none'"></div>
+			<img class="w3-animate-zoom w3-center w3-modal-content image-modal" id="image-copy7" alt="image-copy-7">
+		</div>
+		<div class="w3-modal w3-center" id="zoomImage8">
+			<div class="close-modal" onclick="this.parentElement.style.display = 'none'"></div>
+			<img class="w3-animate-zoom w3-center w3-modal-content image-modal" id="image-copy8" alt="image-copy-8">
+		</div>
+	</div>
+	<footer>
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<script type="text/javascript">
+			let bugChanged = false;
+    		let tagChanged = false;
+    		let detailsChanged = false;
+			let reproChanged = false;
+
+			function highlightBorder(element) {
+				function changeBorder() {
+					element.style.border = "1px solid red";
+				}
+
+				if (element.value.length === 0) {
+					if ((element.id === "Bug") && (bugChanged === true)) {
+						changeBorder();
+					}
+					else if ((element.id === "tag") && (tagChanged === true)) {
+						changeBorder();
+					}
+					else if ((element.id === "Details") && (detailsChanged === true)) {
+						changeBorder();
+					}
+					else if ((element.id === "reproSteps") && (reproChanged === true)) {
+						changeBorder();
+					}
+				}
+			}
+
+			function restoreBorder() {
+				bugChanged = false;
+				tagChanged = false;
+				detailsChanged = false;
+				reproChanged = false;
+			}
+
+			function reveal() {
+				const displayValue = document.getElementById("additional-fields").style.display;
+				const arrowElement = document.getElementById("changeArrow");
+	
+				if (displayValue === "block") {
+					document.getElementById("additional-fields").style.display = "none";
+					arrowElement.innerHTML = "&#xf107;  Additional fields  &#xf107;";
+					changeHeight();
+				}
+				else {
+					document.getElementById("additional-fields").style.display = "block";
+					arrowElement.innerHTML = "&#xf106;  Additional fields  &#xf106;";
+					changeHeight();
+				}
+			}
+	
+			function collectiveClearer() {
+				setTimeout(() => {
+					inputFunction2();
+					inputFunction3();
+					inputFunction4();
+					inputFunction5();
+					inputFunction6();
+				}, 800);
+			}
+	
+			function inputFunction2() {
+				if (document.getElementById("Bug").value.length !== 0) {
+					document.getElementById("codespan").innerHTML = document.getElementById("Bug").value;
+				}
+				else {
+					document.getElementById("codespan").innerHTML = "Placeholder Title";
+				}
+			}
+	
+			function inputFunction3() {
+				if (document.getElementById("Details").value.length !== 0) {
+					const compiledMarkdown = marked(document.getElementById("Details").value); // For compiling markdown: https://github.com/markedjs/marked
+					document.getElementById("codespan2").innerHTML = compiledMarkdown;
+				}
+				else {
+					document.getElementById("codespan2").innerHTML = "Placeholder for Details";
+				}
+			}
+	
+			function inputFunction4() {
+				if (document.getElementById("reproSteps").value.length !== 0) {
+					const compiledMarkdown = marked(document.getElementById("reproSteps").value);
+					document.getElementById("codespan3").innerHTML = compiledMarkdown;
+				}
+				else {
+					document.getElementById("codespan3").innerHTML = "Placeholder for Repro Steps";
+				}
+			}
+	
+			function inputFunction5() {
+				if (document.getElementById("info").value.length !== 0) {
+					const compiledMarkdown = marked(document.getElementById("info").value);
+					document.getElementById("infotitle").style.display = "block";
+					document.getElementById("codespan4").innerHTML = compiledMarkdown;
+				}
+				else {
+					document.getElementById("infotitle").style.display = "none";
+					document.getElementById("codespan4").innerHTML = "";
+				}
+			}
+	
+			function inputFunction6() {
+				const tagElement = document.getElementById("tag");
+				if (/^[a-z0-9,\s]*$/i.test(tagElement.value) === true) {
+					compiledMarkdown = marked(tagElement.value);
+					document.getElementById("codespan5").innerHTML = compiledMarkdown;
+				}
+				else {
+					document.getElementById("special-Char-Warn").style.display = "block";
+					tagElement.value = tagElement.value.slice(0, -1);
+				}
+			}
+	
+			function changeHeight() {
+				document.getElementById("visualizer").style.height = `${document.getElementById("bug-report").getBoundingClientRect().height}px`;
+			}
+	
+			let cooldown = false;
+	
+			function borderFunction() {
+				document.getElementById("type1").style.border = "";
+				document.getElementById("type2").style.border = "";
+			}
+	
+			function inputFunction(element) {
+				element.style.border = "";
+			}
+	
+			function hideFileFields(bool) {
+				if (bool === true) {
+					for (let i = 0; i <= 7; i++) {
+						const imageElement = document.getElementById(`attach-box-${i + 1}`);
+						if (imageElement.style.display === "block") {
+							imageElement.style.display = "none";
+						}
+					
+						if (i === 7) {
+							document.getElementById("image-parent").style.display = "none";
+							document.getElementById("attachment-previewer").style.display = "none";
+							return "Function completed!";
+						}
+					}
+				}
+			}
+
+			function hideFilePreviewer(bool) {
+				const cardCoverImageParent = document.getElementById("image-parent");
+				const imagePreviewerDivision = document.getElementById("attachment-previewer");
+				if (bool === true) {
+					cardCoverImageParent.style.display = "none";
+					imagePreviewerDivision.style.display = "none";
+				}
+				else if (bool === false) {
+					cardCoverImageParent.style.display = "block";
+					imagePreviewerDivision.style.display = "block";
+
+				}
+			}
+	
+			function submitFunction() {
+				if (cooldown == false) {
+					cooldown = true;
+					setTimeout(() => {
+						cooldown = false;
+					}, 5000);
+					const fileLinks = document.getElementById("fileText").value;
+					const fileArray = fileLinks.split("||");
+					const bugField = document.getElementById("Bug").value;
+					const tagField = document.getElementById("tag").value;
+					const type1Field = document.getElementById("type1").checked;
+					const type2Field = document.getElementById("type2").checked;
+					const detailsField = document.getElementById("Details").value;
+					const reproField = document.getElementById("reproSteps").value;
+					if ((bugField !== "") && (tagField !== "") && ((type1Field === true) || (type2Field === true)) && (detailsField !== "") && (reproField !== "")) {
+						if (fileArray.length > 8) {
+							document.getElementById("attachWarnLink").style.display = "block";
+							document.getElementById("fileText").style.border = "1px solid red";
+						}
+						else {
+							document.getElementById("bug-report").submit();
+						}
+					}
+					else {
+						document.getElementById("submitWarn").style.display = "block";
+						changeHeight();
+	
+						if ((type1Field === false) && (type2Field === false)) {
+							document.getElementById("type1").style.border = "1px solid red";
+							document.getElementById("type2").style.border = "1px solid red";
+						}
+	
+						(bugField === "") ? (document.getElementById("Bug").style.border = "1px solid red") : null;
+						(detailsField === "") ? (document.getElementById("Details").style.border = "1px solid red") : null;
+						(tagField === "") ? (document.getElementById("tag").style.border = "1px solid red") : null;
+						(reproField === "") ? (document.getElementById("reproSteps").style.border = "1px solid red") : null;
+					}
+				}
+			}
+
+			function makeDroppable(element, callback) {
+				const input = document.getElementById("file");
+				let traditionalUpload = false;
+				input.addEventListener('change', (event) => {
+					if (traditionalUpload === true) {
+						triggerCallback(event);
+					}
+				});
+				element.appendChild(input);
+
+				element.addEventListener("dragover", (event) => {
+					event.preventDefault();
+					event.stopPropagation();
+					element.classList.add("dragover");
+				});
+
+				element.addEventListener("dragleave", (event) => {
+					event.preventDefault();
+					event.stopPropagation();
+					element.classList.remove("dragover");
+				});
+
+				element.addEventListener("drop", (event) => {
+					traditionalUpload = false;
+					event.preventDefault();
+					event.stopPropagation();
+					element.classList.remove("dragover");
+					hideFileFields(true);
+					triggerCallback(event);
+				});
+
+				element.addEventListener("click", () => {
+					traditionalUpload = true;
+					input.value = null;
+					hideFileFields(true);
+					input.click();
+				});
+
+				element.addEventListener("keypress", () => {
+					traditionalUpload = true;
+					input.value = null;
+					hideFileFields(true);
+					input.click();
+				});
+
+				function triggerCallback(event) {
+					let files;
+					if (event.dataTransfer) {
+						input.value = null;
+						files = event.dataTransfer.files;
+						callback.call(null, files, true);
+					}
+					else if (event.target) {
+						files = event.target.files;
+						callback.call(null, files, false);
+					}
+					else if (event.clipboardData) {
+						input.value = null;
+						files = event.clipboardData.files;
+						callback.call(null, files, true);
+					}
+				}
+			}
+
+			const element = document.querySelector(".droppable");
+
+			function callback(fileuploaded, boolean) {
+				if (fileuploaded.length <= 8) {
+					for (let i = 0; i <= (fileuploaded.length - 1); i++) { // Used for adding Edge support ┻━┻ミヽ(ಠ益ಠ)ﾉ彡┻━┻
+						const fileObject = fileuploaded[i];
+						if (fileObject.size > 8000000) {
+							document.getElementById("attachWarn2").style.display = "block";
+							changeHeight();
+							return;
+						}
+						else if (fileObject.type.startsWith("image/")) {
+							let indexValue = i + 1;
+							const fileURL = URL.createObjectURL(fileObject);
+							const date = new Date().toString().split("GMT")[0].split(":").slice(0, 2).join(":").split(" ");
+							date.shift();
+							const time = date.pop();
+	
+							if (indexValue === 1) {
+								document.getElementById("card-cover").setAttribute("src", fileURL);
+								document.getElementById("image-parent").style.display = "block";
+							}
+
+							document.getElementById("attachment-previewer").style.display = "block";
+							document.getElementById(`attach-box-${indexValue}`).style.display = "block";
+							document.getElementById(`image-${indexValue}`).setAttribute("src", fileURL);
+							document.getElementById(`image-copy${indexValue}`).setAttribute("src", fileURL);
+							document.getElementById(`image-${indexValue}-link`).href = fileURL;
+							document.getElementById(`image-${indexValue}-date`).innerHTML = date.join(" ") + " at " + time;
+							document.getElementById(`image-${indexValue}-name`).innerHTML = (fileObject.name.length > 20) ? (`${fileObject.name.slice(0, 20)}...${fileObject.type.split("/")[1]}`) : (fileObject.name);
+						}
+					}
+
+					if (boolean === true) {
+						document.getElementById("file").files = fileuploaded;
+					}
+					
+					document.getElementById("additionalInfo2").style.display = "block";
+					document.getElementById("additionalInfo2").innerHTML = `${fileuploaded.length} file(s) selected.`;
+					changeHeight();
+				}
+				else {
+					document.getElementById("attachWarn").style.display = "block";
+					changeHeight();
+				}
+			}
+
+			makeDroppable(element, callback);
+
+			function buttonFunction() {
+				document.getElementById("fileButton").style.display = "none";
+				document.getElementById("linkButton").style.display = "block";
+				document.getElementById("fileDrop").style.display = "block";
+				document.getElementById("hidden").style.display = "none";
+				document.getElementById("additionalInfo").style.display = "none";
+				document.getElementById("additionalInfo2").style.display = "block";
+				document.getElementById("fileText").setAttribute("disabled", true);
+				document.getElementById("file").removeAttribute("disabled");
+				changeHeight();
+				hideFilePreviewer(false);
+			}
+
+			function buttonFunction2() {
+				document.getElementById("linkButton").style.display = "none";
+				document.getElementById("fileButton").style.display = "block";
+				document.getElementById("hidden").style.display = "block";
+				document.getElementById("fileDrop").style.display = "none";
+				document.getElementById("additionalInfo").style.display = "block";
+				document.getElementById("additionalInfo2").style.display = "none";
+				document.getElementById("file").setAttribute("disabled", true);
+				document.getElementById("fileText").removeAttribute("disabled");
+				changeHeight();
+				hideFilePreviewer(true);
+			}
+		</script>
+		<script src="./javascript" defer></script>
+	</footer>
+</body>
+</html>

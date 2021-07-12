@@ -1,0 +1,52 @@
+{
+  "name": "@dyno.gg/autoroles",
+  "version": "1.1.4",
+  "description": "Autorole module for use in Dyno.",
+  "engineStrict": true,
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "scripts": {
+    "clean": "rimraf coverage build tmp",
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -w -p tsconfig.json",
+    "lint": "tslint -t stylish --type-check --project 'tsconfig.json'",
+    "pretest": "npm run lint",
+    "test": "npm run test-only",
+    "test-only": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "main": "build/index.js",
+  "typings": "build/index",
+  "author": "Brian Tanner <brian@tanner.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlexLabs/Dyno-autoroles.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlexLabs/Dyno-autoroles/issues"
+  },
+  "homepage": "https://github.com/FlexLabs/Dyno-autoroles#readme",
+  "dependencies": {
+    "@dyno.gg/dyno-core": "^1.0.0",
+    "async-each": "^1.0.1",
+    "moment": "^2.19.1",
+    "source-map-support": "^0.4.18"
+  },
+  "devDependencies": {
+    "@dyno.gg/eris": "^0.8.2",
+    "@types/jest": "^21.1.0",
+    "@types/node": "^8.0.30",
+    "eris": "^0.7.2",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-typescript": "^3.2.2",
+    "rimraf": "~2.6.1",
+    "ts-jest": "^21.0.1",
+    "tslib": "~1.7.1",
+    "tslint": "~5.7.0",
+    "tslint-microsoft-contrib": "~5.0.1",
+    "tsutils": "~2.8.2",
+    "typescript": "^2.5.2"
+  }
+}

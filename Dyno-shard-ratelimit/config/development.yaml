@@ -1,0 +1,30 @@
+---
+# prefixes
+prefix: '?'
+sudopref: '$'
+localPrefix: '.'
+adminPrefix: t.
+
+test: true
+state: 2
+stateName: Development
+logLevel: debug
+isPremium: false
+
+# sharding
+clusterCount: 1
+shardingStrategy: process
+shardCountOverride: 1
+
+site:
+  host: http://localhost
+  port: 80
+  listen_port: 8000
+
+disableHelp: true
+
+modules:
+- AdminHandler
+- CommandHandler
+- ShardStatus
+- Dyno

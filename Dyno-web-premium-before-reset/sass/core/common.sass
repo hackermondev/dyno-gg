@@ -1,0 +1,162 @@
+@import "../core/base.scss";
+@import "../partials/footer.sass"
+
+.navbar
+	background-color: $topnav-background;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+	padding-left: 1.5rem;
+	padding-top: 0.3rem;
+	height: 80px;
+
+	.touch-login-button
+		margin: 0;
+		margin-bottom: 3px;
+
+	.columns
+		max-width: 100vw;
+		.column
+			padding: 0px;
+
+	.navbar-logo
+		margin-top: 24px;
+		width: 120px;
+		height: 41px;
+	
+	.navbar-avatar
+		border-radius: 900px;
+		border: 2px solid gray;
+		height: 42px;
+		width: 42px;
+
+	@include mobile
+		.navbar-logo
+			width: 80px;
+			height: 28px;
+			margin-top: 12px;
+
+
+	@include until($desktop)
+		padding-left: 0px;
+		padding-top: 0.60rem;
+		height: 60px;
+
+		.divider
+			display: none;
+
+		.navbar-brand
+			height: 60px;
+
+		.navbar-menu
+			background-color: $topnav-background;
+
+		.columns
+			margin-bottom: 0px;
+
+			.column
+				padding: .75rem;
+		
+		.navbar-burger-column
+			align-content: center;
+			justify-content: flex-start;
+			display: flex;
+		
+		.navbar-logo-column
+			align-content: center;
+			justify-content: center;
+			display: flex;
+
+		.navbar-auth-column
+			align-content: center;
+			justify-content: flex-end;
+			display: flex;
+
+
+	@include tablet
+		.navbar-logo
+			width: 120px;
+			height: 41px;
+	
+	@include desktop
+		.navbar-menu
+			display: flex !important;
+
+	.navbar-burger
+		margin-left: 10px;
+
+		span
+			background-color: #fff;
+			height: 2px;
+			width: 24px;
+
+			&:nth-child(1)
+				top: calc(50% - 6px);
+			
+			
+			&:nth-child(2)
+				top: calc(50% + 1px);
+
+				
+			&:nth-child(3)
+				top: calc(50% + 8px);
+
+	a.navbar-item:hover
+		background-color: unset;
+
+	.divider
+		width: 1px;
+		height: 36px;
+		margin-top: 16px;
+		margin-bottom: 10px;
+		background-color: white;
+		opacity: 0.2;
+		margin-right: 20px;
+		margin-left: 7px;
+
+	.navbar-start
+		a.navbar-item
+			opacity: 0.75;
+
+			&:hover
+				color: $accent-red;
+				opacity: 1;
+
+	.navbar-item
+		color: #ffffff;
+		font-family: 'Maison Neue';
+		font-size: 14px;
+		font-weight: 500;
+		img
+			max-height: none;
+			max-width: none;
+
+.has-text-primary
+	color: #01E6CE !important;
+
+.has-text-grey
+	color: #606a7b !important;
+
+
+.button
+	border-radius: 0px;
+	font-family: 'Maison Neue';
+	padding-top: 0.375em;
+
+	&.is-info
+		margin-right: 0.5em;
+		border-radius: 4px;
+		background-color: $info-btn;
+		&:hover
+			background: linear-gradient(0deg, rgb(255, 138, 138) 0%, rgb(236, 101, 95) 100%);
+			// border: 2px solid rgba(255, 255, 255, 0.297979);
+			// box-sizing: border-box;
+			text-decoration: none;
+
+	&.is-light
+		background-color: $light-btn;
+		color: #FFFFFF;
+		&:hover
+			background-color: $light-btn-hover;
+			color: #FFFFFF;
+
+	&.is-rounded
+		border-radius: 3px;

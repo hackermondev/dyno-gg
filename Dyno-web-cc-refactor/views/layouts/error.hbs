@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{{>opengraph}}
+		<title>{{config.name}}</title>
+        <link rel="shortcut icon" type="image/png" href="/images/v3/favicon.png"/>
+		{{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-87DrmpqHRiY8hPLIr7ByqhPIywuSsjuQAfMXAE0sMUpY3BM7nXjf+mLIUSvhDArs" crossorigin="anonymous">
+		{{#each externalStylesheets}}
+			<link rel="stylesheet" href="{{getVersionedPath this}}">
+		{{/each}}
+		{{#each stylesheets}}
+			<link rel="stylesheet" href="{{getVersionedPath this}}">
+		{{/each}}
+	</head>
+	<body>
+		<nav class="level top-bar">
+			<div class="level-left">
+				<h1 class="title">
+					<a href="/" title="{{config.name}}">
+						<img src="/images/v3/dyno-44.svg" alt="Dyno" style="margin-right: 10px;" />
+                        {{config.name}}
+					</a>
+				</h1>
+				{{>topnav}}
+			</div>
+
+            {{#unless hideAuth}}
+			    <div id='auth-mount'></div>
+            {{/unless}}
+		</nav>
+
+		<div class="page-wrapper">
+			{{{body}}}
+		</div>
+
+		<footer class="footer">
+		  <div class="container">
+		    <div class="content has-text-centered">
+					{{>footernav}}
+		    </div>
+		  </div>
+		</footer>
+	</body>
+</html>

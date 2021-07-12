@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Patreon.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> Patreon.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/57</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/56</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as superagent from 'superagent';
+<span class="cstat-no" title="statement not covered" >import {config} from './config';</span>
+import * as models <span class="cstat-no" title="statement not covered" >from './models';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+/**<span class="cstat-no" title="statement not covered" ></span>
+ * Patreon api wrapper
+ */
+export class Patreon {
+	public auth: PatreonAuth;
+	pub<span class="fstat-no" title="function not covered" >li</span>c refreshToken: string;
+	public <span class="cstat-no" title="statement not covered" >clientId: string;</span>
+	public <span class="cstat-no" title="statement not covered" >clientSecret: string;</span>
+	public <span class="cstat-no" title="statement not covered" >campaignId: string = '543081';</span>
+	private<span class="cstat-no" title="statement not covered" > baseUrl: string = 'https://www.patreon.com/api/oa</span>uth2';
+	private<span class="cstat-no" title="statement not covered" > pledgeUrl: string = `/api/campaigns/${this.campaignId}/pl</span>edges?page%5Bcount%5D=100&amp;sort=created`;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+	constructor<span class="cstat-no" title="statement not covered" >() {</span>
+		this.clientId = config.patreon.clientId;
+		this.clientSecret = config.patreon.clientSecret;
+<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+		this.g<span class="cstat-no" title="statement not covered" >etAuth().catch((err: Error) =&gt; {</span>
+			throw err<span class="cstat-no" title="statement not covered" >;</span>
+		});
+	}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+	public async getPledges(url: str<span class="cstat-no" title="statement not covered" >ing = this.pledgeUrl, pled</span>ges: PatronPledge[] = []): Promise&lt;PatronPledge[]&gt; {
+		if (this.a<span class="cstat-no" title="statement not covered" >uth == undefined) {</span>
+			throw new<span class="cstat-no" title="statement not covered" > Error('Not authenticated yet.');</span>
+		}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+		try {<span class="cstat-no" title="statement not covered" ></span>
+			const result = await this.apiRequest(url);
+			const parsedResult = this.parsePledges(result);
+			pledges =<span class="cstat-no" title="statement not covered" > pledges.co</span>ncat(parsedResult);
+&nbsp;
+			if (result.links != undefined &amp;&amp; result.links.next != undefined) {
+<span class="fstat-no" title="function not covered" >				re</span>turn this.getPledges(result.links.next, pledges);
+			}
+<span class="cstat-no" title="statement not covered" ></span>
+			return pl<span class="cstat-no" title="statement not covered" >edges;</span>
+		} catch (err) {
+			throw err;
+		}<span class="cstat-no" title="statement not covered" ></span>
+	}
+<span class="cstat-no" title="statement not covered" ></span>
+	private asy<span class="cstat-no" title="statement not covered" >nc getAuth(): Promise&lt;void&gt; {</span>
+		let result: models.PatreonDocument | PatreonAuth;
+<span class="cstat-no" title="statement not covered" ></span>
+		try {<span class="cstat-no" title="statement not covered" ></span>
+			result = <span class="cstat-no" title="statement not covered" >await mo</span>dels.patreon.findOne();
+		} catch (err) {
+			throw new Error(err);
+		}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+		if (result == undefined || result.refreshToken == undefined) {
+			throw new Error('No auth data found. Please provide a refresh token to authenticate.');
+		}
+&nbsp;
+		if (result.accessToken != undefined &amp;&amp; result.expires &gt;= new Date()) {
+			this.auth = result.toObject();
+			return;
+		} else {
+			try {<span class="cstat-no" title="statement not covered" ></span>
+				const res = await superagent.post(`${this.baseUrl}/token`)
+					.set('Content-Type', 'application/json')
+					.query({<span class="cstat-no" title="statement not covered" ></span>
+						grant_type: 'refresh_token',
+						refres<span class="cstat-no" title="statement not covered" >h_token: result.refreshToken,</span>
+						client_id:<span class="cstat-no" title="statement not covered" > this.clientId,</span>
+						client_secret: this.client<span class="cstat-no" title="statement not covered" >Secret,</span>
+					})<span class="cstat-no" title="statement not covered" ></span>
+					.send();<span class="cstat-no" title="statement not covered" ></span>
+				result = res.bod<span class="cstat-no" title="statement not covered" >y;</span>
+			} catch (err) {
+				throw new Error(err);
+			}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+			if (result != undefined &amp;&amp; result.access_token != undefined) {
+				try {
+					const res = await models.patreon.findOneAndUpdate({}, result, { upsert: true });
+<span class="fstat-no" title="function not covered" >					r</span>esult = res.get().toObject();
+<span class="cstat-no" title="statement not covered" ></span>
+					this.auth = &lt;PatreonAu<span class="cstat-no" title="statement not covered" >th&gt;result;</span>
+					return;
+				} catch (err) {
+					throw n<span class="cstat-no" title="statement not covered" >ew Error(err);</span>
+				}
+			}
+		}<span class="cstat-no" title="statement not covered" ></span>
+	}
+&nbsp;
+	pri<span class="fstat-no" title="function not covered" >va</span>te async apiRequest(url: string): Promise&lt;PledgesResponse&gt; {
+		try {<span class="cstat-no" title="statement not covered" ></span>
+			const<span class="cstat-no" title="statement not covered" > result = await superagent.get(url)</span>
+				.set('Authorization<span class="cstat-no" title="statement not covered" >', `Bearer ${this.auth.accessToken}`</span>)
+				.set('Accept', 'applica<span class="cstat-no" title="statement not covered" >tion/json');<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+<span class="cstat-no" title="statement not covered" ></span>
+				return result.body;<span class="cstat-no" title="statement not covered" ></span>
+		} catch (err) {<span class="cstat-no" title="statement not covered" ></span>
+			throw err;
+		}
+	}
+&nbsp;
+	private parsePledges(result: PledgesResponse): PatronPledge[] {
+		const pledges = [];
+&nbsp;
+		for (const pledge of result.data) {
+			const id: string = pledge.relationships.patron.data.id;
+			const patron: PledgeUser = result.included.find((d: PledgeUser) =&gt; d.id === id);
+			const attributes: PledgeUserAttributes = patron.attributes;
+			const pledgeAttributes: PledgeAttributes = pledge.attributes;
+&nbsp;
+			const patronPledge: PatronPledge = {
+				id: id,
+				discord_id: null,
+				email: attributes.email,
+				first_name: attributes.first_name,
+				last_name: attributes.last_name,
+				full_nam<span class="cstat-no" title="statement not covered" >e: attributes.full_name,</span>
+				is_email_ver<span class="cstat-no" title="statement not covered" >ified: attributes.is_email_verified,</span>
+				image_url: attributes.image_url,
+				thumb_ur<span class="cstat-no" title="statement not covered" >l: attributes.thumb_url,</span>
+				url: attributes.url,
+				pled<span class="cstat-no" title="statement not covered" >ge: {</span>
+					id: pledge.id,
+					amount_cents: pledgeAttributes.amount_cents,
+<span class="cstat-no" title="statement not covered" >					created_at: pledgeAttr</span>ibutes.created_at,
+					declined_since: pledgeAttributes.declined_since,
+					patron_pays_fees: pledgeAttributes.patron_pays_fees,
+					pledge_cap_cents: pledgeAttributes.pledge_cap_cents,
+				},
+			};
+&nbsp;
+			if (attributes.social_connections != undefined &amp;&amp; attributes.social_connections.discord != null) {
+				patronPledge.discord_id = patron.attributes.social_connections.discord;
+			}
+&nbsp;
+			pledges.push(patronPledge);
+		}
+&nbsp;
+		return pledges;
+	}
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 04 2017 20:49:22 GMT-0400 (EDT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

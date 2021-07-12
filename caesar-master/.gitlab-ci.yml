@@ -1,0 +1,56 @@
+stages:
+  - build
+  - deploy
+
+before_script:
+  - apt-get update -y > /dev/null
+  - apt-get install curl build-essential git -y > /dev/null
+  - curl -sL https://deb.nodesource.com/setup_10.x | bash > /dev/null
+  - apt-get install -y nodejs > /dev/null
+  - npm i yarn -g > /dev/null
+
+build:
+  stage: build
+  script: 
+    - yarn
+    - yarn build
+
+deploy to production:
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | ssh-add - > ~/.ssh/id_rsa
+    - 'echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - apt-get install curl build-essential git -y > /dev/null
+    - curl -sL https://deb.nodesource.com/setup_8.x | bash > /dev/null
+    - apt-get install -y nodejs > /dev/null
+    - npm i pm2 -g > /dev/null
+  script:
+    - pm2 deploy pm2/prod.json production setup
+    - pm2 deploy pm2/prod.json production
+  when: manual
+  only: 
+    - master
+
+deploy to dev:
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | ssh-add - > ~/.ssh/id_rsa
+    - 'echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - apt-get install curl build-essential git -y > /dev/null
+    - curl -sL https://deb.nodesource.com/setup_8.x | bash > /dev/null
+    - apt-get install -y nodejs > /dev/null
+    - npm i pm2 -g > /dev/null
+  script:
+    - pm2 deploy pm2/dev.json dev setup
+    - pm2 deploy pm2/dev.json dev
+  only: 
+    - develop
+  

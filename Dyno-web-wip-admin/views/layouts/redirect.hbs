@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{{>opengraph}}
+		<title>{{config.name}}</title>
+		<script type="text/javascript">
+			window.location.href = '{{{redirectURI}}}';
+		</script>
+	</head>
+	<body>
+		<nav class="level top-bar">
+			<div class="level-left">
+				<h1 class="title">
+					<a href="/" title="{{config.name}}">
+						<img src="/images/v3/dyno-44.svg" alt="Dyno" />
+						{{config.name}}
+					</a>
+				</h1>
+				<nav class="nav">
+					<div class="nav-left nav-menu">
+						<a class="nav-item button is-info" href="/invite"><strong>Add To Server</strong></a>
+						<a class="nav-item" href="/discord" target="_blank">Join Our Discord</a>
+						<a class="nav-item" href="/commands">Commands</a>
+						<a class="nav-item" href="https://www.patreon.com/dyno" target="_blank">Donate</a>
+						{{!-- <a class="nav-item" href="https://twitter.com/DynoDiscord" target="_blank">Twitter</a> --}}
+					</div>
+				</nav>
+			</div>
+
+			<div id='auth-mount'></div>
+			{{!-- <div class="level-right">
+				{{#if user}}
+					<div class="level-item">
+						{{>serverselect}}
+					</div>
+					<a class="level-item" href="/">
+						{{#if user.avatar}}
+							<img class="image is-32x32" src="https://discordapp.com/api/users/{{user.id}}/avatars/{{user.avatar}}.jpg" />
+						{{else}}
+							<img class="image is-32x32" src="https://discordapp.com/assets/6debd47ed13483642cf09e832ed0bc1b.png" />
+						{{/if}}
+					</a>
+					<a class="level-item" href="/">{{user.username}}</a>
+					<a class="level-item button is-info" href="/logout" title="Logout">Logout</a>
+				{{else}}
+					<a class="level-item button is-info" href="/auth" title="Login with Discord">Login with Discord</a>
+				{{/if}}
+			</div> --}}
+		</nav>
+
+		<div class="page-wrapper">
+			{{{body}}}
+		</div>
+
+		<footer class="footer">
+		  <div class="container">
+		    <div class="content has-text-centered">
+					{{>footernav}}
+		    </div>
+		  </div>
+		</footer>
+	</body>
+</html>

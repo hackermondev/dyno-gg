@@ -1,0 +1,6 @@
+.idea/
+.vscode/
+node_modules/
+config/main.json
+package-lock.json
+service-base.iml

@@ -1,0 +1,11 @@
+default: 
+  patreon:
+    clientId: 'e4bf3c3950d08803fcdd86f1a653ceb21ee94d9760c944ef7e9b16723234a8c2'
+    clientSecret: 'b11c7d64729a2dd8015fef67a720f05a03010ca21190cbe0a1194c4d642d3887'
+  logLevel: 'TRACE'
+  elastic: 
+    minLogLevel: 'info'
+  mongo: 'mongodb://localhost:27017'
+  disableUnlinked: false
+development: 
+  mongo: 'mongodb://dynotest:dYn01test@db01.dyno.sh:27017/dynotest'

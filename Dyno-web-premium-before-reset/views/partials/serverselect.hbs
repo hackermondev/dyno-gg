@@ -1,0 +1,8 @@
+<span class="select server-select">
+	<select class="level-item">
+		<option>Select Server</option>
+		{{#each guilds}}
+			<option value="{{this.id}}"{{#if this.selected}} selected="selected"{{/if}}>{{this.name}}</option>
+		{{/each}}
+	</select>
+</span>

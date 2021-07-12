@@ -1,0 +1,22 @@
+stages:
+  - deploy
+
+########################## DEPLOYMENT ##############################
+
+.deploy_base:
+  image: kroniak/ssh-client
+  before_script:
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+
+deploy to dev:
+  stage: deploy
+  extends: .deploy_base
+  script:
+    - ssh dyno@10.12.0.95 "cd Dyno-modules && git pull origin develop && npm install && npm link Dyno && npm link @dyno.gg/dyno-core && tsc -p 'tsconfig.json' && npm link"
+    - ssh dyno@10.12.0.95 "./restart.sh"
+  only: 
+    - develop

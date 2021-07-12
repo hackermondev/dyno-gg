@@ -1,0 +1,74 @@
+.rich-select {
+	align-items: initial !important;
+	padding-top: 0;
+	padding-bottom: 0;
+	min-width: 200px;
+}
+
+.rich-select:hover {
+
+}
+
+.rich-select label {
+	width: 100%;
+	line-height: 2em;
+}
+
+.Select-control,
+.Select.is-open > .Select-control,
+.Select.is-focused > .Select-control,
+.Select.is-focused:not(.is-open) > .Select-control,
+.Select-menu-outer,
+.Select-option {
+	background: #2A2B30;
+	background-color: #2A2B30;
+}
+
+.Select-control,
+.Select--multi .Select-value,
+.Select--multi .Select-value-icon,
+.Select.is-open > .Select-control,
+.Select.is-focused > .Select-control,
+.Select.is-focused:not(.is-open) > .Select-control {
+	border-color: #555;
+}
+
+.Select-control {
+	caret-color: #eee;
+}
+
+.Select--multi .Select-value {
+	color: #ccc;
+}
+
+.Select--multi .Select-value-icon {
+	padding: 2px 5px 3px;
+}
+
+.Select.is-open > .Select-control,
+.Select-menu-outer {
+	border-color: rgba(51, 111, 213, 0.5);
+}
+
+.Select-menu-outer,
+.Select-option {
+	border-color: rgba(51, 111, 213, 0.5);
+	color: #eee;
+}
+
+.Select-option.is-focused,
+.Select-option.is-selected {
+	color: #ccc;
+}
+
+.Select-input > input,
+.Select.has-value.Select--single > .Select-control .Select-value .Select-value-label,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label {
+	color: #eee;
+}
+
+
+.Select.is-disabled > .Select-control {
+	background: #232323;
+	color: gray;
+}

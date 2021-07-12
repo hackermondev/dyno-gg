@@ -1,0 +1,158 @@
+@import '../layouts/main.sass';
+
+.servers {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  padding:0 50px;
+}
+.server-finder {
+  background: rgb(47, 44, 44);
+  padding: 10px;
+  margin-top: 10px;
+}
+.percentage {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.percent-circle {
+  width: 50px;
+}
+.up-info {
+  margin-left: 10px;
+}
+@media screen and (max-width: $break-mobile) {
+  .legend {
+    margin-top: 0;
+    padding: 10px;
+    text-align: center;
+  }
+  .status-wrapper .container:first-of-type {
+    padding: 0 10px;
+  }
+}
+.legend {
+  margin-top: 10px;
+  .cluster-grid {
+    .cluster {
+      width: auto;
+      padding:0 5px;
+    }
+    p {
+      line-height: 35px;
+      margin-right:5px;
+    }
+  }
+  &>p {
+    margin-top:10px;
+  }
+}
+.cluster-grid {
+  display: flex;
+  flex-wrap: wrap;
+  .cluster {
+    width: 40px;
+    height: 35px;
+    display: flex;
+    justify-content:  center;
+    align-items:  center;
+    margin: 1px;
+  }
+}
+.__react_component_tooltip {
+  .title {
+    margin-bottom: 5px;
+  }
+  opacity: 1 !important;
+  &.type-success {
+    &.place-top:after {
+      border-top-color: darken($accent-green, 10%) !important;
+    }
+    &.place-right:after {
+      border-right-color: darken($accent-green, 10%) !important;
+    }
+    &.place-left:after {
+      border-left-color: darken($accent-green, 10%) !important;
+    }
+    background-color: darken($accent-green, 10%) !important;
+  }
+  &.type-warning {
+    &.place-top:after {
+      border-top-color: darken($warning, 45%) !important;
+    }
+    &.place-right:after {
+      border-right-color: darken($warning, 45%) !important;
+    }
+    &.place-left:after {
+      border-left-color: darken($warning, 45%) !important;
+    }
+    background-color: darken($warning, 45%) !important;
+  }
+  &.type-error {
+    &.place-top:after {
+      border-top-color: darken($danger, 10%) !important;
+    }
+    &.place-right:after {
+      border-right-color: darken($danger, 10%) !important;
+    }
+    &.place-left:after {
+      border-left-color: darken($danger, 10%) !important;
+    }
+    background-color: darken($danger, 10%) !important;
+  }
+  &.type-dark {
+    &.place-top:after {
+      border-top-color: darken(gray, 10%) !important;
+    }
+    &.place-right:after {
+      border-right-color: darken(gray, 10%) !important;
+    }
+    &.place-left:after {
+      border-left-color: darken(gray, 10%) !important;
+    }
+    background-color: darken(gray, 10%) !important;
+  }
+}
+.text-highlight {
+  color: $link-hover;
+}
+.status-success {
+  color: $accent-green;
+}
+.status-warning {
+  color: $warning;
+}
+.status-error {
+  color: $danger;
+}
+@keyframes glow {
+  0%, 100% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: $link-hover;
+  }
+}
+.shadow-highlight {
+  animation: glow 2s infinite linear;
+}
+.bg-success {
+  background-color: $accent-green;
+}
+.bg-warning {
+  background-color: darken($warning, 40%);
+}
+.bg-error {
+  background-color: $danger;
+}
+.bg-ipc-timeout {
+  background-color: gray;
+}
+.fire {
+  text-align: right;
+  img.duck {
+    height: 64px;
+    transform: rotateY(-180deg);
+  }
+}

@@ -1,0 +1,9 @@
+{
+	"generic-error": "Ein Fehler ist aufgetreten.",
+	"enabled": "aktiviert",
+	"disabled": "deaktiviert",
+	"actionlog": {
+		"toggle-success": "Action Log ist für {{channel}} {{status}}.",
+		"error-nochannel": "Bitte geben Sie einen gültigen Kanal ein."
+	}
+}

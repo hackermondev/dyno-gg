@@ -1,0 +1,202 @@
+<div id="server" class="page-server">
+	<div class="hero">
+		<div class="container">
+			<div class="columns">
+				<div class="column hero-title">
+					<div class="guild-icon is-48">
+						<a href="/server/{{@root.server.id}}" title="{{@root.server.name}}">
+						{{#if @root.server.icon}}
+							<img src="https://cdn.discordapp.com/icons/{{@root.server.id}}/{{@root.server.icon}}.jpg?size=64" />
+						{{/if}}
+						{{#unless @root.server.icon}}
+							<img class="no-icon" src="https://discordapp.com/assets/6debd47ed13483642cf09e832ed0bc1b.png?size=64" />
+						{{/unless}}
+						</a>
+					</div>
+					{{!-- <img class="avatar avatar-48" src="https://cdn.discordapp.com/icons/{{@root.server.id}}/{{@root.server.icon}}.jpg?size=128" /> --}}
+					<h3 class="title">{{@root.server.name}}{{#if @root.server.memberCount}} - {{@root.server.memberCount}} Members{{/if}}</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{!-- <div class="carbon-borderless carbon-fixed">
+		{{>carbon}}
+	</div> --}}
+
+	<div class="container">
+		<!--<div class="notification success is-success is-hidden"><p></p></div>-->
+		<!--<div class="notification error is-danger is-hidden"><p></p></div>-->
+
+		<div class="columns">
+			<div class="column is-3">
+				{{#unless @root.server.isPremium}}
+					<div class="carbon-borderless">
+						{{>carbon}}
+					</div>
+				{{/unless}}
+				{{!-- <div id="carbon">
+					<div class="carbon-wrapper">
+						<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=dynobotnet" id="_carbonads_js"></script>
+					</div>
+				</div> --}}
+				<aside class="menu">
+					{{#if @root.server.isPremium}}
+					<div class="menu-label label-premium">
+						<img src="https://cdn.discordapp.com/avatars/168274283414421504/20617a532e6b5288f7c76eb8df556251.jpg" />
+						<span>Premium Server</span>
+					</div>
+					{{/if}}
+					<p class="menu-label">General</p>
+					<ul class="menu-list">
+						<li>
+							<a href="#/settings" class="tab-control">
+								<span class="icon is-link">
+									<i class="fa fa-cogs"></i>
+								</span>
+								Bot Settings
+							</a>
+						</li>
+						<li>
+							<a href="#/modules"  class="tab-control">
+								<span class="icon is-link">
+									<i class="fa fa-cubes"></i>
+								</span>
+								Modules
+							</a>
+						</li>
+						<li>
+							<a href="#/commands" class="tab-control">
+								<span class="icon is-link">
+									<i class="fa fa-terminal"></i>
+								</span>
+								Commands
+							</a>
+						</li>
+						{{!-- <li>
+							<a class="tab-control" href="/server/{{@root.server.id}}/logs">
+								<span class="icon is-link">
+									<i class="fa fa-server"></i>
+								</span>
+								Logs
+							</a>
+						</li> --}}
+						<li>
+							<a class="queue-control" href="#/music-queue">
+								<span class="icon is-link">
+									<i class="fa fa-music"></i>
+								</span>
+								Music Queue
+							</a>
+						</li>
+						<li>
+							<a class="tab-control upgrade" href="/upgrade">
+								<span class="icon is-link">
+									<i class="fa fa-arrow-circle-up"></i>
+								</span>
+								{{#if @root.server.isPremium}}
+									Upgrade Premium
+								{{else}}
+									Get Premium
+								{{/if}}
+							</a>
+						</li>
+						<p class="menu-label">Module Settings</p>
+
+						{{!-- Enabled Modules --}}
+						{{#each modules}}
+							{{#if this.hasPartial}}
+								{{#if this.enabled}}
+									{{#unless this.hide}}
+										<li>
+											<a href="#/module-{{this.partialId}}" class="tab-control enabled">
+												<span class="icon is-link">
+													<i class="fa fa-check-square"></i>
+												</span>
+												{{this.friendlyName}}
+											</a>
+										</li>
+									{{/unless}}
+								{{/if}}
+							{{/if}}
+						{{/each}}
+
+						{{!-- Disabled Modules --}}
+						{{#each modules}}
+							{{#if this.hasPartial}}
+								{{#unless this.enabled}}
+									{{#unless this.hide}}
+										<li>
+											<a href="#/module-{{this.partialId}}" class="tab-control disabled">
+												<span class="icon is-link">
+													<i class="fa fa-square-o"></i>
+												</span>
+												{{this.friendlyName}}
+											</a>
+										</li>
+									{{/unless}}
+								{{/unless}}
+							{{/if}}
+						{{/each}}
+						{{#if isAdmin}}
+							<li>
+								<a href="#/module-dyno" class="tab-control">
+									<span class="icon is-link">
+										<i class="fa fa-lock"></i>
+									</span>
+									Dyno Stats
+								</a>
+							</li>
+						{{/if}}
+					</ul>
+					<p class="menu-label">Other</p>
+					<ul class="menu-list">
+						<li>
+							<a href="#/weblogs" class="tab-control">
+								<span class="icon is-link">
+									<i class="fa fa-cogs"></i>
+								</span>
+								Dashboard Logs
+							</a>
+						</li>
+					</ul>
+				</aside>
+			</div>
+
+			<div class="column">
+				{{! Loader }}
+				{{>loader}}
+
+				{{! Bot settings }}
+				{{>modules/settings}}
+
+				{{! Modules/Commands }}
+				{{>modules/modules}}
+				{{>modules/commands}}
+
+				{{! Module settings }}
+				<div class="module-settings">
+					{{#each modules}}
+						{{#if this.hasPartial}}
+							{{#unless this.hide}}
+								{{> (dynamicPartial this.partial)}}
+							{{/unless}}
+						{{/if}}
+					{{/each}}
+
+					{{! Admin modules }}
+					{{#if isAdmin}}
+						{{>modules/dyno}}
+					{{/if}}
+				</div>
+
+				{{>modules/weblogs}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="notification-wrapper">
+	<div class="notification success is-success is-hidden"><p></p></div>
+	<div class="notification error is-danger is-hidden"><p></p></div>
+</div>

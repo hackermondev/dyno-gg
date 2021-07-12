@@ -1,0 +1,51 @@
+<div id="commands" class="tab-content">
+	<h3 class="title is-4">Commands</h3>
+
+    {{>moduleheader}}
+
+	<div class="settings-top">
+		<div class="tabs">
+			<ul>
+			{{#each commands}}
+				<li{{#if @first}} class="is-active"{{/if}}><a href="#/commands-{{this.name}}" class="subtab-control">{{this.name}}</a></li>
+			{{/each}}
+			</ul>
+		</div>
+	
+		<div class="flex-container">
+		{{#each commands}}
+			<div id="commands-{{this.name}}" class="subtab-content{{#if @first}} is-active{{/if}}">
+				<div>
+					{{!-- <label class="label">{{this.name}}</label> --}}
+					{{#each this.commands}}
+						<div class="control command-toggle is-pulled-left">
+							<span class="hint--bottom hint--large hint--info hint--rounded" aria-label="{{this.description}}{{#if this.permissions}} - {{this.permissions}} permission{{/if}}{{#if this.noedit}}, requires {{this.group}} module{{/if}}">
+								<input id="{{this.name}}" class="command" type="checkbox" value="{{this.name}}"{{#if this.enabled}} checked="checked"{{/if}}{{#if this.noDisable}}disabled="disabled"{{/if}}>
+								<label class="checkbox" for="{{this.name}}">
+									{{this.name}}
+								</label>
+							</span>
+						</div>
+
+						{{#if this.commands}}
+							{{#each this.commands}}
+								<div class="control command-toggle is-pulled-left">
+									<span class="hint--bottom hint--large hint--info hint--rounded" aria-label="{{this.desc}}{{#if this.noedit}}, requires {{this.group}} module{{/if}}">
+										<input id="{{../name}}.{{this.name}}" class="subcommand" type="checkbox" value="{{../name}}.{{this.name}}"{{#if this.enabled}} checked="checked"{{/if}}{{#if this.noDisable}}disabled="disabled"{{/if}}>
+										<label class="checkbox" for="{{../name}}.{{this.name}}">
+											{{../name}} {{this.name}}
+										</label>
+									</span>
+								</div>
+							{{/each}}
+						{{/if}}
+					{{/each}}
+				</div>
+				{{!-- <span class="is-clearfix"></span> --}}
+				<p class="help-text">More information for each command can be found on the <a href="/commands#/{{this.name}}" title="{{this.name}} Commands">{{this.name}} Commands</a> page.</p>
+				{{!-- {{#unless isLast}}<hr />{{/unless}} --}}
+			</div>
+		{{/each}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,41 @@
+{
+	"server": {
+		"instanceConfig": {},
+		"port": "8000",
+		"host": "127.0.0.1"
+	},
+	"db": {
+		"host": "127.0.0.1",
+		"database": "discord_bot_list",
+		"username": "postgres",
+		"password": "password",
+		"dialect": "postgres"
+	},
+	"discord": {
+		"client_id": "",
+		"client_secret": "",
+		"redirectUri": "http://localhost:8000/api/oauth2/callback",
+		"responseType": "code",
+		"scopes": [
+			"identify"
+		]
+	},
+	"whitelist": [
+		{
+			"path": "/api/bots",
+			"method": "get"
+		},
+		{
+			"path": "/api/bots/:id",
+			"method": "get"
+		},
+		{
+			"path": "/api/oauth2/redirect",
+			"method": "get"
+		},
+		{
+			"path": "/api/oauth2/callback?*",
+			"method": "get"
+		}
+	]
+}

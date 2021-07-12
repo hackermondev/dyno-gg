@@ -1,0 +1,2 @@
+Autoroles module for Dyno
+=========================

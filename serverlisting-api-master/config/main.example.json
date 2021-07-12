@@ -1,0 +1,16 @@
+{
+  "host": "127.0.0.1",
+  "port": 9050,
+  "dburl": "mongodb://localhost/dyno-serverlisting",
+  "token": "uwu",
+  "whitelist": [
+    {
+      "path": "/",
+      "method": "get"
+    },
+    {
+      "path": "/details/*",
+      "method": "get"
+    }
+  ]
+}

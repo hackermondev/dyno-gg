@@ -1,0 +1,61 @@
+<div id="module-coordschannel" class="tab-content">
+	<h3 class="title is-4">Pokemon Go Coords Channel Mod</h3>
+
+	{{>moduleheader}}
+
+	<div class="settings-top">
+		{{>moduletoggle}}
+	</div>
+
+	<div class="settings-content">
+		{{! Log channel }}
+		<label class="label">Log Channel</label>
+		<p class="control">
+			<span class="select">
+				<select class="setting-dropdown" name="logChannel" data-module="coordschannel">
+					<option>Select Channel</option>
+					{{#each @root.channels}}
+						<option value="{{this.id}}"{{#compare this.id @root.server.coordschannel.logChannel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+		</p>
+
+		<form class="coordschannel-form">
+			<input type="hidden" name="name" value="" />
+			<label class="label">Add Coords Channel</label>
+			<p class="control has-addons">
+				<span class="select">
+					<select class="item-channel coordschannel-channel" name="id">
+						<option>Select Channel</option>
+						{{#each @root.channels}}
+							<option value="{{this.id}}" data-name="{{this.name}}">#{{this.name}}</option>
+						{{/each}}
+					</select>
+				</span>
+				<input class="button add-module-item is-info" type="button" value="Add" data-module="coordschannel" data-setting="channels">
+			</p>
+		</form>
+
+		{{#if @root.server.coordschannel.channels}}
+		<table class="table is-striped">
+			<thead>
+			  <tr>
+				<th>Channel</th>
+				<th></th>
+			  </tr>
+			</thead>
+			<tbody>
+			  {{#each @root.server.coordschannel.channels}}
+				<tr>
+				  <td>#{{this.name}}</td>
+				  <td>
+					<a class="button is-danger remove-module-item" href="#" data-id="{{this.id}}" data-module="coordschannel" data-setting="channels">Remove</a>
+				</td>
+				</tr>
+			  {{/each}}
+			</tbody>
+		</table>
+		{{/if}}
+	</div>
+</div>

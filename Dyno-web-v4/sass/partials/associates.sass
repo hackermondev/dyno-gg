@@ -1,0 +1,48 @@
+.associates-list
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+.associate
+	display: flex;
+	flex-shrink: 1;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 32%;
+	padding: 1em;
+	margin: 0.5em;
+	background-color: $accent-background;
+	border-top: 0.5em solid $accent-green;
+	border-radius: 5px;
+	&.associate-partner
+		border-top: 0.5em solid #d349f3;
+	&.disabled
+		border-top: 0.5em solid #848484;
+	&.invalid
+		border-top: 0.5em solid #76787b;
+	div
+		margin: 0.5em 0;
+	.associate-name
+		font-size: 1.1em;
+		font-weight: bold;
+		.associate-type
+			font-size: 0.6em;
+			font-weight: normal;
+			text-transform: uppercase;
+			margin-left: 0.5em;
+	.associate-banner
+		text-align: center;
+		img
+			width: 100%;
+
+.associate-form
+	textarea
+		height: 100px;
+	.associate-preview
+		padding: 0.25em;
+		margin: 0.5em auto;
+		img
+			width: 404px;
+			height: 150px;
+			border: solid #ddd 4px;
+			border-radius: 5px;

@@ -1,0 +1,52 @@
+{
+  "name": "dyno-web-react",
+  "version": "0.1.0",
+  "description": "react component for dyno serverlisting",
+  "scripts": {
+    "preinstall": "$npm_execpath --silent run checknpm",
+    "checknpm": "node -e 'if(!/npm.*\\.js$/.test(process.env.npm_execpath))throw new Error(\"⚠️  Use npm not yarn! ⚠️ \")'",
+    "build": "webpack",
+    "watch": "webpack --progress --watch",
+    "build:prod": "webpack --config webpack.prod.js"
+  },
+  "author": "Brian Tanner <brian@tanner.io>",
+  "license": "MIT",
+  "dependencies": {
+    "@dyno.gg/emoji-mart": "^2.11.2",
+    "axios": "^0.19.0",
+    "css-loader": "^0.28.9",
+    "js-cookie": "^2.2.0",
+    "js-htmlencode": "^0.3.0",
+    "konva": "^4.1.6",
+    "prop-types": "^15.6.0",
+    "rc-progress": "^2.2.5",
+    "rc-slider": "^8.6.0",
+    "react": "^16.13.0",
+    "react-color": "^2.13.8",
+    "react-contexify": "^4.1.1",
+    "react-dom": "^16.13.0",
+    "react-dropzone": "^4.2.9",
+    "react-gpt": "^2.0.1",
+    "react-json-view": "^1.19.1",
+    "react-konva": "^16.12.0-0",
+    "react-numeric-input": "^2.2.3",
+    "react-responsive-modal": "^2.0.0",
+    "react-router-dom": "^5.1.2",
+    "react-select": "^1.2.1",
+    "react-table": "6.10.0",
+    "react-tabs": "^2.2.1",
+    "react-textfit": "^1.1.0",
+    "react-tooltip": "^3.4.0",
+    "style-loader": "^0.20.1",
+    "universal-cookie": "^3.0.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "uglifyjs-webpack-plugin": "^1.1.5",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1"
+  }
+}

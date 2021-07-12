@@ -1,0 +1,168 @@
+@import '../layouts/main.sass';
+@import './../core/common.sass';
+
+.status-wrapper {
+  padding-top: 30px;
+  width: 80%;
+  margin: auto;
+
+  @include until($desktop) {
+    width: 100%;
+    padding: 0 20px;
+
+    .status-header {
+      flex-direction: column-reverse;
+      display: flex;
+    }
+  }
+
+  .servers {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 30px;
+
+    .server-wrapper {
+      min-width: 300px;
+      width: 50%;
+      margin-bottom: 30px;
+
+      .title {
+        margin-bottom: 8px;
+      }
+
+      p.has-text-grey {
+        margin-bottom: 20px;
+      }
+
+      .cluster-grid {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 380px;
+
+        .cluster {
+          width: 45px;
+          height: 45px;
+          background-color: #222C45;
+          display: flex;
+          justify-content:  center;
+          align-items:  center;
+          margin: 4px;
+          font-weight: 500;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  .legend-title {
+    margin-bottom: 20px;
+  }
+
+  .legend-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    
+    .legend {
+      margin-top: 10px;
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .legend-marker {
+        width: 10px;
+        height: 10px;
+        border-radius: 100px;
+        margin-right: 12px;
+      }
+    }
+  }
+
+  .server-finder {
+    margin-top: 40px;
+
+    input {
+      background-color: #222C45;
+      color: #6B7E91;
+      border-radius: 4px;
+      border: none;
+      height: 50px;
+
+      &::placeholder {
+        color: #6B7E91;
+      }
+    }
+
+    .shard-count {
+      h1 {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.__react_component_tooltip {
+  .title {
+    margin-bottom: 5px;
+  }
+  opacity: 1 !important;
+  background-color: #222C45 !important;
+
+  &.place-top:after {
+    border-top-color: #222C45 !important;
+  }
+}
+
+.text-highlight {
+  color: $link-hover;
+}
+
+@keyframes glow {
+  0%, 100% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: $link-hover;
+  }
+}
+.shadow-highlight {
+  animation: glow 2s infinite linear;
+}
+.bg-success {
+  color: #01E6CE;
+
+  &.legend {
+    .legend-marker {
+      background-color: #01E6CE;
+    }
+  }
+}
+.bg-warning {
+  color: #FF9B00;
+
+  &.legend {
+    .legend-marker {
+      background-color: #FF9B00;
+    }
+  }
+}
+.bg-error {
+  color: #FF414B;
+
+  &.legend {
+    .legend-marker {
+      background-color: #FF414B;
+    }
+  }
+}
+.bg-ipc-timeout {
+  color: gray;
+
+  &.legend {
+    .legend-marker {
+      background-color: gray;
+    }
+  }
+}

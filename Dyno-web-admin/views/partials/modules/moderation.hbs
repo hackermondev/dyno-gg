@@ -1,0 +1,133 @@
+<div id="module-moderation" class="tab-content">
+	<h3 class="title is-4">Moderation Settings</h3>
+
+	{{>moduleheader}}
+	
+	<div class="settings-top has-tabs">
+		{{>moduletoggle}}
+		<div class="tabs">
+		  <ul>
+			<li class="is-active"><a href="#/moderation-settings" class="subtab-control">Settings</a></li>
+			<li><a href="#/moderation-protected" class="subtab-control">Protected Roles</a></li>
+			<li><a href="#/moderation-persisted" class="subtab-control">Persisted Roles</a></li>
+		  </ul>
+		</div>
+	</div>
+
+	<div id="moderation-settings" class="subtab-content is-active">
+		<div class="module-toggles">
+			{{! Moderation toggles }}
+			<p class="control setting-toggle is-pulled-left">
+				<input id="dmBans" class="module-setting-checkbox" type="checkbox" data-module="moderation" name="dmBans" value="{{@root.server.moderation.dmBans}}"{{#if @root.server.moderation.dmBans}} checked="checked"{{/if}}>
+				<label class="checkbox" for="dmBans">
+					DM Users on kick/ban/mute
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="deleteCommands" class="module-setting-checkbox" type="checkbox" data-module="moderation" name="deleteCommands" value="{{@root.server.moderation.deleteCommands}}"{{#if @root.server.moderation.deleteCommands}} checked="checked"{{/if}}>
+				<label class="checkbox" for="deleteCommands">
+					Delete mod commands when used.
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<input id="respondWithReasons" class="module-setting-checkbox" type="checkbox" data-module="moderation" name="respondWithReasons" value="{{@root.server.moderation.respondWithReasons}}"{{#if @root.server.moderation.respondWithReasons}} checked="checked"{{/if}}>
+				<label class="checkbox" for="respondWithReasons">
+					Respond with reason.
+				</label>
+			</p>
+		</div>
+
+		<div class="settings-content">
+			{{! Log channel }}
+			<label class="label">Log Channel</label>
+			<p class="control">
+				<span class="select">
+					<select class="setting-dropdown" name="channel" data-module="moderation">
+						<option>Select Channel</option>
+						{{#each @root.channels}}
+							<option value="{{this.id}}"{{#compare this.id @root.server.moderation.channel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+						{{/each}}
+					</select>
+				</span>
+			</p>
+		</div>
+	</div>
+
+	<div id="moderation-protected" class="subtab-content">
+		<div class="settings-content">
+			<p>Protected roles are protected from other mod actions and Dyno will not mute, kick, or ban them.</p>
+			<form class="moderation-protected">
+				<input type="hidden" name="name" value="" />
+				<label class="label">Add Protected Role</label>
+				<p class="control has-addons">
+					<span class="select">
+						{{!-- I know this isn't a channel... not fixing unless refactor --}}
+						<select class="item-channel moderation-role-dropdown" name="id">
+							<option>Select Role</option>
+							{{#each @root.roles}}
+								<option value="{{this.id}}" data-name="{{this.name}}">{{this.name}}</option>
+							{{/each}}
+						</select>
+					</span>
+					<input class="button add-module-item is-info" type="button" value="Add" data-module="moderation" data-setting="protectedRoles">
+				</p>
+			</form>
+
+			{{#if @root.server.moderation.protectedRoles}}
+			  <table class="table is-striped">
+				<thead>
+				  <tr>
+					<th>Role</th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  {{#each @root.server.moderation.protectedRoles}}
+					<tr>
+					  <td>{{this.name}}</td>
+					  <td>
+						<a class="button is-danger remove-module-item" href="#" data-id="{{this.id}}" data-name="{{this.name}}" data-module="moderation" data-setting="protectedRoles">Remove</a>
+					</td>
+					</tr>
+				  {{/each}}
+				</tbody>
+			  </table>
+			{{/if}}
+		</div>
+	</div>
+
+	<div id="moderation-persisted" class="subtab-content">
+		<div class="settings-content">
+			{{#if @root.persistedRoles}}
+				<table class="table is-striped">
+					<thead>
+						<th>User</th>
+						<th>Role</th>
+						<th></th>
+					</thead>
+					<tbody>
+						{{#each @root.persistedRoles}}
+						<tr>
+							<td>
+								{{#if this.user.username}}
+									{{this.user.username}}#{{this.user.discrim}}
+								{{else}}
+									{{this.user.id}}
+								{{/if}}
+							</td>
+							<td>{{this.role.name}}</td>
+							<td>
+								<a class="button is-danger remove-persist" href="#" data-id="{{this._id}}">Remove</a>
+							</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			{{else}}
+				<p>There are no persisted roles.</p>
+			{{/if}}
+		</div>
+	</div>
+</div>

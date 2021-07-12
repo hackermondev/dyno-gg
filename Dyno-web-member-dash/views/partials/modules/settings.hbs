@@ -1,0 +1,115 @@
+<div id="settings" class="tab-content">
+	<h3 class="title is-4">Bot Settings</h3>
+
+    {{>moduleheader}}
+
+	{{#if needsPerms}}
+		<div class="notification error is-danger">
+			<p>The bot requires additional permissions.</p>
+			<p><a class="oauth" href="https://discordapp.com/oauth2/authorize?client_id=161660517914509312&guild_id={{@root.server.id}}&scope=bot&permissions=2134207671">Click here to fix the required permissions.</a></p>
+			{{!-- {{#if @root.isAdmin}}
+				{{#each needsPerms}}{{this}} {{/each}}
+			{{/if}} --}}
+		</div>
+	{{/if}}
+
+	<div class="module-toggles">
+		<p class="control setting-toggle is-pulled-left">
+			<input id="modonly" class="setting-checkbox" type="checkbox" name="modonly" {{#if server.modonly}} checked="checked"{{/if}}>
+			<label class="checkbox" for="modonly">
+				Make commands mod-only
+			</label>
+		</p>
+
+		{{#if server.beta}}
+	    <p class="control setting-toggle is-pulled-left">
+            <input id="beta" class="beta-checkbox" type="checkbox" name="beta" {{#if server.beta}} checked="checked"{{/if}}>
+	        <label class="checkbox" for="beta">
+	            {{#if server.beta}}
+	                Dyno Beta
+	            {{else}}
+	                Dyno Beta
+	            {{/if}}
+	        </label>
+	    </p>
+	    {{/if}}
+
+	    {{#if isAdmin}}
+	        <p class="control setting-toggle is-pulled-left">
+                <input id="vip" class="setting-checkbox" type="checkbox" name="vip" {{#if server.vip}} checked="checked"{{/if}}>
+	            <label class="checkbox" for="vip">
+	            	VIP Server
+            	</label>
+	        </p>
+	    {{/if}}
+	</div>
+
+	<div class="settings-content">
+		<div class="settings-inline">
+			<label class="label">Nickname</label>
+			<form class="text-form">
+				<p class="control has-addons">
+					<input class="input" type="text" value="{{bot.nick}}" maxlength="32">
+					<a class="button nick is-info">Update</a>
+				</p>
+			</form>
+
+			<label class="label">Command Prefix</label>
+			<form class="text-form">
+				<p class="control has-addons">
+					<input class="input" type="text" name="prefix" value="{{#if server.prefix}}{{server.prefix}}{{/if}}" maxlength="5" placeholder="?">
+					<a class="button update-setting is-info">Update</a>
+				</p>
+			</form>
+
+			{{! Timezone }}
+			<label class="label">Timezone</label>
+			<p class="control">
+				<span class="select">
+					<select class="setting-dropdown" name="timezone">
+						<option>Select Timezone</option>
+						{{#each @root.timezones}}
+							<option value="{{this}}"{{#compare this @root.server.timezone}}selected="selected"{{/compare}}>{{this}}</option>
+						{{/each}}
+					</select>
+				</span>
+			</p>
+		</div>
+
+		{{!-- <div class="settings-inline">
+			<label class="label">Admins</label>
+			{{#each server.admins}}
+				<div class="level mod">
+					<div class="level-left">
+						{{this.username}}#{{this.discriminator}}
+					</div>
+				</div>
+			{{/each}}
+		</div> --}}
+
+		<div class="settings-inline">
+			{{!-- <label class="label">Moderators</label>
+			{{#each server.mods}}
+				<div class="level mod">
+					<div class="level-left">
+						{{this.username}}#{{this.discriminator}}
+					</div>
+					<div class="level-right">
+						<a id="{{this.id}}" class="remove-moderator" href="#">remove</a>
+					</div>
+				</div>
+			{{/each}} --}}
+			<label class="label">Mod Roles</label>
+			{{#each server.modRoles}}
+				<div class="level mod">
+					<div class="level-left">
+						{{this.name}}
+					</div>
+					<div class="level-right">
+						<a id="{{this.id}}" class="remove-moderator" href="#">remove</a>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

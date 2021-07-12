@@ -1,0 +1,25 @@
+@import '../layouts/main.sass';
+@import '../partials/carbon.sass';
+@import '../mixins/trimlines.scss';
+
+.manage-guilds
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	.guild
+		display: flex;
+		flex: 0 0 15%;
+		flex-direction: column;
+		min-width: 80px;
+		text-align: center;
+		align-self: flex-start;
+		margin-bottom: 1em;
+		.guild-icon
+			margin: 0 auto 0.5em;
+		h4
+			@include trimlines(2);
+		a
+			color: #fff;
+			&:hover
+				color: $link-hover;

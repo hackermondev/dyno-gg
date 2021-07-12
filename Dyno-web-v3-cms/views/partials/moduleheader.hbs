@@ -1,0 +1,6 @@
+{{#this.needsPerms}}
+	<div class="notification error is-danger">
+        <p><strong>This module requires additional permissions.</strong></p>
+		<p><a class="oauth" href="https://discordapp.com/oauth2/authorize?client_id=161660517914509312&guild_id={{@root.server.id}}&scope=bot&permissions=2134207671">Click here to fix the required permissions.</a></p>
+	</div>
+{{/this.needsPerms}}

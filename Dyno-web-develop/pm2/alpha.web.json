@@ -1,0 +1,33 @@
+{
+	"apps": [
+		{
+			"name": "staff.dyno.gg",
+			"script": "src/index.js",
+			"watch": false,
+			"exec_mode": "fork",
+			"ignore_watch": [
+				"node_modules",
+				".git",
+				"public",
+				"views",
+				"package.json"
+			],
+			"watch_options": {
+				"followSymlinks": false
+			},
+			"wait-ready": true,
+			"listen_timeout" : 5000
+		}
+	],
+	"deploy": {
+		"alpha": {
+			"user": "dyno",
+			"host": "10.12.0.73",
+			"ref": "origin/develop",
+			"repo": "-b develop git@git.dyno.sh:Dyno/Dyno-web.git",
+			"path": "/home/dyno/deploy/alpha/",
+			"pre-setup": "rm -rf /home/dyno/deploy/alpha/*",
+			"post-deploy": "npm i && gulp sass && cd react && yarn && yarn build:prod && cd .. && cp /home/dyno/Dyno-web/.env ./.env && mkdir /home/dyno/Dyno-web-temp/ && cp -rf /home/dyno/deploy/alpha/source/. /home/dyno/Dyno-web-temp && rm -rf /home/dyno/old.Dyno-web && mv /home/dyno/Dyno-web /home/dyno/old.Dyno-web && mv /home/dyno/Dyno-web-temp /home/dyno/Dyno-web && pm2 restart staff.dyno.gg"
+		}
+	}
+}

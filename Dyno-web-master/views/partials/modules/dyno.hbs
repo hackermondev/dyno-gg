@@ -1,0 +1,128 @@
+<div id="module-dyno" class="tab-content">
+	<h3 class="title is-4">Dyno Stats</h3>
+
+	{{>moduleheader}}
+
+	<div class="settings-top">
+		{{>moduletoggle}}
+	</div>
+
+	<div class="module-toggles">
+		{{! Toggles }}
+		<p class="control setting-toggle is-pulled-left">
+			<input id="statsEnabled" class="module-setting-checkbox" type="checkbox" data-module="dyno" name="statsEnabled" value="{{@root.server.dyno.statsEnabled}}"{{#if @root.server.dyno.statsEnabled}} checked="checked"{{/if}}>
+			<label class="checkbox" for="statsEnabled">
+				Enable Stats
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<input id="logEnabled" class="module-setting-checkbox" type="checkbox" data-module="dyno" name="logEnabled" value="{{@root.server.dyno.logEnabled}}"{{#if @root.server.dyno.logEnabled}} checked="checked"{{/if}}>
+			<label class="checkbox" for="logEnabled">
+				Enable Logging
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<input id="dmEnabled" class="module-setting-checkbox" type="checkbox" data-module="dyno" name="dmEnabled" value="{{@root.server.dyno.dmEnabled}}"{{#if @root.server.dyno.dmEnabled}} checked="checked"{{/if}}>
+			<label class="checkbox" for="dmEnabled">
+				Enable DM Logging
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<input id="carbonEnabled" class="module-setting-checkbox" type="checkbox" data-module="dyno" name="carbonEnabled" value="{{@root.server.dyno.carbonEnabled}}"{{#if @root.server.dyno.carbonEnabled}} checked="checked"{{/if}}>
+			<label class="checkbox" for="carbonEnabled">
+				Enable Botlist
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<input id="automodEnabled" class="module-setting-checkbox" type="checkbox" data-module="dyno" name="automodEnabled" value="{{@root.server.dyno.automodEnabled}}"{{#if @root.server.dyno.automodEnabled}} checked="checked"{{/if}}>
+			<label class="checkbox" for="automodEnabled">
+				Enable Automod
+			</label>
+		</p>
+	</div>
+
+	<div class="settings-content">
+		{{! Stats channel }}
+		<label class="label">Stats Channel</label>
+		<p class="control">
+			<span class="select">
+				<select class="setting-dropdown" name="channel" data-module="dyno">
+					<option>Select Channel</option>
+					{{#each @root.channels}}
+						<option value="{{this.id}}"{{#compare this.id @root.server.dyno.channel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+		</p>
+
+		{{! Log channel }}
+		<label class="label">Log Channel</label>
+		<p class="control">
+			<span class="select">
+				<select class="setting-dropdown" name="logChannel" data-module="dyno">
+					<option>Select Channel</option>
+					{{#each @root.channels}}
+						<option value="{{this.id}}"{{#compare this.id @root.server.dyno.logChannel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+		</p>
+
+		{{! Large guild channel }}
+		<label class="label">Large Guild Channel</label>
+		<p class="control">
+			<span class="select">
+				<select class="setting-dropdown" name="lgChannel" data-module="dyno">
+					<option>Select Channel</option>
+					{{#each @root.channels}}
+						<option value="{{this.id}}"{{#compare this.id @root.server.dyno.lgChannel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+		</p>
+
+		{{! DM Log channel }}
+		<label class="label">DM Log Channel</label>
+		<p class="control">
+			<span class="select">
+				<select class="setting-dropdown" name="dmChannel" data-module="dyno">
+					<option>Select Channel</option>
+					{{#each @root.channels}}
+						<option value="{{this.id}}"{{#compare this.id @root.server.dyno.dmChannel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+		</p>
+
+		{{! Carbon channel }}
+		<label class="label">Carbon Channel</label>
+		<p class="control">
+			<span class="select">
+				<select class="setting-dropdown" name="carbonChannel" data-module="dyno">
+					<option>Select Channel</option>
+					{{#each @root.channels}}
+						<option value="{{this.id}}"{{#compare this.id @root.server.dyno.carbonChannel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+		</p>
+
+		{{! Automod channel }}
+		<label class="label">Automod Channel</label>
+		<p class="control">
+			<span class="select">
+				<select class="setting-dropdown" name="automodChannel" data-module="dyno">
+					<option>Select Channel</option>
+					{{#each @root.channels}}
+						<option value="{{this.id}}"{{#compare this.id @root.server.dyno.automodChannel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+		</p>
+	</div>
+
+</div>

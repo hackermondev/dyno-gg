@@ -1,0 +1,40 @@
+<div id="weblogs" class="tab-content">
+	<h3 class="title is-4">Dashboard Logs</h3>
+
+    {{>moduleheader}}
+
+	<div class="settings-content">
+		{{#if @root.webLogs}}
+			<div id="webLogList">
+				<p class="control">
+					<input class="input search" placeholder="Search" type="text" value="" title="Search">
+				</p>
+				<table class="table is-striped">
+					<thead>
+						<tr>
+							<th>Time</th>
+							<th>User ID</th>
+							<th>User</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody class="list">
+						{{#each @root.webLogs}}
+						<tr>
+							<td class="weblog-time">{{this.createdAt}}</td>
+							<td class="weblog-userid">{{this.user.id}}</td>
+							<td class="weblog-user">{{this.user.username}}#{{this.user.discriminator}}</td>
+							<td class="weblog-action">{{this.action}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+				<nav class="pagination" role="navigation" aria-label="pagination">
+					<ul class="pagination-list"></ul>
+				</nav>
+			</div>
+		{{else}}
+			<p>There's no logs to display.</p>
+		{{/if}}
+	</div>
+</div>

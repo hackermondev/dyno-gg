@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dyno is a feature-rich and modular discord bot for your Discord server. With web configuration, moderation, anti-spam, auto roles, music, custom commands, and much more!">
+    <link rel="shortcut icon" type="image/png" href="/images/v3/favicon.png"/>
+    <title>{{config.name}}</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-87DrmpqHRiY8hPLIr7ByqhPIywuSsjuQAfMXAE0sMUpY3BM7nXjf+mLIUSvhDArs" crossorigin="anonymous">
+    {{#each externalStylesheets}}
+        <link rel="stylesheet" href="{{getVersionedPath this}}">
+    {{/each}}
+    {{#each stylesheets}}
+        <link rel="stylesheet" href="{{getVersionedPath this}}">
+    {{/each}}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MFGKT6L');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <nav id='navbar-mount'></nav>
+
+<div class="page-wrapper">
+    {{{body}}}
+</div>
+
+<script src="/js/vendor/jquery.js"></script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W6NZSRQ');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFGKT6L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<script src="/js/vendor/base64.min.js"></script>
+<script type="text/javascript">
+    {{#if server}}
+    var server = '{{server.id}}';
+    {{/if}}
+    var host = '{{config.site.host}}';
+    {{#if user}}
+    var user = JSON.parse(Base64.decode("{{{toJSONSafe user}}}"));
+    {{/if}}
+    {{#if guilds}}
+    var guilds = JSON.parse(Base64.decode("{{{toJSONSafe guilds}}}"));
+    {{/if}}
+</script>
+{{#each scripts}}
+    <script type="text/javascript" src="{{getVersionedPath this}}"></script>
+{{/each}}
+<script src="{{getVersionedPath '/js/app.js'}}"></script>
+</body>
+</html>

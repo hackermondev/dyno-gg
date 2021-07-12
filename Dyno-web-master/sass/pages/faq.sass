@@ -1,0 +1,73 @@
+@import '../layouts/main.sass';
+@import '../partials/carbon.sass';
+
+.ad-container
+	margin-top: 25px;
+	margin-bottom: 58px;
+	text-align: center;
+	// min-height: 250px;
+
+.faq
+	.tile.faq-item
+		margin-bottom: 1em;
+
+		+from($tablet)
+			margin: 20px 40px;
+
+		.title
+			display: block;
+			outline: none;
+			font-size: 1.75rem;
+			margin-bottom: 3rem;
+		
+		.content
+			color: #606a7b;			
+			line-height: 26px;
+
+			img
+				margin-top: 10px;
+
+			code
+				background-color: unset;
+				color: #01E6CE;
+				font-family: 'Maison Neue', sans-serif;
+				font-size: 1rem;
+				padding: 0;
+			ul
+				margin-top: 20px;
+				margin-bottom: 20px;
+				li
+					margin-bottom: 10px;
+					.list-marker 
+						float: left;
+						width: 20px;
+						height: 20px;
+						background-color: #01E6CE;
+						color: #161E2D;
+						display: flex;
+						justify-content: center;
+						border-radius: 2px;
+						margin-right: 10px;
+
+.page-faq
+	padding-left: 10%;
+	padding-right: 10%;
+	margin-top: 45px;
+
+	.header-wrapper
+		p
+			margin-bottom: 20px;
+
+	.sidebar-content
+		background-color: #222C45;
+		color: #6E8096;
+
+		.title
+			color: #6E8096;
+			text-transform: uppercase;
+			font-size: 1em;
+			a
+				color: #6E8096;
+
+		.content
+			color: #6E8096;

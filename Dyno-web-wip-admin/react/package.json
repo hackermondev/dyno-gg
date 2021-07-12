@@ -1,0 +1,46 @@
+{
+  "name": "dyno-web-react",
+  "version": "0.1.0",
+  "description": "react component for dyno serverlisting",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --progress --watch",
+    "build:prod": "webpack --config webpack.prod.js"
+  },
+  "author": "Brian Tanner <brian@tanner.io>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "css-loader": "^0.28.9",
+    "emoji-mart": "^2.6.1",
+    "js-cookie": "^2.2.0",
+    "js-htmlencode": "^0.3.0",
+    "prop-types": "^15.6.0",
+    "rc-progress": "^2.2.5",
+    "rc-slider": "^8.6.0",
+    "react": "16.2.0",
+    "react-color": "^2.13.8",
+    "react-dom": "16.2.0",
+    "react-dropzone": "^4.2.9",
+    "react-numeric-input": "^2.2.3",
+    "react-rangeslider": "^2.2.0",
+    "react-responsive-modal": "^2.0.0",
+    "react-router-dom": "^4.2.2",
+    "react-select": "^1.2.1",
+    "react-table": "^6.8.0",
+    "react-tabs": "^2.2.1",
+    "react-textfit": "^1.1.0",
+    "react-tooltip": "^3.4.0",
+    "reactable-copy": "^0.14.4",
+    "style-loader": "^0.20.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "uglifyjs-webpack-plugin": "^1.1.5",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1"
+  }
+}

@@ -1,0 +1,95 @@
+{
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true,
+        "mongo": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "window": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-console": [
+            "error",
+            {
+                "allow": [
+                    "log",
+                    "warn",
+                    "error",
+                    "time",
+                    "timeEnd"
+                ]
+            }
+        ],
+        "no-var": ["error"],
+        "quotes": [
+            "error",
+            "double",
+            { "avoidEscape": true, "allowTemplateLiterals": true }
+        ],
+        "no-use-before-define": [
+            "error",
+            {
+                "functions": true,
+                "classes": true,
+                "variables": true
+            }
+        ],
+        "semi": [
+            2,
+            "always"
+        ],
+        "object-shorthand": ["error", "always"],
+        "indent": [
+            "error",
+            4,
+            { 
+                "SwitchCase": 1 
+            }
+        ],
+        "linebreak-style": ["error", "unix"],
+        "no-irregular-whitespace": [
+            "error",
+            {
+                "skipStrings": true,
+                "skipComments": true,
+                "skipRegExps": true,
+                "skipTemplates": true
+            }
+        ],
+        "prefer-const": ["error"],
+        "prefer-arrow-callback": "error",
+		"prefer-rest-params": "error",
+        "prefer-spread": "error",
+        "prefer-destructuring": [
+            "error", 
+            {
+                "array": false,
+                "object": true
+            }
+        ],
+        "semi-spacing": "error",
+		"space-before-blocks": "error",
+		"space-before-function-paren": ["error", {
+            "anonymous": "never",
+            "named": "never",
+            "asyncArrow": "always"
+        }],
+		"space-in-parens": "error",
+		"space-infix-ops": "error",
+        "space-unary-ops": "error",
+        "no-duplicate-imports": "error",
+		"no-useless-computed-key": "error",
+        "no-useless-constructor": "error",
+        "rest-spread-spacing": "error",
+        "no-trailing-spaces": "error"
+    }
+}

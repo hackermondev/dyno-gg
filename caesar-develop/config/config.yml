@@ -1,0 +1,14 @@
+default:
+  mongo: 'mongodb://localhost:27017'
+  dsn: false
+  #All operation intervals are in minutes
+  indexInterval: 5
+  deletionGracePeriod: 1440
+  deletionOperationInterval: 30
+  updateIconsInterval: 30
+  logLevel: 'debug'
+development:
+  mongo: 'mongodb://dynotest:dYn01test@db01.dyno.sh:27017/dynotest'
+production:
+  logLevel: 'info'
+

@@ -1,0 +1,129 @@
+<div id="module-autoroles" class="tab-content">
+	<h3 class="title is-4">Autorole Settings</h3>
+
+	{{>moduleheader}}
+
+	<div class="settings-top has-tabs">
+		{{>moduletoggle}}
+		<div class="tabs">
+		  <ul>
+		    <li class="is-active"><a href="#/autoroles-settings" class="subtab-control">Settings</a></li>
+		    <li><a href="#/autoroles-add" class="subtab-control">Add Autoroles</a></li>
+			<li><a href="#/autoroles-list" class="subtab-control">List Autoroles</a></li>
+		  </ul>
+		</div>
+	</div>
+
+	{{!-- <div class="module-toggles">
+		<p class="control setting-toggle is-pulled-left">
+			<input id="disableMulti" class="module-setting-checkbox" type="checkbox" data-module="autoroles" name="disableMulti" value="{{@root.server.autoroles.disableMulti}}"{{#if @root.server.autoroles.disableMulti}} checked="checked"{{/if}}>
+			<label class="checkbox" for="disableMulti">
+				Limit to one rank
+			</label>
+		</p>
+	</div> --}}
+
+	<div id="autoroles-settings" class="subtab-content is-active">
+		<div class="settings-content">
+			{{! Role on join }}
+			<label class="label">Give role on join</label>
+			<p class="control">
+				<span class="select">
+					<select class="setting-dropdown" name="roleOnJoin" data-module="autoroles">
+						<option>Select Role</option>
+						{{#each @root.roles}}
+							<option value="{{this.id}}"{{#compare this.id @root.server.autoroles.roleOnJoin}}selected="selected"{{/compare}}{{#if this.disabled}}disabled="disabled"{{/if}}>{{this.name}}</option>
+						{{/each}}
+					</select>
+				</span>
+			</p>
+			<p class="help-text"><strong>Note:</strong> The Dyno role must be higher than the role it's assigning.</p>
+
+			<br />
+
+			<label class="label">Timed Role (in minutes, 1 = 1 minute)</label>
+			<form class="text-form">
+				<p class="control has-addons">
+					<input class="input is-expanded" type="number" data-module="autoroles" name="joinWait" value="{{@root.server.autoroles.joinWait}}">
+					<input class="button update-module-setting is-info" type="button" value="Update">
+				</p>
+			</form>
+			<p class="help-text">Note: This will delay giving a role on join until the user has been on the server for the number of minutes defined above.</p>
+		</div>
+	</div>
+
+	<div id="autoroles-add" class="subtab-content">
+		<div class="settings-content">
+			<form class="new-autorole">
+				<label class="label">Role</label>
+				<p class="control">
+					<span class="select">
+						<select name="role">
+							<option>Select Role</option>
+							{{#each @root.roles}}
+								<option value="{{this.id}}"{{#if this.disabled}}disabled="disabled"{{/if}}>
+									{{this.name}}
+								</option>
+							{{/each}}
+						</select>
+					</span>
+				</p>
+				<p class="help-text">Note: The Dyno role must be higher than the role it's assigning.</p>
+				<p class="control">
+					<label for="wait">Delay (minutes)</label>
+					<input id="wait" class="input is-expanded" type="text" name="wait" placeholder="10" value="">
+				</p>
+				<p class="control">
+					<input id="waitAdd" type="radio" class="radio" name="type" value="add" checked />
+					<label for="waitAdd">Add Role</label>
+					<input id="waitRemove" type="radio" class="radio" name="type" value="remove" />
+					<label for="waitRemove">Remove Role</label>
+				</p>
+				<p class="control">
+					<a class="button add-autorole is-info">Add</a>
+				</p>
+			</form>
+		</div>
+	</div>
+	<div id="autoroles-list" class="subtab-content">
+		<div class="settings-content">
+			{{#if @root.autoroles}}
+			  <table class="table is-striped">
+				<thead>
+				  <tr>
+					<th>Role</th>
+					<th>Type</th>
+					<th>Delay</th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+					{{#if @root.roleOnJoin}}
+					<tr>
+						<td>{{@root.roleOnJoin.name}}</td>
+						<td>add</td>
+						<td>
+							{{#if @root.server.autoroles.joinWait}}
+								{{@root.server.autoroles.joinWait}}
+							{{else}}
+							{{/if}}
+						</td>
+						<td>Remove in Settings</td>
+					</tr>
+					{{/if}}
+				  {{#each @root.autoroles}}
+					<tr>
+					  <td>{{this.role.name}}</td>
+					  <td>{{this.type}}</td>
+					  <td>{{this.wait}} minutes</td>
+					  <td>
+						<a class="button is-danger remove-autorole" href="#" data-id="{{this.role.id}}" data-type="{{this.type}}" data-wait="{{this.wait}}" data-name="{{this.role.name}}">Remove</a>
+					</td>
+					</tr>
+				  {{/each}}
+				</tbody>
+			  </table>
+			{{/if}}
+		</div>
+	</div>
+</div>

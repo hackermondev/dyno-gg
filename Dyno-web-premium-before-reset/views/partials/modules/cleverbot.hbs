@@ -1,0 +1,95 @@
+<div id="module-cleverbot" class="tab-content">
+	<h3 class="title is-4">Cleverbot Settings</h3>
+
+	{{>moduleheader}}
+
+	<div class="settings-top has-tabs">
+		{{>moduletoggle}}
+		<div class="tabs">
+		  <ul>
+			<li class="is-active"><a href="#/cleverbot-ignored" class="subtab-control">Ignored Channels</a></li>
+			<li><a href="#/cleverbot-allowed" class="subtab-control">Allowed Channels</a></li>
+		  </ul>
+		</div>
+	</div>
+
+	<div class="settings-content">
+		<div id="cleverbot-ignored" class="subtab-content is-active">
+			<form class="cleverbot-ignored">
+				<input type="hidden" name="name" value="" />
+				<label class="label">Add Ignored Channel</label>
+				<p class="control has-addons">
+					<span class="select">
+						<select class="item-channel cleverbot-channel" name="id">
+							<option>Select Channel</option>
+							{{#each @root.channels}}
+								<option name="{{this.name}}" value="{{this.id}}" data-name="{{this.name}}">#{{this.name}}</option>
+							{{/each}}
+						</select>
+					</span>
+					<input class="button add-module-item is-info" type="button" value="Add" data-module="cleverbot" data-setting="ignoredChannels">
+				</p>
+			</form>
+
+			{{#if @root.server.cleverbot.ignoredChannels}}
+			  <table class="table is-striped">
+				<thead>
+				  <tr>
+					<th>Channel</th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  {{#each @root.server.cleverbot.ignoredChannels}}
+					<tr>
+					  <td>#{{this.name}}</td>
+					  <td>
+						<a class="button is-danger remove-module-item" href="#" data-id="{{this.id}}" data-name="{{this.name}}" data-module="cleverbot" data-setting="ignoredChannels">Remove</a>
+					</td>
+					</tr>
+				  {{/each}}
+				</tbody>
+			  </table>
+			{{/if}}
+		</div>
+
+		<div id="cleverbot-allowed" class="subtab-content">
+			<form class="cleverbot-allowed">
+				<input type="hidden" name="name" value="" />
+				<label class="label">Add Allowed Channel</label>
+				<p class="control has-addons">
+					<span class="select">
+						<select class="item-channel cleverbot-channel" name="id">
+							<option>Select Channel</option>
+							{{#each @root.channels}}
+								<option name="{{this.name}}" value="{{this.id}}" data-name="{{this.name}}">#{{this.name}}</option>
+							{{/each}}
+						</select>
+					</span>
+					<input class="button add-module-item is-info" type="button" value="Add" data-module="cleverbot" data-setting="allowedChannels">
+				</p>
+			</form>
+
+			{{#if @root.server.cleverbot.allowedChannels}}
+			  <table class="table is-striped">
+				<thead>
+				  <tr>
+					<th>Channel</th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  {{#each @root.server.cleverbot.allowedChannels}}
+					<tr>
+					  <td>#{{this.name}}</td>
+					  <td>
+						<a class="button is-danger remove-module-item" href="#" data-id="{{this.id}}" data-name="{{this.name}}" data-module="cleverbot" data-setting="allowedChannels">Remove</a>
+					</td>
+					</tr>
+				  {{/each}}
+				</tbody>
+			  </table>
+			{{/if}}
+		</div>
+	</div>
+</div>

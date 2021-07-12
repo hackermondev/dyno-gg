@@ -1,0 +1,76 @@
+@import '../mixins/noselect.sass';
+
+div.reaction-picker
+	display: flex;
+	position: relative;
+	margin: 0.8em 0;
+	div.reaction
+		@include no-select();
+		position: relative;
+		width: 42px;
+		height: 42px;
+		line-height: 40px;
+		background-color: $accent-background;
+		border: solid $new-background 1px;
+		border-radius: 6px;
+		font-size: 2em;
+		font-weight: bold;
+		text-align: center;
+		margin-right: 0.5em;
+		color: #aaa;
+		img, span
+			width: 20px;
+			height: 20px;
+		span.custom
+			background-size: 20px;
+			display: block;
+			width: 40px;
+			height: 40px;
+		a.delete-reaction
+			position: absolute;
+			top: -9px;
+			right: -9px;
+			color: #C33D3D;
+			width: 22px;
+			height: 22px;
+			font-size: 18px;
+			line-height: 18px;
+			padding-left: 1px;
+			background-color: $accent-background;
+			border: solid $new-background 1px;
+			border-radius: 100%;
+
+section.emoji-mart
+	position: absolute;
+	top: 50px;
+	left: 0;
+	z-index: 999;
+	background-color: $secondary;
+	border: solid $new-background 1px;
+	outline: none;
+	a, a:active, button, button:active, span[role=button]
+		outline: none;
+	div.emoji-mart-bar
+		border-color: $new-background;
+	section.emoji-mart-search
+		input
+			background-color: $new-background;
+			border-color: $new-background;
+			color: $text;
+	div.emoji-mart-category-label span
+		background: $secondary;
+		background-color: $secondary;
+		color: $text;
+	div.emoji-mart-preview
+		height: 2em;
+	div.emoji-mart-preview-name
+		color: $text;
+	div.emoji-mart-preview-emoji, div.emoji-mart-preview-data
+		display: none;
+	span.emoji-mart-emoji-custom > span
+		background-position: center;
+		background-repeat: no-repeat;
+	div.emoji-mart-preview-emoji
+		span.emoji-mart-emoji > span
+			background-position: center;
+			background-repeat: no-repeat;

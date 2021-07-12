@@ -1,0 +1,55 @@
+<div id="module-pogocoords" class="tab-content">
+	<h3 class="title is-4">Pokemon Go Coords Module</h3>
+
+    {{>moduleheader}}
+
+	<form class="pogocoords-form">
+		<input type="hidden" name="name" value="" />
+		<label class="label">Add Coords Channel</label>
+		<p class="control has-addons">
+			<span class="select">
+				<select class="item-channel pogocoords-channel" name="id">
+					<option>Select Channel</option>
+					{{#each @root.channels}}
+						<option name="{{this.name}}" value="{{this.id}}" data-name="{{this.name}}">#{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+			<span class="select">
+				<select class="pogocoords-filter" name="filter">
+					<option value="">Select Filter</option>
+					<option value="0,79">IV 0-79</option>
+					<option value="80,100">IV 80-100</option>
+					<option value="0,89">IV 0-89</option>
+					<option value="90,99">IV 90-99</option>
+					<option value="95,99">IV 95-99</option>
+					<option value="100,100">IV 100</option>
+				</select>
+			</span>
+			<input class="button add-module-item is-info" type="button" value="Add" data-module="pogocoords" data-setting="channels">
+		</p>
+	</form>
+
+	{{#if @root.server.pogocoords.channels}}
+	  <table class="table is-striped">
+	    <thead>
+	      <tr>
+	        <th>Channel</th>
+	        <th>Filter</th>
+	        <th></th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      {{#each @root.server.pogocoords.channels}}
+	        <tr>
+	          <td>#{{this.name}}</td>
+	          <td>{{this.filter}}</td>
+	          <td>
+	          	<a class="button is-info remove-module-item" href="#" data-id="{{this.id}}" data-name="{{this.name}}"  data-module="pogocoords" data-setting="channels">Remove</a>
+          	</td>
+	        </tr>
+	      {{/each}}
+	    </tbody>
+	  </table>
+	{{/if}}
+</div>

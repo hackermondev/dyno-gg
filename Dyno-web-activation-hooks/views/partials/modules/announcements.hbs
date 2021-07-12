@@ -1,0 +1,88 @@
+<div id="module-announcements" class="tab-content">
+	<h3 class="title is-4">Announcements</h3>
+
+	{{>moduleheader}}
+
+	<div class="settings-top">
+		{{>moduletoggle}}
+	</div>
+
+	<div class="module-toggles">
+		{{! Announcement toggles }}
+		<p class="control setting-toggle is-pulled-left">
+			<input id="joinEnabled" class="module-setting-checkbox" type="checkbox" data-module="announcements" name="joinEnabled" value="{{@root.server.announcements.joinEnabled}}"{{#if @root.server.announcements.joinEnabled}} checked="checked"{{/if}}>
+			<label class="checkbox" for="joinEnabled">
+				Show join messages
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<input id="leaveEnabled" class="module-setting-checkbox" type="checkbox" data-module="announcements" name="leaveEnabled" value="{{@root.server.announcements.leaveEnabled}}"{{#if @root.server.announcements.leaveEnabled}} checked="checked"{{/if}}>
+			<label class="checkbox" for="leaveEnabled">
+				Show leave messages
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<input id="banEnabled" class="module-setting-checkbox" type="checkbox" data-module="announcements" name="banEnabled" value="{{@root.server.announcements.banEnabled}}"{{#if @root.server.announcements.banEnabled}} checked="checked"{{/if}}>
+			<label class="checkbox" for="banEnabled">
+				Show ban messages
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<input id="dmJoins" class="module-setting-checkbox" type="checkbox" data-module="announcements" name="dmJoins" value="{{@root.server.announcements.dmJoins}}"{{#if @root.server.announcements.dmJoins}} checked="checked"{{/if}}>
+			<label class="checkbox" for="dmJoins">
+				DM join messages
+			</label>
+		</p>
+	</div>
+
+	<div class="settings-content">
+		{{! Announcment channel }}
+		<label class="label">Announcement Channel</label>
+		<p class="control">
+			<span class="select">
+				<select class="setting-dropdown" name="channel" data-module="announcements">
+					<option>Select Channel</option>
+					{{#each @root.channels}}
+						<option value="{{this.id}}"{{#compare this.id @root.server.announcements.channel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+		</p>
+
+		{{! Announcment messages }}
+		<div class="module-multitext">
+			<label class="label">Join Message</label>
+			<form class="text-form">
+				<p class="control">
+					<textarea class="input" placeholder="{user} has joined." name="joinMessage" data-module="announcements">{{@root.server.announcements.joinMessage}}</textarea>
+				</p>
+				<input class="button update-module-setting is-info" type="button" value="Update">
+			</form>
+		</div>
+
+		<div class="module-multitext">
+			<label class="label">Leave Message</label>
+			<form class="text-form">
+				<p class="control">
+					<textarea class="input" placeholder="{user} has left." name="leaveMessage" data-module="announcements">{{@root.server.announcements.leaveMessage}}</textarea>
+				</p>
+				<input class="button update-module-setting is-info" type="button" value="Update">
+			</form>
+		</div>
+
+		<div class="module-multitext">
+			<label class="label">Ban Message</label>
+			<form class="text-form">
+				<p class="control">
+					<textarea class="input" placeholder="{user} was banned." name="banMessage" data-module="announcements">{{@root.server.announcements.banMessage}}</textarea>
+				</p>
+				<input class="button update-module-setting is-info" type="button" value="Update">
+			</form>
+		</div>
+
+		{{>variables}}
+	</div>
+</div>

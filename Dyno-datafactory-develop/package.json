@@ -1,0 +1,28 @@
+{
+  "name": "@dyno.gg/datafactory",
+  "version": "1.3.3",
+  "homepage": "https://github.com/FlexLabs/Dyno-datafactory",
+  "author": {
+    "name": "Brian Tanner",
+    "email": "brian@tanner.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlexLabs/Dyno-datafactory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlexLabs/Dyno-datafactory/issues"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "moment": "^2.17.0",
+    "mongoose": "^5.0.2",
+    "mongoose-long": "^0.2.0",
+    "winston": "^2.2.0",
+    "winston-sentry": "^0.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^3.5.0"
+  }
+}

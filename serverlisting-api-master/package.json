@@ -1,0 +1,32 @@
+{
+  "name": "@dyno.gg/serverlisting-api",
+  "version": "1.0.0",
+  "description": "Simple api for providing serverlisting",
+  "main": "src/index.js",
+  "dependencies": {
+    "@weeb_services/wapi-core": "^1.4.1-alpha7",
+    "ajv": "^6.0.1",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.3",
+    "knuth-shuffle": "^1.0.8",
+    "mongoose": "^4.11.4",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "author": "Wolke <wolke@weeb.sh>",
+  "license": "MIT"
+}

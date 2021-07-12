@@ -1,0 +1,58 @@
+@import '../layouts/main.sass';
+
+.upgrade-feature-green
+	color: #00FF00;
+.upgrade-feature-red
+	color: #FF0000;
+.upgrade-features-table-body td,
+.upgrade-features-table-head th,
+	text-align: center;
+.upgrade-content
+	padding-top: 30px;
+.upgrade-features-table-price
+	font-size: 2rem;
+
+.hero, .page-home .hero .title, .page-home .hero p
+	text-align: center;
+
+.page-home .hero p
+	max-width: 60%;
+	margin: 1em auto 1.5em;
+
+.upgrade-modal
+	min-width: 450px;
+	border-radius: 5px;
+.features
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	.feature
+		display: flex;
+		flex-direction: column;
+		justify-content: initial;
+		min-width: 260px;
+		min-height: 250px;
+		// background-color: $info;
+		border-radius: 5px;
+		border: solid $premium 1px;
+		border-top: solid $premium 0.5em;
+		background-color: $secondary;
+		margin: 0 1em;
+		padding: 1em;
+		color: $feature-text;
+	li, .title
+		text-align: center;
+	.title
+		font-weight: bold;
+	li
+		font-size: 1.2em;
+	.price
+		font-size: 1.3em;
+		font-weight: bold;
+		margin: 0.5em 0;
+	.button
+		margin-right: 0;
+		background-color: darken($premium, 4%);
+		&:hover
+			background-color: lighten($premium, 1%);
+			color: $feature-text;

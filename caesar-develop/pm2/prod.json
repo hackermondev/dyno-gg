@@ -1,0 +1,22 @@
+{
+	"apps": [
+		{
+			"name": "server-indexer-prod",
+            "script": "build/index.js",
+            "env": {
+                "NODE_ENV": "production"
+            }
+		}
+	],
+	"deploy": {
+		"production": {
+			"user": "dyno",
+			"host": "10.12.0.85",
+			"ref": "origin/master",
+			"repo": "-b master git@git.dyno.sh:Dyno/caesar.git",
+			"path": "/home/dyno/deploy/prod/",
+			"pre-setup": "rm -rf /home/dyno/deploy/prod/*",
+			"post-deploy": "yarn && yarn build && cp -f /home/dyno/server-indexer-prod/config/config.yml ./config/config.yml && mkdir /home/dyno/server-indexer-prod-temp/ && cp -rf /home/dyno/deploy/prod/source/. /home/dyno/server-indexer-prod-temp && rm -rf /home/dyno/old.server-indexer-prod && mv /home/dyno/server-indexer-prod /home/dyno/old.server-indexer-prod && mv /home/dyno/server-indexer-prod-temp /home/dyno/server-indexer-prod && pm2 restart server-indexer-prod"
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+    "version": "2.9.2",
+	"compileOnSave": false,
+    "compilerOptions": {
+        "declaration": true,
+        "moduleResolution": "Node",
+        "module": "commonjs",
+        "outDir": "./build",
+        "baseUrl": "./",
+        "lib": [
+            "es2017"
+        ],
+        "types": [
+            "@dyno.gg/eris",
+            "Dyno",
+			"jest",
+            "node"
+        ],
+        "paths": {
+            "core": ["./src/types/core.d.ts"]
+        },
+		"forceConsistentCasingInFileNames": true,
+        "pretty":                 true,
+        "target":                 "ES2017",
+        "noImplicitAny":          false,
+        "sourceMap":              true,
+        "skipLibCheck":           true,
+        "disableSizeLimit":       true,
+        "noStrictGenericChecks":  true
+    },
+    "include": [
+		"src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

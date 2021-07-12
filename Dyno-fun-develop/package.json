@@ -1,0 +1,32 @@
+{
+  "name": "@dyno.gg/fun",
+  "version": "0.3.2",
+  "description": "Fun module for use in Dyno.",
+  "engineStrict": true,
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "main": "src/index.js",
+  "author": "Brian Tanner <brian@tanner.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlexLabs/Dyno-fun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlexLabs/Dyno-fun/issues"
+  },
+  "homepage": "https://github.com/FlexLabs/Dyno-fun#readme",
+  "dependencies": {
+    "@dyno.gg/dyno-core": "^1.0.0",
+    "moviedb": "^0.2.10",
+    "pokedex-promise-v2": "^3.1.1",
+    "mathjs": "^3.20.1",
+    "superagent": "^3.8.2"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2"
+  }
+}

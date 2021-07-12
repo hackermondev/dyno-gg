@@ -1,0 +1,91 @@
+<div id="module-autoresponder" class="tab-content">
+	<h3 class="title is-4">Autoresponder</h3>
+
+	{{>moduleheader}}
+
+	<div class="settings-top has-tabs">
+		{{>moduletoggle}}
+		<div class="tabs">
+		  <ul>
+		    <li class="is-active"><a href="#/autoresponder-add" class="subtab-control">Add Response</a></li>
+		    <li><a href="#/autoresponder-list" class="subtab-control">Responses</a></li>
+		  </ul>
+		</div>
+	</div>
+	
+	<div class="settings-content">
+		<div id="autoresponder-add" class="subtab-content is-active">
+			<form class="new-response">
+				<label class="label">Trigger</label>
+				<p class="control has-addons">
+					<input class="input" name="command" type="text" value="" maxlength="72">
+				</p>
+				<p class="control">
+					<label class="label">Response</label>
+					<textarea class="input" name="response"></textarea>
+				</p>
+				<p class="control">
+					<a class="button is-info">Add</a>
+				</p>
+				{{>variables}}
+			</form>
+		</div>
+
+		<div id="autoresponder-list" class="subtab-content">
+			{{#unless @root.server.autoresponder}}
+				<h4>There are no auto responses.</h4>
+			{{/unless}}
+			{{#if @root.server.autoresponder}}
+			<div id="responseList">
+				<p class="control">
+					<input class="input search" placeholder="Search" type="text" value="" title="Search">
+				</p>
+				<table class="table is-striped">
+					<thead>
+						<tr>
+							<th>Trigger</th>
+							<th>Response</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody class="list">
+						{{#each @root.server.autoresponder.commands}}
+							<tr>
+								<td class="res-name">{{this.command}}</td>
+								<td><code class="command-response">{{this.response}}</code></td>
+								<td>
+									<a class="button is-info response-edit" href="#" data-command="{{this.command}}" data-response="{{this.response}}">Edit</a>
+									<a class="button is-danger response-remove" href="#" data-command="{{this.command}}">Remove</a>
+								</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+				<nav class="pagination" role="navigation" aria-label="pagination">
+					<ul class="pagination-list"></ul>
+				</nav>
+			</div>
+			{{/if}}
+		</div>
+		<div class="modal edit-response-modal">
+			<div class="modal-background"></div>
+			<div class="modal-content">
+				<label class="label">Trigger</label>
+				<p class="control has-addons">
+					<label class="label">{{@root.server.prefix}}</label>
+					<input class="input" name="command" type="text" disabled="disabled" maxlength="72">
+				</p>
+				<p class="control">
+					<label class="label">Response</label>
+					<textarea class="input" name="response"></textarea>
+				</p>
+				<p class="control">
+					<a class="button is-info response-save">Save</a>	
+				</p>
+				<p class="help-text"> </br>
+				</p>
+			</div>
+			<button class="modal-close edit-response-modal is-large" aria-label="close"></button>
+		</div>
+	</div>
+</div>

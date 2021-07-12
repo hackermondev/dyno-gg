@@ -1,0 +1,71 @@
+<div class="page-commands">
+	<div class="container">
+		<div class="columns is-centered">
+			<div class="column is-2">
+				<div class="command-title-container has-text-centered">
+					<h1 class="is-size-3 has-text-weight-bold">Commands</h1>
+					<span class="has-text-grey">List of bot commands</span>
+				</div>
+				<aside class="menu">
+					<ul class="menu-list">
+						{{#each commands}}
+						<li><a href="#/{{this.name}}"
+								class="tab-control-legacy{{#if this.isActive}} is-active{{/if}}">{{this.name}}</a></li>
+						{{/each}}
+					</ul>
+				</aside>
+				<div id="carbon">
+					<div class="carbon-wrapper carbon-bottom">
+						<script async type="text/javascript"
+							src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=dynobotnet"
+							id="_carbonads_js"></script>
+					</div>
+				</div>
+			</div>
+
+			<div class="column is-6 commands-table-container">
+				<script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+				<div class="bsa-cpc"></div>
+				<script>(function () { if (typeof _bsa !== 'undefined' && _bsa) { _bsa.init('default', 'CKYD4KQU', 'placement:dynobotnet', { target: '.bsa-cpc', align: 'horizontal', disable_css: 'true' }); } })();</script>
+				{{#each commands}}
+				<div id="{{this.name}}" class="container tab-content{{#if this.isActive}} is-active{{/if}}">
+					<div class="columns commands-header-container">
+						<div class="column is-2 commands-header">Command</div>
+						<div class="column is-6 commands-header is-hidden-touch">Description</div>
+						<div class="column is-4 commands-header is-hidden-touch">Usage</div>
+					</div>
+					<div class="commands-container columns is-multiline">
+						{{#each this.commands}}
+						<div class="commands-line column is-12">
+							<div class="columns">
+								<div class="column is-2 has-text-primary">{{this.name}}</div>
+								<div class="column is-6">{{this.description}}</div>
+								{{#unlessArray this.usage}}
+								<div class="column is-4 has-text-grey">?{{this.usage}}</div>
+								{{/unlessArray}}
+								{{#ifArray this.usage}}
+								{{#if this.defaultUsage}}<div class="column is-4 has-text-grey">?{{this.defaultUsage}}
+								</div>{{/if}}
+								{{/ifArray}}
+							</div>
+						</div>
+						{{#ifArray this.commands}}
+						{{#each this.commands}}
+						<div class="commands-line column is-12">
+							<div class="columns">
+								<div class="column is-2 has-text-primary">{{../name}} {{this.name}}</div>
+								<div class="column is-6">{{this.desc}}</div>
+								{{#if this.usage}}<div class="column is-4 has-text-grey">?{{../this.name}}
+									{{this.usage}}</div>{{/if}}
+							</div>
+						</div>
+						{{/each}}
+						{{/ifArray}}
+						{{/each}}
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>

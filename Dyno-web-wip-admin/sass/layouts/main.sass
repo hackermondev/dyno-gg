@@ -1,0 +1,406 @@
+@import "../core/base.sass";
+
+body
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	background-color: $body-background;
+
+.page-wrapper
+	flex: 1;
+	padding-bottom: 1.5em;
+
+.section, .box
+	background-color: $background;
+
+.top-bar
+	background-color: $new-background;
+	height: 80px;
+	padding: 0 1.2rem;
+	margin-bottom: 0 !important;
+
+	a
+		color: $topnav-color;
+		text-shadow: 1px 1px rgba(0,0,0,0.2);
+	a:hover
+		color: $topnav-color;
+		text-decoration: underline;
+	.image.is-32x32
+		border-radius: 25%;
+	.title
+		min-height: 80px;
+		line-height: 80px;
+		margin-bottom: 0;
+		margin-right: 1.5rem;
+		margin-left: .3rem;
+		color: $text;
+		font-weight: 600;
+	.title a
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		word-break: normal;
+		&:hover
+			border: none;
+		img
+			width: 44px;
+			height: 44px;
+			margin: 18px 0 0;
+	.nav
+		border-left: solid lighten($new-background, 18%) 1px;
+		padding-left: 1.5rem;
+		padding-top: 0.3rem;
+
+.nav
+	background-color: inherit;
+.nav a, .level-right a
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: -0.2px;
+.nav-menu
+	background-color: inherit;
+.nav a
+	padding: 0;
+.nav-menu a
+	padding: 10px;
+	color: $topnav-color;
+	&.button
+		margin-top: 6px;
+		background-color: $top-btn;
+		&:hover
+			background-color: $top-btn-hover;
+	// &.upgrade
+	// 	color: $info;
+	// 	&:hover
+	// 		color: #fff;
+
+.button.is-info
+	margin-right: 0.5em;
+	background-color: $info-btn;
+	&:hover
+		background-color: $info-btn-hover;
+		text-decoration: none;
+
+.page-wrapper
+	min-height: 100%;
+	.button
+		text-shadow: 1px 1px rgba(0,0,0,0.2);
+	&:after
+		content: "";
+		display: block;
+
+.icon
+	&.is-link
+		width: 24px;
+		height: 20px;
+		line-height: 20px;
+		font-size: 16px;
+
+.getting-started
+	text-align: center;
+	p
+		display: block;
+		font-size: 18px;
+		text-align: center;
+		margin: 1em 0;
+	a
+		padding: 0 1.5em;
+		text-transform: uppercase;
+
+.hero
+	background-color: $hero-background;
+	.hero-content
+		max-width: 50%;
+		margin: auto;
+	.columns
+		margin: 0 0 1em;
+		.title
+			margin: 0.3em 0;
+
+// .footer
+// 	width: 100%;
+// 	padding: 0;
+// 	// padding: 30px 0 20px;
+// 	background-color: $footer-background;
+// 	border-bottom: none;
+// 	li
+// 		margin-bottom: 15px;
+// 	ul 
+// 		display: inline-table;
+// 		list-style: none;
+// 		margin: 0px 25px 0px 25px;
+// 	a.faq 
+// 		margin-left: 13px;
+// 		border-bottom: none;
+// 	ul.left
+// 		float: left;
+// 	ul.right
+// 		float: right;
+// 		@media screen and (max-width: $break-mobile)
+// 			position: relative;
+// 			bottom: 234px;
+// 	a.left, ul.left
+// 		text-align: left;
+// 		margin-left: 5px;
+// 		border-bottom: none;
+// 	a.right, ul.right
+// 		text-align: right;
+// 		margin-right: 5px;
+// 		border-bottom: none;
+// 	a.add-dyno
+// 		margin-left: 5px;
+// 		border-bottom: none;
+// 		strong, i.right
+// 			color: #336fd5;
+// 	a.premium-button
+// 		border: 1px solid #ff7f00 !important;
+// 		transition: all 500ms ease;
+// 		color: #ff7f00;
+// 		border-radius: 5px;
+// 		padding: 7px; 
+// 		&:hover 
+// 			border-radius: 15px;
+// 		strong
+// 			color: #ff7f00;
+
+// .footer, .page-wrapper:after
+	// height: 60px;
+
+// .tabs li.is-active a
+	// background-color: $secondary;
+
+.tab-content, .subtab-content
+	display: none;
+	&.is-active
+		display: block;
+
+.page-wrapper
+	.menu
+		padding: 1em;
+		background-color: $secondary;
+		border: solid $border 1px;
+		padding-top: 1em;
+		border-radius: 5px;
+		position: relative;
+		margin-bottom: 1em;
+		&.has-label
+			padding-top: calc(1.2em + 25px);
+			.menu-label
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 25px;
+				text-align: center;
+				line-height: 25px;
+				border-radius: 5px 5px 0 0;
+				background-color: $info;
+
+	.menu-list a.is-active
+		background-color: $info;
+
+.avatar
+	border: solid #fff 3px;
+	margin-right: 1em;
+	&.avatar-32
+		width: 32px;
+		height: 32px;
+		border-radius: 16px;
+		border: solid #fff 1px;
+	&.avatar-48
+		width: 48px;
+		height: 48px;
+		border-radius: 24px;
+		border: solid #fff 1px;
+	&.avatar-64
+		width: 64px;
+		height: 64px;
+		border-radius: 32px;
+	&.avatar-128
+		width: 128px;
+		height: 128px;
+		border-radius: 64px;
+
+.guild-icon
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	overflow: hidden;
+	background-color: #666;
+	&.is-48
+		width: 48px;
+		height: 48px;
+	img
+		width: 100%;
+		height: 100%;
+		&.no-icon
+			opacity: 0.6;
+	[data-initials]
+		position: relative;
+		width: 64px;
+		height: 64px;
+		display: block;
+		border-radius: 50%;
+		&::after
+			content: attr(data-initials);
+			position: absolute;
+			color: white;
+			font-size: 20px;
+			top: 0;
+			left: 0;
+			line-height: 64px;
+			text-align: center;
+			width: 100%;
+
+.select select
+	background-color: $accent-background;
+	color: $text;
+	border: solid #555 1px;
+
+.server-select
+	max-width: 200px;
+	select
+		max-width: 200px;
+
+.message
+	background-color: transparent;
+	&.manage-server
+		margin-bottom: 1em;
+		.select
+			width: 100%;
+			select
+				width: 100%;
+
+.message-header
+	background-color: $info;
+
+.message-body
+	background-color: $secondary;
+
+.sidebar-content
+	border: solid 1px #222222;
+	border-radius: 3px;
+	background-color: $secondary;
+	padding: 1em;
+	margin-bottom: 1em;
+	min-height: 125px;
+	.title
+		color: $info;
+		font-size: 1.5em;
+		margin-bottom: 8px;
+		padding-bottom: 10px;
+		border-bottom: solid #333 1px;
+		a
+			color: $info;
+			&:hover
+				text-decoration: none;
+				border-bottom: none;
+
+.control
+	margin-bottom: 10px;
+
+.discord-widget
+	display: block;
+	margin: 1em 0;
+	img
+		border-radius: 5px;
+	@media screen and (max-width: $break-mobile)
+		display: none;
+
+.table
+  background-color: $background
+  &.is-striped
+    thead
+      background-color: darken($background, 3%)
+      tr
+        &:hover
+          background-color: darken($background, 3%)
+    tbody
+      tr
+        &:hover
+          background-color: darken($background, 3%)
+        &:nth-child(2n)
+          background-color: darken($background, 1%)
+          &:hover
+            background-color: darken($background, 3%)
+
+#doorbell-button
+	background-color: $info;
+
+.paypal-button
+	display: block;
+	width: 195px;
+	background-color: #fff;
+	background-image: url(https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png);
+	background-repeat: no-repeat;
+	background-position: calc(100% - 0.9em) center;
+	border-radius: 5px;
+	color: $info;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+	text-shadow: none;
+	margin: 1em auto 0;
+	padding: 0.7em 0.9em;
+	font-weight: bold;
+	&:hover
+		color: $info;
+		background-color: #efefef;
+
+.upgrade-select
+	text-align: center;
+	.select
+		margin: 0.8em auto 0;
+		select
+			min-width: 160px;
+			background-color: #efefef;
+			color: #262626;
+			border-color: #777;
+			box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+.modal-content
+	background: #262626;
+	border-radius: 10px;
+	padding: 15px;
+
+.pagination-list
+	justify-content: left !important;
+	li
+		border: solid #555 1px;
+		border-radius: 3px;
+		a
+			color: #ececec;
+	li.active
+		background-color: $info;
+	li.disabled
+		border: none;
+		a
+			color: #777;
+
+.fieldset
+	@extend .box
+	border: solid #666 1px
+	box-shadow: none;
+	padding: 15px;
+	// box-shadow: 0 2px 3px rgba(245,245,245,0.2),0 0 0 1px rgba(245,245,245,0.2);
+	> legend
+		@extend .label
+		padding: 0 6px;
+		margin-bottom: 0 !important;
+
+.is-clearfix
+	display: block;
+	clear: both;
+
+::-webkit-scrollbar
+	width: 10px;
+
+::-webkit-scrollbar-track
+	background: transparent;
+
+::-webkit-scrollbar-thumb
+	background: #262626;
+	border-radius: 5px;
+
+::-webkit-scrollbar-thumb:hover
+	background: darken(#262626, 3%);

@@ -1,0 +1,19 @@
+<div class="page-serverlisting-invite">
+    <div class="container serverpageinvite" id="serverpageinvite-mount">
+
+    </div>
+    {{#if guildId}}
+        <script>const guildId = "{{guildId}}"</script>
+    {{/if}}
+    {{#if recaptchaKey}}
+        <script>
+            const recaptchaKey = "{{recaptchaKey}}";
+            let _recaptchaCallback = () => {};
+            function recaptchaCallback(t) {
+                _recaptchaCallback(t);
+            }
+        </script>
+    {{/if}}
+    <script src="{{getVersionedPath '/js/react/serverPageInvite.js'}}"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</div>

@@ -1,0 +1,183 @@
+.droppable {
+    border: 5px dashed #000000;
+    word-wrap: break-word !important;
+    width: 100% !important
+}
+
+
+.droppable:focus, .droppable.dragover {
+    border: 5px dashed #337fd5
+}
+
+.textContent::before {
+    content: "Upload your files by clicking here. Supports drag and drop too."
+}
+
+.icon {
+    width: 44px;
+    height: 44px
+}
+
+.hideFile {
+    width: 0;
+    height: 0;
+    z-index: -1;
+    position: absolute;
+    overflow: hidden;
+    opacity: 0
+}
+
+a:link {
+    text-decoration: none
+}
+
+a:hover, a:active, h1:hover, h1:active, .hover-class:hover {
+    text-decoration: underline;
+    cursor: pointer
+}
+
+.w3-theme {
+    color: #fff !important;
+    background-color: #2A2B30 !important;
+    border: 1px solid #616161
+}
+
+.w3-theme:hover, .w3-theme:focus {
+    border: 1px solid black !important
+}
+
+.w3-theme-d2 {
+    color: #fff !important;
+    background-color: #333439 !important
+}
+
+.w3-theme-d3 {
+    color: #fff !important;
+    background-color: #2A2B30 !important
+}
+
+.w3-theme-button {
+    color: #fff !important;
+    background-color: #336fd5 !important
+}
+
+.w3-theme-card {
+    color: #fff !important;
+    background-color: #404147 !important
+}
+
+.w3-theme-button:hover {
+    color: #fff !important;
+    background-color: #2457b0 !important
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    outline: none
+}
+
+input[type='radio']:before {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 60%;
+    margin: 20% auto;
+    border-radius: 50%
+}
+
+input[type="radio"]:checked:before, code {
+    background: grey !important
+}
+
+.center {
+    margin: auto !important;
+    max-width: 94% !important;
+    min-width: 94% !important;
+    background-color: #e2e4e6;
+    overflow: auto !important;
+    max-height: 90% !important;
+    min-height: 50% !important
+}
+
+textarea:focus, input:focus {
+    outline: none
+}
+
+.button-class {
+    outline: none !important;
+    background-color: #c4c9cc
+}
+
+p, code, pre {
+    display: inline
+}
+
+.accordionElement {
+      overflow: hidden;
+      text-align: center
+}
+
+.accordionElement:hover {
+    cursor: pointer
+}
+
+.accordionElement:before, .accordionElement:after {
+      background-color: grey;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      position: relative;
+      vertical-align: middle;
+      width: 50%
+}
+
+.accordionElement:before {
+      right: 0.5em;
+      margin-left: -50%
+}
+
+.accordionElement:after {
+      left: 0.5em;
+      margin-right: -50%
+}
+
+.image-modal {
+    height: auto;
+    width: auto;
+    max-height: 80%;
+    max-width: 80%;
+    object-fit: contain;
+    background-color: black !important
+}
+
+.close-modal, .image-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0
+}
+
+.close-modal {
+    width: 100%;
+    height: 100%
+}
+
+.image-area-padding {
+    padding-top: 8px !important
+}
+
+.image-area-padding.last-image {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important
+}
+
+.image-size {
+    width: 80px !important;
+    height: 80px !important
+}

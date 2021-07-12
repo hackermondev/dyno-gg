@@ -1,0 +1,159 @@
+stages:
+  - build
+  - deploy
+  - restart
+
+########################## BUILD ##############################
+
+build:
+  stage: build
+  image: node:12
+  before_script:
+    - npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+    - npm i gulp -g > /dev/null
+    - curl https://s.dyno.gg/web-deploy/mc -s -o mc
+    - chmod +x mc
+    - ./mc config host add minio https://s.dyno.gg/ "$MINIO_ACCESS_KEY" "$MINIO_SECRET_KEY"
+  script: 
+    - npm ci
+    - cd react
+    - npm ci
+    - npm run build:prod
+    - cd ..
+    - gulp sass:prod
+    - tar czf "$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.tar.gz" public/
+    - ./mc cp "$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.tar.gz" minio/web-deploy
+    - cp "deploy/$CI_COMMIT_REF_NAME.sh" "$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.sh"
+    - ./mc cp "$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.sh" minio/web-deploy
+
+########################## DEPLOYMENT ##############################
+
+.deploy_base:
+  image: kroniak/ssh-client
+  before_script:
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - MINIO_URL="https://s.dyno.gg/web-deploy/$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.tar.gz"
+    - MINIO_DEPLOY_SCRIPT="https://s.dyno.gg/web-deploy/$CI_COMMIT_REF_NAME$CI_COMMIT_SHA.sh"
+
+.deploy_premium:
+  extends: .deploy_base
+  only:
+    - premium 
+
+.deploy_production:
+  extends: .deploy_base
+  only:
+    - master
+
+deploy to production 43:
+  stage: deploy
+  extends: .deploy_production
+  script:
+    - ssh dyno@10.12.0.43 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.43 "sh deploy.sh \"$MINIO_URL\""
+  
+deploy to production 44:
+  stage: deploy
+  extends: .deploy_production
+  script:
+    - ssh dyno@10.12.0.44 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.44 "sh deploy.sh \"$MINIO_URL\""
+
+deploy to production 45:
+  stage: deploy
+  extends: .deploy_production
+  script:
+    - ssh dyno@10.12.0.45 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.45 "sh deploy.sh \"$MINIO_URL\""
+
+deploy to premium 43:
+  stage: deploy
+  extends: .deploy_premium
+  script:
+    - ssh dyno@10.12.0.43 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.43 "sh deploy.sh \"$MINIO_URL\""
+
+deploy to premium 44:
+  stage: deploy
+  extends: .deploy_premium
+  script:
+    - ssh dyno@10.12.0.44 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.44 "sh deploy.sh \"$MINIO_URL\""
+
+deploy to premium 45:
+  stage: deploy
+  extends: .deploy_premium
+  script:
+    - ssh dyno@10.12.0.45 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.45 "sh deploy.sh \"$MINIO_URL\""
+
+deploy to alpha:
+  stage: deploy
+  extends: .deploy_base
+  script:
+    - ssh dyno@10.12.0.73 "rm -f deploy.sh && wget \"$MINIO_DEPLOY_SCRIPT\" -O deploy.sh && chmod -x deploy.sh"
+    - ssh dyno@10.12.0.73 "sh deploy.sh \"$MINIO_URL\""
+  only: 
+    - develop
+
+########################## RESTART ##############################
+
+restart production 43:
+  stage: restart
+  extends: .deploy_base
+  script:
+    - ssh dyno@10.12.0.43 "pm2 reload dyno.gg"
+  only:
+    - master
+
+restart production 44:
+  stage: restart
+  extends: .deploy_base
+  script:
+    - ssh dyno@10.12.0.44 "pm2 reload dyno.gg"
+  only:
+    - master
+
+restart production 45:
+  stage: restart
+  extends: .deploy_base
+  script:
+    - ssh dyno@10.12.0.45 "pm2 reload dyno.gg"
+  only:
+    - master
+
+restart premium 43:
+  stage: restart
+  extends: .deploy_base
+  script:
+    - ssh dyno@10.12.0.43 "pm2 reload premium.dyno.gg"
+  only:
+    - premium
+
+restart premium 44:
+  stage: restart
+  extends: .deploy_base
+  script:
+    - ssh dyno@10.12.0.44 "pm2 reload premium.dyno.gg"
+  only:
+    - premium
+
+restart premium 45:
+  stage: restart
+  extends: .deploy_base
+  script:
+    - ssh dyno@10.12.0.45 "pm2 reload premium.dyno.gg"
+  only:
+    - premium
+
+restart alpha:
+  stage: restart
+  extends: .deploy_base
+  script:
+    - ssh dyno@10.12.0.73 "pm2 reload staff.dyno.gg"
+  only:
+    - develop

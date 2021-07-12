@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "Web",
+      "script": "build/index.js",
+      "watch": false,
+      "ignore_watch" : ["node_modules", ".git", "public", "views", "package.json"],
+      "watch_options": {
+        "followSymlinks": false
+      }
+    }
+  ]
+}

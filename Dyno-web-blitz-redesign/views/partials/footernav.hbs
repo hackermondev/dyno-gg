@@ -1,0 +1,72 @@
+{{#*inline "socialSection"}}
+    <div class="column is-6-mobile is-3-desktop" style="display: block; text-align: left;">
+      <img class="footer-logo" src="https://s.dyno.gg/web-assets/footer/logo%402x.png">
+      <div class="social-text">
+        <h3>Get in Touch</h3>
+      </div>
+      <div class="social-icons">
+        <a class="social-link" href="https://discord.gg/dyno" >
+          <img class="social-icon discord-icon" src="https://s.dyno.gg/web-assets/footer/discord.png">
+        </a>
+        <a class="social-link" href="https://twitter.com/DynoDiscord" >
+          <img class="social-icon discord-icon" src="https://s.dyno.gg/web-assets/footer/twitter.png">
+        </a>
+        <a class="social-link" href="mailto:team@dyno.gg" >
+          <img class="social-icon discord-icon" src="https://s.dyno.gg/web-assets/footer/mail.png">
+        </a>
+      </div>
+      <span class="copyright-notice">
+        © 2019 Copyrights by Dyno. All rights reserved.
+      </span>
+    </div>
+{{/inline}}
+
+{{#*inline "linksSection"}}
+    <div class="column is-12-mobile is-3-desktop" style="display: block; text-align: left;">
+      <div class="columns is-mobile">
+        <div class="column is-6">
+          <span class="footer-link-title">Dyno</span>
+          <a href="https://discord.gg/dyno" class="footer-link">Discord Support Server</a>
+          <a href="/faq" class="footer-link">FAQ</a>
+          <a href="#" class="footer-link">Get MVP</a>
+          <a href="/terms" class="footer-link">Terms of Service</a>
+          <a href="/privacy" class="footer-link">Privacy Policy</a>
+        </div>
+        <div class="column is-6">
+          <span class="footer-link-title">Blitz Network</span>
+          <a href="/" class="footer-link">Dyno by Blitz</a>
+          <a href="http://blitz.gg/fortnite" class="footer-link">Blitz for Fortnite</a>
+          <a href="http://blitz.gg/csgo" class="footer-link">Blitz for CS: GO</a>
+        </div>
+      </div>
+      <a href="#" class="footer-link"></a>
+    </div>
+{{/inline}}
+
+{{#*inline "getPremiumSection"}}
+    <div class="column is-6-mobile is-3-desktop" style="display: block; text-align: right;">
+        <div class="buttons">
+          <a class="button is-info is-outlined" href="/upgrade" title="Get Premium">
+            Get Premium
+          </a>
+        </div>
+    </div>
+{{/inline}}
+
+
+<footer class="footer">
+    <div class="content is-hidden-mobile">
+      <div class="columns is-centered">
+        {{> socialSection}}
+        {{> linksSection}}
+        {{> getPremiumSection}}
+      </div>
+    </div>
+    <div class="content is-hidden-tablet">
+      <div class="columns is-mobile is-multiline">
+        {{> linksSection}}
+        {{> socialSection}}
+        {{> getPremiumSection}}
+      </div>
+    </div>
+</footer>

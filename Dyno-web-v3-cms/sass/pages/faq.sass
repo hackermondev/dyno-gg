@@ -1,0 +1,27 @@
+@import '../layouts/main.sass';
+@import '../partials/carbon.sass';
+
+.faq
+	.tile.faq-item
+		background-color: $hero-background;
+		margin-bottom: 1em;
+		border-radius: 5px;
+		.title
+			display: block;
+			color: $success;
+			font-size: 1.5em;
+			margin-bottom: 0;
+			outline: none;
+			&.is-active
+				margin-bottom: 10px;
+				padding-bottom: 12px;
+				border-bottom: solid #333 1px;
+		code
+			background-color: $hero-background;
+		.content
+			p:not(:last-child), ul:not(:last-child)
+				margin-bottom: 0.5em;
+		.faq-answer
+			display: none;
+			&.is-active
+				display: block;
