@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "@dyno.gg/emoji-mart": "^2.11.2",
-    "axios": "^0.19.0",
+    "axios": "^0.21.2",
     "css-loader": "^0.28.9",
     "js-cookie": "^2.2.0",
     "js-htmlencode": "^0.3.0",
