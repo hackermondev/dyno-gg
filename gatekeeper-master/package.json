@@ -27,7 +27,7 @@
     "elasticsearch": "^15.2.0",
     "jest": "^23.6.0",
     "logform": "^1.10.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "mongodb": "^3.1.10",
     "node-schedule": "^1.2.5",
     "node-yaml-config": "^0.0.4",
