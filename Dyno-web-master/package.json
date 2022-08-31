@@ -67,7 +67,7 @@
     "minireset.css": "0.0.5",
     "moment": "^2.13.0",
     "moment-duration-format": "^2.3.2",
-    "moment-timezone": "^0.5.16",
+    "moment-timezone": "^0.5.35",
     "mongoose_schema-json": "^1.0.3",
     "morgan": "^1.7.0",
     "morgan-json": "^1.1.0",
