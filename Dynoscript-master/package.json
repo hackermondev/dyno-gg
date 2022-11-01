@@ -39,7 +39,7 @@
     "@types/jest": "^21.1.0",
     "@types/node": "^8.0.30",
     "@types/reflect-metadata": "0.0.5",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-pegjs": "^0.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-typescript": "^3.2.2",
