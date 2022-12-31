@@ -45,7 +45,7 @@
     "gulp-typescript": "^3.2.2",
     "rimraf": "~2.6.1",
     "sinon": "^4.0.0",
-    "ts-jest": "^21.0.1",
+    "ts-jest": "^29.0.3",
     "tslint": "~5.7.0",
     "tslint-microsoft-contrib": "~5.0.1",
     "tsutils": "~2.8.2",
