@@ -9,7 +9,7 @@
 		"pg-hstore": "^2.3.2",
 		"qs": "^6.5.1",
 		"restify": "^6.3.4",
-		"sequelize": "^4.35.1",
+		"sequelize": "^6.29.0",
 		"shortid": "^2.2.8",
 		"url-pattern": "^1.0.3"
 	},
